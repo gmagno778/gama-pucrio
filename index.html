@@ -1,813 +1,1212 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GAMA – Grupo de Análise Macroeconômica Aplicada</title>
+  <title>GAMA – Grupo de Análise Macroeconômica Aplicada | PUC-Rio</title>
+  
+  <!-- SEO & Meta Institucional -->
+  <meta name="description" content="O GAMA é o núcleo de macroeconomia da PUC-Rio. Produzimos Cartas de Conjuntura mensais, relatórios especiais e eventos conectando rigor teórico e análise prática de mercado." />
+  <meta name="keywords" content="GAMA, PUC-Rio, Macroeconomia, Carta de Conjuntura, Economia, Finanças, Análise Econômica, Mercado Financeiro" />
+  <meta name="author" content="GAMA PUC-Rio" />
+  
+  <!-- Open Graph / Redes Sociais -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="GAMA – Grupo de Análise Macroeconômica Aplicada | PUC-Rio" />
+  <meta property="og:description" content="Núcleo de Macroeconomia do Departamento de Economia da PUC-Rio. Análise aplicada, publicações mensais e formação de lideranças." />
+  <meta property="og:image" content="logo grande.png" />
+
+  <!-- Tipografia Editorial & Profissional -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-  <style>
-    /* ── RESET & BASE ──────────────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+  <style>
+    /* ==========================================================================
+       DESIGN SYSTEM - HUMAN-GRADE CRAFTSMANSHIP (GAMA PUC-RIO)
+       ========================================================================== */
     :root {
-      --navy:      #001b58;
-      --navy-deep: #00062e;
-      --off-white: #f4f2f3;
-      --slate:     #303a44;
-      --black:     #000000;
-      --white:     #ffffff;
-      --accent:    #c9a84c;   /* gold – editorial, premium feel */
-      --border:    rgba(255,255,255,0.12);
+      /* Cores Institucionais Nobres */
+      --navy-deep:    #040a18;
+      --navy-900:     #08142c;
+      --navy-800:     #0d1e3f;
+      --navy-700:     #142a55;
+      --navy-600:     #1d386f;
+      
+      --gold-primary: #c29949;
+      --gold-light:   #e8c880;
+      --gold-surface: #f9f5eb;
+      --gold-border:  rgba(194, 153, 73, 0.35);
+      
+      --bg-cream:     #f8f9fb;
+      --bg-surface:   #ffffff;
+      --bg-subtle:    #f1f4f8;
+      
+      --text-main:    #182333;
+      --text-muted:   #4e5c70;
+      --text-subtle:  #7a899e;
+      --text-on-dark: #f0f4fc;
+      
+      --border-subtle: rgba(8, 20, 44, 0.08);
+      --border-focus:  rgba(194, 153, 73, 0.5);
+      
+      --shadow-sm:  0 2px 8px rgba(8, 20, 44, 0.04);
+      --shadow-md:  0 8px 24px -4px rgba(8, 20, 44, 0.08);
+      --shadow-lg:  0 18px 42px -8px rgba(8, 20, 44, 0.12);
+      --shadow-glow: 0 0 35px rgba(194, 153, 73, 0.15);
+
+      --radius-sm:  6px;
+      --radius-md:  12px;
+      --radius-lg:  20px;
+      
+      --font-serif:   'Newsreader', Georgia, serif;
+      --font-display: 'Cinzel', serif;
+      --font-sans:    'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      
+      --container:    1180px;
+      --ease-out:     cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    html { scroll-behavior: smooth; }
+    /* Reset & Base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
 
     body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--off-white);
-      color: var(--slate);
-      line-height: 1.6;
+      font-family: var(--font-sans);
+      background-color: var(--bg-cream);
+      color: var(--text-main);
+      line-height: 1.68;
+      overflow-x: hidden;
+      position: relative;
     }
 
-    /* ── NOISE TEXTURE OVERLAY ─────────────────────────────── */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 9999;
-      opacity: 0.4;
+    /* Tipografia de Prestígio */
+    h1, h2, h3, h4 {
+      color: var(--navy-900);
+      font-family: var(--font-serif);
+      font-weight: 600;
+      line-height: 1.22;
+      letter-spacing: -0.015em;
     }
 
-    /* ── TYPOGRAPHY ────────────────────────────────────────── */
-    h1, h2, h3 { font-family: 'Playfair Display', serif; line-height: 1.15; }
-
-    .sobre-text p,
-    .contato-desc,
-    .carta-desc,
-    .relatorio-info p,
-    .hero-desc {
-      text-align: justify;
-    }
-
-    /* ── NAV ───────────────────────────────────────────────── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1.2rem 4rem;
-      background: rgba(0, 27, 88, 1);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      transition: padding 0.3s;
-    }
-
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 0.9rem;
-      text-decoration: none;
-    }
-
-    .nav-logo img {
-      height: 36px;
-      width: auto;
-    }
-
-    .nav-logo-text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.1;
-    }
-
-    .nav-logo-text span:first-child {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--white);
-      letter-spacing: 0.04em;
-    }
-
-    .nav-logo-text span:last-child {
-      font-size: 0.62rem;
-      font-weight: 300;
-      color: rgba(255,255,255,0.55);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: rgba(255,255,255,0.75);
-      text-decoration: none;
-      font-size: 0.82rem;
+    p {
+      color: var(--text-muted);
+      font-size: 1rem;
       font-weight: 400;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover { color: var(--white); }
-
-    .nav-links a.active { color: var(--accent); }
-
-    /* hamburger (mobile) */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 4px;
-    }
-    .hamburger span {
-      display: block;
-      width: 24px; height: 2px;
-      background: var(--white);
-      transition: all 0.3s;
-    }
-
-    /* ── HERO ──────────────────────────────────────────────── */
-    #hero {
-      min-height: 100vh;
-      background: linear-gradient(160deg, var(--navy-deep) 0%, var(--navy) 60%, #042080 100%);
-      display: flex;
-      align-items: center;
-      padding: 8rem 4rem 4rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    /* geometric grid lines decoration */
-    #hero::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-      background-size: 60px 60px;
-      pointer-events: none;
-    }
-
-    .hero-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      width: 100%;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-eyebrow {
-      font-size: 0.72rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--accent);
-      font-weight: 500;
-      margin-bottom: 1.2rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-    .hero-eyebrow::before {
-      content: '';
-      display: block;
-      width: 32px; height: 1px;
-      background: var(--accent);
-    }
-
-    .hero-title {
-      font-size: clamp(2.8rem, 5vw, 4.5rem);
-      color: var(--white);
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-      line-height: 1.08;
-    }
-
-    .hero-title span {
-      color: var(--accent);
-    }
-
-    .hero-desc {
-      font-size: 1.05rem;
-      color: rgba(255,255,255,0.7);
-      font-weight: 300;
-      margin-bottom: 2.5rem;
-      max-width: 480px;
       line-height: 1.7;
     }
 
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: all 0.25s var(--ease-out);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Section Headers */
+    .section-head {
+      margin-bottom: 3.5rem;
+    }
+    
+    .section-head.text-center {
+      text-align: center;
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.9rem;
+      background: rgba(194, 153, 73, 0.12);
+      border: 1px solid var(--gold-border);
+      border-radius: 9999px;
+      font-family: var(--font-sans);
+      font-size: 0.76rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold-primary);
+      margin-bottom: 1rem;
+    }
+
+    .badge-pill.dark {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.15);
+      color: var(--gold-light);
+    }
+
+    .badge-pill .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: var(--gold-primary);
+      box-shadow: 0 0 8px var(--gold-primary);
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--navy-900);
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 680px;
+    }
+
+    /* Botões Refinados */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem;
+      font-family: var(--font-sans);
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      padding: 0.85rem 1.75rem;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.28s var(--ease-out);
+      white-space: nowrap;
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, #d3a953 0%, #b38833 100%);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(194, 153, 73, 0.32);
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(194, 153, 73, 0.42);
+      filter: brightness(1.05);
+    }
+
+    .btn-outline-light {
+      background: rgba(255, 255, 255, 0.06);
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(8px);
+    }
+
+    .btn-outline-light:hover {
+      background: rgba(255, 255, 255, 0.14);
+      border-color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    .btn-navy {
+      background: var(--navy-900);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(8, 20, 44, 0.18);
+    }
+
+    .btn-navy:hover {
+      background: var(--navy-800);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(8, 20, 44, 0.25);
+    }
+
+    .btn-outline-navy {
+      background: transparent;
+      color: var(--navy-900);
+      border-color: rgba(8, 20, 44, 0.22);
+    }
+
+    .btn-outline-navy:hover {
+      border-color: var(--navy-900);
+      background: rgba(8, 20, 44, 0.04);
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================================
+       NAVBAR INSTITUCIONAL
+       ========================================================================== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(4, 10, 24, 0.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.3s ease;
+      height: 76px;
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar.scrolled {
+      height: 68px;
+      background: rgba(4, 10, 24, 0.96);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .brand-link {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      text-decoration: none;
+    }
+
+    .brand-logo-img {
+      height: 40px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-family: var(--font-display);
+      font-size: 1.22rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #ffffff;
+      line-height: 1;
+    }
+
+    .brand-dept {
+      font-size: 0.68rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.65);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 0.25rem;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 2.2rem;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-size: 0.84rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: rgba(255, 255, 255, 0.78);
+      position: relative;
+      padding: 0.4rem 0;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background-color: var(--gold-primary);
+      transition: width 0.25s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: #ffffff;
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    /* Menu Mobile */
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      width: 42px;
+      height: 42px;
+      padding: 8px;
+      border-radius: var(--radius-sm);
+    }
+
+    .mobile-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background-color: #ffffff;
+      margin: 5px 0;
+      transition: all 0.3s ease;
+    }
+
+    /* ==========================================================================
+       HERO EDITORIAL
+       ========================================================================== */
+    .hero-section {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 130px 0 80px;
+      background: 
+        radial-gradient(circle at 85% 20%, rgba(20, 42, 85, 0.6) 0%, transparent 50%),
+        radial-gradient(circle at 10% 80%, rgba(194, 153, 73, 0.1) 0%, transparent 40%),
+        linear-gradient(175deg, var(--navy-deep) 0%, var(--navy-900) 65%, #071736 100%);
+      color: #ffffff;
+      overflow: hidden;
+    }
+
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: 
+        radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+      background-size: 32px 32px;
+      pointer-events: none;
+      opacity: 0.6;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-content {
+      max-width: 640px;
+    }
+
+    .hero-title {
+      font-size: 3.45rem;
+      color: #ffffff;
+      line-height: 1.14;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold-light);
+      font-family: var(--font-serif);
+      font-weight: 400;
+    }
+
+    .hero-lead {
+      font-size: 1.12rem;
+      color: rgba(240, 244, 252, 0.82);
+      line-height: 1.75;
+      margin-bottom: 2.4rem;
+    }
+
     .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.1rem;
+      margin-bottom: 3.5rem;
+    }
+
+    /* Cards de Estatísticas Institucionais */
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .metric-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .metric-value {
+      font-family: var(--font-serif);
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      line-height: 1;
+    }
+
+    .metric-label {
+      font-size: 0.74rem;
+      color: rgba(255, 255, 255, 0.65);
+      margin-top: 0.45rem;
+      line-height: 1.35;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    /* Hero Right - Card de Destaque Editorial */
+    .hero-card-container {
+      position: relative;
+    }
+
+    .hero-preview-card {
+      background: rgba(13, 30, 63, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: var(--radius-md);
+      padding: 2.2rem;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.4), var(--shadow-glow);
+      position: relative;
+      transition: transform 0.35s var(--ease-out);
+    }
+
+    .hero-preview-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .card-top-tag {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.25rem;
+    }
+
+    .live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #55d697;
+      background: rgba(85, 214, 151, 0.14);
+      padding: 0.25rem 0.7rem;
+      border-radius: 9999px;
+    }
+
+    .live-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: #55d697;
+      box-shadow: 0 0 8px #55d697;
+    }
+
+    .preview-doc-type {
+      font-size: 0.75rem;
+      color: var(--gold-light);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .preview-title {
+      font-size: 1.65rem;
+      color: #ffffff;
+      margin-bottom: 0.75rem;
+      line-height: 1.25;
+    }
+
+    .preview-excerpt {
+      font-size: 0.92rem;
+      color: rgba(255, 255, 255, 0.75);
+      margin-bottom: 1.6rem;
+      line-height: 1.6;
+    }
+
+    .preview-topics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .topic-chip {
+      font-size: 0.74rem;
+      font-weight: 500;
+      background: rgba(255, 255, 255, 0.08);
+      color: rgba(255, 255, 255, 0.85);
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .preview-footer-action {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      padding-top: 1.25rem;
+    }
+
+    .author-lockup {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .author-team {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .author-date {
+      font-size: 0.72rem;
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    /* ==========================================================================
+       SEÇÃO: QUEM SOMOS / PILARES
+       ========================================================================== */
+    .section-about {
+      padding: 7.5rem 0;
+      background-color: var(--bg-cream);
+    }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .about-prose p {
+      margin-bottom: 1.4rem;
+      font-size: 1.05rem;
+    }
+
+    .about-prose p strong {
+      color: var(--navy-900);
+      font-weight: 600;
+    }
+
+    .about-pillars {
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+    }
+
+    .pillar-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 1.85rem;
+      transition: all 0.3s var(--ease-out);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      gap: 1.25rem;
+    }
+
+    .pillar-card:hover {
+      border-color: var(--gold-primary);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-3px);
+    }
+
+    .pillar-icon-box {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-sm);
+      background: var(--gold-surface);
+      color: var(--gold-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .pillar-content h3 {
+      font-size: 1.22rem;
+      margin-bottom: 0.45rem;
+    }
+
+    .pillar-content p {
+      font-size: 0.94rem;
+      line-height: 1.62;
+    }
+
+    /* ==========================================================================
+       SEÇÃO: CARTAS DE CONJUNTURA (PUBLICAÇÕES)
+       ========================================================================== */
+    .section-cartas {
+      padding: 7.5rem 0;
+      background-color: #ffffff;
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    /* Carta Destaque Master */
+    .featured-carta {
+      background: linear-gradient(135deg, var(--navy-900) 0%, var(--navy-800) 100%);
+      color: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 3.2rem;
+      margin-bottom: 3.5rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .featured-carta::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 45%;
+      background: radial-gradient(circle at 70% 30%, rgba(194, 153, 73, 0.15) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .featured-carta h3 {
+      color: #ffffff;
+      font-size: 2.15rem;
+      margin: 0.8rem 0 1rem;
+    }
+
+    .featured-carta p {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 1.02rem;
+      line-height: 1.7;
+      margin-bottom: 1.8rem;
+    }
+
+    .featured-actions {
       display: flex;
       gap: 1rem;
       flex-wrap: wrap;
     }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.8rem 1.8rem;
-      font-size: 0.82rem;
-      font-weight: 500;
+    .featured-insights {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-md);
+      padding: 1.8rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .insights-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
       letter-spacing: 0.08em;
-      text-transform: uppercase;
-      text-decoration: none;
-      border-radius: 2px;
-      transition: all 0.25s;
-      cursor: pointer;
-      border: none;
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: var(--navy-deep);
-    }
-    .btn-primary:hover {
-      background: #dbbe6a;
-      transform: translateY(-1px);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--white);
-      border: 1px solid rgba(255,255,255,0.35);
-    }
-    .btn-outline:hover {
-      border-color: var(--white);
-      background: rgba(255,255,255,0.06);
-    }
-
-    /* hero right side: stats */
-    .hero-stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .stat-item {
-      background: rgba(0,27,88,0.6);
-      padding: 2rem 1.8rem;
-      backdrop-filter: blur(8px);
-    }
-
-    .stat-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.8rem;
-      color: var(--white);
+      color: var(--gold-light);
       font-weight: 700;
-      line-height: 1;
-      margin-bottom: 0.4rem;
+      margin-bottom: 1rem;
     }
 
-    .stat-num sup {
-      font-size: 1.2rem;
-      color: var(--accent);
-    }
-
-    .stat-label {
-      font-size: 0.72rem;
-      color: rgba(255,255,255,0.5);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-    }
-
-    /* ── SECTION COMMON ─────────────────────────────────────── */
-    section { scroll-margin-top: 80px; }
-
-    .section-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 4rem;
-    }
-
-    .section-header {
-      margin-bottom: 3.5rem;
-    }
-
-    .section-eyebrow {
-      font-size: 0.7rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--accent);
-      font-weight: 500;
-      margin-bottom: 0.75rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-    .section-eyebrow::before {
-      content: '';
-      display: block;
-      width: 24px; height: 1px;
-      background: var(--accent);
-    }
-
-    .section-title {
-      font-size: clamp(1.8rem, 3vw, 2.6rem);
-      color: var(--navy);
-    }
-
-    /* ── SOBRE ─────────────────────────────────────────────── */
-    #sobre {
-      padding: 6rem 0;
-      background: var(--off-white);
-    }
-
-    .sobre-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 5rem;
-      align-items: start;
-    }
-
-    .sobre-text p {
-      color: var(--slate);
-      font-size: 1rem;
-      line-height: 1.85;
-      margin-bottom: 1.2rem;
-    }
-
-    .sobre-text p:last-of-type { margin-bottom: 0; }
-
-    .sobre-aside {
+    .insights-list {
+      list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 0;
+      gap: 0.85rem;
     }
 
-    .sobre-pillar {
-      padding: 1.6rem 0;
-      border-top: 1px solid rgba(0,27,88,0.15);
-    }
-    .sobre-pillar:last-child { border-bottom: 1px solid rgba(0,27,88,0.15); }
-
-    .sobre-pillar h4 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem;
-      color: var(--navy);
-      margin-bottom: 0.35rem;
-    }
-
-    .sobre-pillar p {
+    .insights-list li {
       font-size: 0.88rem;
-      color: rgba(48,58,68,0.75);
-      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.82);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      line-height: 1.5;
     }
 
-    /* ── CARTAS ─────────────────────────────────────────────── */
-    #cartas {
-      padding: 6rem 0;
-      background: var(--navy-deep);
+    .insights-list li svg {
+      flex-shrink: 0;
+      color: var(--gold-light);
+      margin-top: 3px;
     }
 
-    #cartas .section-title { color: var(--white); }
-
+    /* Grid de Cartas Anteriores */
     .cartas-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+      gap: 2rem;
     }
 
-    .carta-card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.1);
+    .carta-item-card {
+      background: var(--bg-cream);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
       padding: 2rem;
       display: flex;
       flex-direction: column;
-      gap: 1rem;
-      transition: all 0.25s;
-      cursor: pointer;
-      text-decoration: none;
+      justify-content: space-between;
+      transition: all 0.28s var(--ease-out);
     }
 
-    .carta-card:hover {
-      background: rgba(255,255,255,0.08);
-      border-color: var(--accent);
-      transform: translateY(-3px);
+    .carta-item-card:hover {
+      background: #ffffff;
+      border-color: rgba(8, 20, 44, 0.2);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
     }
 
-    .carta-date {
-      font-size: 0.68rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--accent);
-      font-weight: 500;
-    }
-
-    .carta-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.15rem;
-      color: var(--white);
-      line-height: 1.3;
-    }
-
-    .carta-desc {
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.5);
-      line-height: 1.6;
-      flex: 1;
-    }
-
-    .carta-link {
-      font-size: 0.75rem;
-      color: var(--accent);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
+    .carta-meta-head {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 0.4rem;
-      transition: gap 0.2s;
+      margin-bottom: 1rem;
     }
 
-    .carta-card:hover .carta-link { gap: 0.7rem; }
-
-    .carta-card.carta-destaque {
-      grid-column: span 3;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 2rem;
-      align-items: center;
-      background: rgba(201,168,76,0.08);
-      border-color: rgba(201,168,76,0.3);
-      padding: 2.5rem;
-    }
-
-    .carta-destaque-badge {
-      font-size: 0.65rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--navy-deep);
-      background: var(--accent);
-      padding: 0.25rem 0.6rem;
-      font-weight: 600;
-      display: inline-block;
-      margin-bottom: 0.75rem;
-    }
-
-    .carta-destaque-right {
-      text-align: right;
-      flex-shrink: 0;
-    }
-
-    /* ── RELATÓRIOS ─────────────────────────────────────────── */
-    #relatorios {
-      padding: 6rem 0;
-      background: var(--off-white);
-    }
-
-    .relatorios-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-
-    .relatorio-item {
-      display: grid;
-      grid-template-columns: auto 1fr auto;
-      align-items: center;
-      gap: 2rem;
-      padding: 1.6rem 0;
-      border-top: 1px solid rgba(0,27,88,0.12);
-      text-decoration: none;
-      transition: all 0.2s;
-    }
-    .relatorio-item:last-child { border-bottom: 1px solid rgba(0,27,88,0.12); }
-
-    .relatorio-item:hover { background: rgba(0,27,88,0.03); padding-left: 0.75rem; padding-right: 0.75rem; }
-
-    .relatorio-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      color: rgba(0,27,88,0.2);
+    .carta-edition-tag {
+      font-size: 0.76rem;
       font-weight: 700;
-      min-width: 2.5rem;
-    }
-
-    .relatorio-info {}
-
-    .relatorio-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.05rem;
-      color: var(--navy);
-      margin-bottom: 0.2rem;
-    }
-
-    .relatorio-meta {
-      font-size: 0.78rem;
-      color: rgba(48,58,68,0.55);
-      letter-spacing: 0.06em;
-    }
-
-    .relatorio-arrow {
-      width: 36px; height: 36px;
-      border: 1px solid rgba(0,27,88,0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--navy);
-      font-size: 1rem;
-      flex-shrink: 0;
-      transition: all 0.2s;
-    }
-
-    .relatorio-item:hover .relatorio-arrow {
-      background: var(--navy);
-      color: var(--white);
-      border-color: var(--navy);
-    }
-
-    /* ── EQUIPE ─────────────────────────────────────────────── */
-    #equipe {
-      padding: 6rem 0;
-      background: var(--slate);
-    }
-
-    #equipe .section-title { color: var(--white); }
-
-    .diretoria-bloco {
-      margin-bottom: 3rem;
-    }
-
-    .diretoria-label {
-      font-size: 0.68rem;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
-      color: var(--accent);
-      font-weight: 600;
-      margin-bottom: 1.2rem;
-      display: flex;
+      color: var(--navy-700);
+    }
+
+    .carta-item-card h4 {
+      font-size: 1.38rem;
+      margin-bottom: 0.75rem;
+      color: var(--navy-900);
+    }
+
+    .carta-item-card p {
+      font-size: 0.92rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .carta-link-btn {
+      display: inline-flex;
       align-items: center;
+      gap: 0.45rem;
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--navy-800);
+      margin-top: auto;
+    }
+
+    .carta-link-btn:hover {
+      color: var(--gold-dark);
       gap: 0.75rem;
     }
 
-    .diretoria-label::before {
-      content: '';
-      display: block;
-      width: 20px; height: 1px;
-      background: var(--accent);
+    /* ==========================================================================
+       SEÇÃO: RELATÓRIOS ESPECIAIS
+       ========================================================================== */
+    .section-reports {
+      padding: 7.5rem 0;
+      background: var(--bg-cream);
     }
 
-    .equipe-grid {
+    .reports-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.2rem;
+      grid-template-columns: 1fr;
+      gap: 1.8rem;
     }
 
-    .membro-card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.1);
-      padding: 1.8rem;
-      transition: all 0.25s;
-      min-height: 180px;
-    }
-
-    .membro-card:hover {
-      background: rgba(255,255,255,0.08);
-      border-color: rgba(255,255,255,0.25);
-    }
-
-    .membro-avatar {
-      width: 56px; height: 56px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--navy) 0%, #042080 100%);
-      border: 2px solid rgba(201,168,76,0.4);
-      margin-bottom: 1.1rem;
-      display: flex;
+    .report-card-horizontal {
+      background: #ffffff;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 2.2rem;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 2.5rem;
       align-items: center;
-      justify-content: center;
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
-      color: var(--white);
+      transition: all 0.3s var(--ease-out);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .report-card-horizontal:hover {
+      border-color: var(--gold-primary);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .report-number {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
       font-weight: 700;
+      color: var(--navy-700);
+      opacity: 0.45;
+      padding-right: 1.5rem;
+      border-right: 1px solid var(--border-subtle);
     }
 
-    .membro-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 0.98rem;
-      color: var(--white);
-      margin-bottom: 0.25rem;
+    .report-info h3 {
+      font-size: 1.35rem;
+      margin-bottom: 0.5rem;
     }
 
-    .membro-role {
-      font-size: 0.72rem;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
+    .report-meta-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+
+    .meta-tag {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      background: var(--bg-subtle);
+      padding: 0.2rem 0.65rem;
+      border-radius: var(--radius-sm);
+    }
+
+    /* ==========================================================================
+       SEÇÃO: PROCESSO SELETIVO (TRAINEES)
+       ========================================================================== */
+    .section-ps {
+      padding: 7.5rem 0;
+      background: linear-gradient(180deg, #ffffff 0%, var(--bg-cream) 100%);
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .ps-banner {
+      background: var(--navy-900);
+      color: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 3.5rem;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 4rem;
+      align-items: center;
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 3.5rem;
+    }
+
+    .ps-banner h3 {
+      color: #ffffff;
+      font-size: 2.2rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .ps-banner p {
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 1.05rem;
+      margin-bottom: 1.6rem;
+      line-height: 1.7;
+    }
+
+    /* Timeline / Fases do PS */
+    .ps-phases-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    .phase-card {
+      background: #ffffff;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 1.8rem;
+      position: relative;
+      transition: all 0.3s var(--ease-out);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .phase-card:hover {
+      border-color: var(--navy-800);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .phase-step-num {
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--gold-primary);
+      margin-bottom: 0.85rem;
+      display: block;
+      letter-spacing: 0.08em;
+    }
+
+    .phase-card h4 {
+      font-size: 1.18rem;
       margin-bottom: 0.6rem;
     }
 
-    .membro-period {
-      font-size: 0.75rem;
-      color: rgba(255,255,255,0.35);
+    .phase-card p {
+      font-size: 0.88rem;
+      line-height: 1.55;
     }
 
-    /* ── EVENTOS ─────────────────────────────────────────────── */
-    #eventos {
-      padding: 6rem 0;
-      background: var(--off-white);
+    /* ==========================================================================
+       SEÇÃO: EQUIPE (GESTÃO 2026) COM FILTROS INTERATIVOS
+       ========================================================================== */
+    .section-team {
+      padding: 7.5rem 0;
+      background-color: var(--bg-cream);
     }
 
-    .eventos-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-    }
-
-    .evento-card {
+    .team-filter-bar {
       display: flex;
-      gap: 1.5rem;
-      padding: 1.8rem;
-      border: 1px solid rgba(0,27,88,0.12);
-      background: var(--white);
-      transition: all 0.25s;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 3.5rem;
     }
 
-    .evento-card:hover {
-      border-color: var(--navy);
-      box-shadow: 4px 4px 0 var(--navy);
-      transform: translate(-2px, -2px);
-    }
-
-    .evento-date-block {
-      flex-shrink: 0;
-      width: 52px;
-      text-align: center;
-      padding-top: 4px;
-    }
-
-    .evento-day {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      color: var(--navy);
-      font-weight: 700;
-      line-height: 1;
-    }
-
-    .evento-month {
-      font-size: 0.65rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--accent);
+    .filter-btn {
+      background: #ffffff;
+      border: 1px solid var(--border-subtle);
+      padding: 0.55rem 1.35rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
       font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.25s ease;
     }
 
-    .evento-divider {
-      width: 1px;
-      background: rgba(0,27,88,0.12);
-      align-self: stretch;
+    .filter-btn:hover {
+      border-color: var(--navy-800);
+      color: var(--navy-900);
     }
 
-    .evento-info {}
-
-    .evento-type {
-      font-size: 0.65rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: rgba(48,58,68,0.5);
-      margin-bottom: 0.3rem;
+    .filter-btn.active {
+      background: var(--navy-900);
+      color: #ffffff;
+      border-color: var(--navy-900);
+      box-shadow: 0 4px 12px rgba(8, 20, 44, 0.15);
     }
 
-    .evento-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem;
-      color: var(--navy);
-      margin-bottom: 0.4rem;
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .member-card {
+      background: #ffffff;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 1.6rem;
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      transition: all 0.28s var(--ease-out);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .member-card:hover {
+      border-color: var(--gold-primary);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .member-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--navy-900) 0%, var(--navy-700) 100%);
+      color: var(--gold-light);
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border: 2px solid #ffffff;
+      box-shadow: 0 2px 8px rgba(8, 20, 44, 0.12);
+    }
+
+    .member-details {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .member-name {
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--navy-900);
       line-height: 1.3;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    .evento-local {
-      font-size: 0.8rem;
-      color: rgba(48,58,68,0.6);
+    .member-role {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--gold-primary);
+      margin-top: 0.18rem;
     }
 
-    /* ── CONTATO ─────────────────────────────────────────────── */
-    #contato {
-      padding: 6rem 0;
-      background: var(--navy);
+    .member-dept {
+      font-size: 0.72rem;
+      color: var(--text-subtle);
+      margin-top: 0.1rem;
     }
 
-    .contato-grid {
+    /* ==========================================================================
+       SEÇÃO: CONTATO & INSTITUCIONAL
+       ========================================================================== */
+    .section-contact {
+      padding: 7.5rem 0;
+      background: var(--navy-900);
+      color: #ffffff;
+      position: relative;
+    }
+
+    .contact-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 5rem;
       align-items: start;
     }
 
-    #contato .section-title { color: var(--white); }
-
-    .contato-desc {
-      font-size: 1rem;
-      color: rgba(255,255,255,0.6);
-      line-height: 1.7;
-      margin-top: 1.5rem;
+    .contact-info h2 {
+      color: #ffffff;
+      font-size: 2.5rem;
+      margin-bottom: 1.2rem;
     }
 
-    .contato-links {
+    .contact-info p {
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 1.05rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .contact-links-list {
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      margin-top: 2.5rem;
     }
 
-    .contato-link {
+    .contact-pill-link {
       display: flex;
       align-items: center;
-      gap: 1rem;
-      text-decoration: none;
-      color: var(--white);
-      font-size: 0.9rem;
-      padding: 1rem 1.2rem;
-      border: 1px solid rgba(255,255,255,0.12);
-      transition: all 0.2s;
+      gap: 1.2rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-sm);
+      padding: 1rem 1.4rem;
+      color: #ffffff;
+      transition: all 0.25s ease;
     }
 
-    .contato-link:hover {
-      border-color: var(--accent);
-      background: rgba(201,168,76,0.06);
+    .contact-pill-link:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--gold-primary);
+      transform: translateX(4px);
     }
 
-    .contato-link-icon {
-      font-size: 1.1rem;
-      color: var(--accent);
-    }
-
-    .contato-form {
+    .contact-icon-wrapper {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-sm);
+      background: rgba(194, 153, 73, 0.15);
+      color: var(--gold-light);
       display: flex;
-      flex-direction: column;
-      gap: 1rem;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
     }
 
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
+    .contact-form-card {
+      background: rgba(13, 30, 63, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-md);
+      padding: 2.5rem;
+      backdrop-filter: blur(12px);
     }
 
-    .form-group label {
-      font-size: 0.7rem;
-      letter-spacing: 0.14em;
+    .contact-form-card h3 {
+      color: #ffffff;
+      font-size: 1.4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-field {
+      margin-bottom: 1.25rem;
+    }
+
+    .form-field label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.5);
-      font-weight: 500;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 0.4rem;
     }
 
-    .form-group input,
-    .form-group textarea {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.12);
-      color: var(--white);
+    .form-field input,
+    .form-field textarea {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: var(--radius-sm);
       padding: 0.85rem 1rem;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.9rem;
+      color: #ffffff;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
       outline: none;
-      border-radius: 0;
-      transition: border-color 0.2s;
-      resize: vertical;
+      transition: border-color 0.25s ease;
     }
 
-    .form-group input:focus,
-    .form-group textarea:focus {
-      border-color: var(--accent);
+    .form-field input:focus,
+    .form-field textarea:focus {
+      border-color: var(--gold-primary);
+      background: rgba(255, 255, 255, 0.1);
     }
 
-    .form-group input::placeholder,
-    .form-group textarea::placeholder {
-      color: rgba(255,255,255,0.25);
-    }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-
-    /* ── FOOTER ─────────────────────────────────────────────── */
-    footer {
+    /* ==========================================================================
+       FOOTER INSTITUCIONAL
+       ========================================================================== */
+    .site-footer {
       background: var(--navy-deep);
-      padding: 2.5rem 4rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 3rem 0;
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 0.85rem;
+    }
+
+    .footer-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-top: 1px solid rgba(255,255,255,0.07);
+      flex-wrap: wrap;
+      gap: 1.5rem;
     }
 
     .footer-left {
@@ -816,646 +1215,1068 @@
       gap: 1.5rem;
     }
 
-    .footer-logo {
-      height: 28px;
-      opacity: 0.7;
+    .footer-credits {
+      line-height: 1.5;
     }
 
-    .footer-divider {
-      width: 1px; height: 24px;
-      background: rgba(255,255,255,0.15);
+    .footer-right {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
     }
 
-    .footer-text {
-      font-size: 0.75rem;
-      color: rgba(255,255,255,0.35);
-    }
-
-    .footer-puc {
+    .puc-badge {
       display: flex;
       align-items: center;
       gap: 0.75rem;
+      color: rgba(255, 255, 255, 0.85);
+      font-weight: 500;
     }
 
-    .footer-puc img {
-      height: 28px;
-      opacity: 0.55;
+    .puc-badge img {
+      height: 32px;
+      width: auto;
       filter: brightness(0) invert(1);
+      opacity: 0.75;
     }
 
-    .footer-puc span {
-      font-size: 0.7rem;
-      color: rgba(255,255,255,0.3);
-      letter-spacing: 0.08em;
-    }
-
-    /* ── ANIMATIONS ─────────────────────────────────────────── */
-    .fade-up {
+    /* Animações Suaves */
+    .reveal-on-scroll {
       opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.65s ease, transform 0.65s ease;
+      transform: translateY(26px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .fade-up.visible {
+
+    .reveal-on-scroll.is-visible {
       opacity: 1;
       transform: translateY(0);
     }
 
-    /* ── MOBILE ─────────────────────────────────────────────── */
-    @media (max-width: 900px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
-
-      .nav-links.open {
-        display: flex;
-        flex-direction: column;
-        position: fixed;
-        top: 64px; left: 0; right: 0;
-        background: var(--navy-deep);
-        padding: 2rem 1.5rem;
-        gap: 1.5rem;
-        border-top: 1px solid var(--border);
+    /* ==========================================================================
+       RESPONSIVIDADE (MOBILE & TABLETS)
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
       }
+      .hero-metrics {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .about-layout {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+      }
+      .featured-carta {
+        grid-template-columns: 1fr;
+      }
+      .ps-banner {
+        grid-template-columns: 1fr;
+      }
+      .ps-phases-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+      }
+    }
 
-      .section-inner { padding: 0 1.5rem; }
-
-      #hero { padding: 7rem 1.5rem 3rem; }
-      .hero-inner { grid-template-columns: 1fr; gap: 2rem; }
-      .hero-stats { grid-template-columns: 1fr 1fr; }
-
-      .sobre-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-
-      .cartas-grid { grid-template-columns: 1fr; }
-      .carta-card.carta-destaque { grid-column: 1; grid-template-columns: 1fr; }
-      .carta-destaque-right { text-align: left; }
-
-      .equipe-grid { grid-template-columns: 1fr 1fr; }
-      .eventos-grid { grid-template-columns: 1fr; }
-      .contato-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .form-row { grid-template-columns: 1fr; }
-
-      footer {
+    @media (max-width: 768px) {
+      .mobile-toggle {
+        display: block;
+      }
+      .nav-menu {
+        position: fixed;
+        top: 76px;
+        left: 0;
+        right: 0;
+        background: var(--navy-900);
         flex-direction: column;
+        align-items: flex-start;
+        padding: 2.2rem 2rem;
+        gap: 1.5rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        transform: translateY(-120%);
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.35s ease;
+      }
+      .nav-menu.is-open {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .hero-title {
+        font-size: 2.45rem;
+      }
+      .section-title {
+        font-size: 2rem;
+      }
+      .report-card-horizontal {
+        grid-template-columns: 1fr;
         gap: 1.2rem;
-        padding: 2rem 1.5rem;
+      }
+      .report-number {
+        border-right: none;
+        padding-right: 0;
+        border-bottom: 1px solid var(--border-subtle);
+        padding-bottom: 0.5rem;
+      }
+      .ps-phases-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-inner {
+        flex-direction: column;
         text-align: center;
+        justify-content: center;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav id="navbar">
-    <a href="#hero" class="nav-logo">
-      <!-- Logo azul (versão clara para fundo escuro) -->
-      <img src="logo grande.png" alt="GAMA" onerror="this.style.display='none'">
-      <div class="nav-logo-text">
-        <span>GAMA</span>
-        <span>Núcleo de Macroeconomia · PUC-Rio</span>
-      </div>
-    </a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#sobre">Sobre</a></li>
-      <li><a href="#cartas">Cartas</a></li>
-      <li><a href="#relatorios">Relatórios</a></li>
-      <li><a href="#ps">PS</a></li>
-      <li><a href="#equipe">Equipe</a></li>
-      <li><a href="#contato">Contato</a></li>
-    </ul>
-    <button class="hamburger" id="hamburger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-
-  <!-- HERO -->
-  <section id="hero">
-    <div class="hero-inner">
-      <div class="hero-left">
-        <p class="hero-eyebrow">PUC-Rio · Departamento de Economia</p>
-        <h1 class="hero-title">
-          Análise macroeconômica aplicada para fora da sala de aula.
-        </h1>
-        <p class="hero-desc">
-          O GAMA (Grupo de Análise Macroeconômica Aplicada) é o núcleo de macroeconomia da PUC-Rio. Produzimos cartas mensais, relatórios e eventos que conectam a teoria econômica da grade curricular à conjuntura global. Feito por alunos e para alunos do Departamento de Economia da PUC-Rio.
-        </p>
-        <div class="hero-ctas">
-          <a href="#cartas" class="btn btn-primary">Cartas de Conjuntura</a>
-          <a href="#sobre" class="btn btn-outline">Conheça o GAMA</a>
+  <!-- ========================================================================
+       NAVBAR SUPERIOR INSTITUCIONAL
+       ======================================================================== -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="#hero" class="brand-link" aria-label="GAMA PUC-Rio Página Inicial">
+        <img src="logo grande.png" alt="Logotipo GAMA" class="brand-logo-img" onerror="this.style.display='none'">
+        <div class="brand-text">
+          <span class="brand-name">GAMA</span>
+          <span class="brand-dept">Economia · PUC-Rio</span>
         </div>
-      </div>
-      <div class="hero-right">
-        <div class="hero-stats">
-          <div class="stat-item">
-            <div class="stat-num">2024</div>
-            <div class="stat-label">Criado em</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-num">50<sup>+</sup></div>
-            <div class="stat-label">Participantes entre trainees e membros ativos</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-num">30<sup>+</sup></div>
-            <div class="stat-label">Aulas de capacitação</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-num">15<sup>+</sup></div>
-            <div class="stat-label">Visitas a instituições</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+      </a>
 
-  <!-- SOBRE -->
-  <section id="sobre">
-    <div class="section-inner">
-      <div class="section-header fade-up">
-        <p class="section-eyebrow">Quem somos</p>
-        <h2 class="section-title">Um núcleo orientado à análise e ao debate, em constante expansão</h2>
-      </div>
-      <div class="sobre-grid fade-up">
-        <div class="sobre-text">
-          <p>
-            Publicamos mensalmente a Carta de Conjuntura, sob a coordenação da <strong>Diretoria de Conjuntura</strong>. Esse documento que reúne avaliações sobre política fiscal e monetária, mercados financeiros, setor externo e dinâmicas macroeconômicas relevantes. Enquanto isso, a <strong>Diretoria de Eventos</strong> busca contatos externos que nos levam à visitas, aulas e conversas com grandes empresas e nomes do mercado.
-          </p>
-          <p>
-            A <strong>Diretoria de Pessoas</strong> é responsável pela elaboração do processo seletivo de entrada no núcleo, além do acompanhamento dos trainees que recebem um curso de capacitação durante um semestre.
-          </p>
-          <p>
-            Nossa missão é desenvolver o pensamento econômico aplicado entre os estudantes de economia da PUC-Rio, preparando-os para atuar tanto na academia quanto no setor privado e público. Caminhando junto à ênfase em macroeconomia oferecida pelo curso, estimulamos os alunos em atividades fora da sala de aula. A importância da atribuição de responsabilidades para o bom funcionamento do núcleo ajuda no desenvolvimento de soft-skills ligadas ao planejamento, gestão de equipes e muitas outras capacidades tão importantes para o mercado de trabalho.
-          </p>
-        </div>
-        <div class="sobre-aside">
-          <div class="sobre-pillar">
-            <h4>Análise de Conjuntura</h4>
-            <p>Acompanhamento sistemático da economia brasileira e global, com publicações mensais sobre os principais indicadores e tendências.</p>
-          </div>
-          <div class="sobre-pillar">
-            <h4>Formação de Líderes</h4>
-            <p>Desenvolvimento de habilidades analíticas e de comunicação, onde os cargos mais altos ficam responsáveis por equipes que se comunicam diariamente.</p>
-          </div>
-          <div class="sobre-pillar">
-            <h4>Debate e Extensão</h4>
-            <p>Organização de eventos e visitas que aproximam o ambiente universitário do debate econômico contemporâneo.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+      <!-- Navegação Principal Desktop -->
+      <nav aria-label="Navegação Principal">
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="#sobre" class="nav-link">Sobre</a></li>
+          <li><a href="#cartas" class="nav-link">Cartas de Conjuntura</a></li>
+          <li><a href="#relatorios" class="nav-link">Relatórios</a></li>
+          <li><a href="#ps" class="nav-link">Processo Seletivo</a></li>
+          <li><a href="#equipe" class="nav-link">Equipe</a></li>
+          <li><a href="#contato" class="nav-link">Contato</a></li>
+        </ul>
+      </nav>
 
-  <!-- CARTAS DE CONJUNTURA -->
-  <section id="cartas">
-    <div class="section-inner">
-      <div class="section-header fade-up">
-        <p class="section-eyebrow">Publicações mensais</p>
-        <h2 class="section-title">Cartas de Conjuntura</h2>
-      </div>
-      <div class="cartas-grid fade-up">
-
-        <!-- CARTA EM DESTAQUE (mais recente) -->
-        <a href="cartas/Carta de Conjuntura - Maio 26.pdf" class="carta-card carta-destaque" target="_blank">
-          <div>
-            <span class="carta-destaque-badge">Edição mais recente</span>
-            <p class="carta-date">Maio 2026 · Diretoria de Conjuntura 26.1</p>
-            <h3 class="carta-title">Carta de Conjuntura — Maio 2026</h3>
-            <p class="carta-desc">Visão macroeconômica sobre Brasil, EUA, Europa e Ásia.</p>
-          </div>
-          <div class="carta-destaque-right">
-            <span class="carta-link">Acessar carta →</span>
-          </div>
+      <!-- Ações Rápidas -->
+      <div class="nav-actions">
+        <a href="#cartas" class="btn btn-gold" style="padding: 0.55rem 1.15rem; font-size: 0.8rem;">
+          Última Edição
         </a>
-        <a href="cartas/Carta de Conjuntura - Abril 2026.pdf" class="carta-card carta-destaque" target="_blank">
-  <div>
-    <p class="carta-date">Abril 2026 · Diretoria de Conjuntura 26.1</p>
-    <h3 class="carta-title">Carta de Conjuntura — Abril 2026</h3>
-    <p class="carta-desc">Visão macroeconômica sobre Brasil, EUA, Europa e Ásia.</p>
-  </div>
-  <div class="carta-destaque-right">
-    <span class="carta-link">Acessar carta →</span>
-  </div>
-</a>
-        <a href="cartas/Carta_de_Conjuntura_Marco_2026.pdf" class="carta-card carta-destaque" target="_blank">
-  <div>
-    <p class="carta-date">Março 2026 · Diretoria de Conjuntura 26.1</p>
-    <h3 class="carta-title">Carta de Conjuntura — Março 2026</h3>
-    <p class="carta-desc">Visão macroeconômica sobre Brasil, EUA, Europa e Ásia.</p>
-  </div>
-  <div class="carta-destaque-right">
-    <span class="carta-link">Acessar carta →</span>
-  </div>
-</a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir Menu de Navegação" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </div>
-  </section>
+  </header>
 
-  <!-- RELATÓRIOS -->
-  <section id="relatorios">
-    <div class="section-inner">
-      <div class="section-header fade-up">
-        <p class="section-eyebrow">Publicações especiais</p>
-        <h2 class="section-title">Relatórios</h2>
-      </div>
-      <div class="relatorios-list fade-up">
-
-        <a href="relatorios/Conflito_no_Oriente_Medio_Abril_2026.pdf" class="relatorio-item" target="_blank">
-          <span class="relatorio-num">01</span>
-          <div class="relatorio-info">
-            <p class="relatorio-title">Conflito no Oriente Médio — Impactos Macroeconômicos sobre a Economia</p>
-            <p class="relatorio-meta">Abril 2026 · Relatório Analítico · GAMA / PUC-Rio · Elaboração: Ananda Botelho</p>
-          </div>
-        </a>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Proceso Seletivo -->
-  <section id="ps">
-
-    <section id="ps" style="padding-bottom: 6rem;">
-  <div class="section-inner">
-    <div class="section-header fade-up" style="margin-bottom: 1rem;">
-      <p class="section-eyebrow">Faça parte</p>
-      <h2 class="section-title">Processo Seletivo</h2>
-    </div>
-    <div class="sobre-grid fade-up">
-      <div class="sobre-text">
-        <p>
-          No nosso processo seletivo, avaliamos o comprometimento do candidato(a) durante algumas etapas previamente anunciadas. Por meio de um vídeo de apresentação curto, uma prova escrita, o envio de um relatório e uma dinâmica final em grupo, selecionamos a turma que seguirá para nosso Curso de Capacitação de Trainees durante um semestre. Nesse curso, nossos trainees recebem noções macroeconômicas básicas para futuramente incorporar alguma diretoria como membro atuante.
-        </p>
-        <p>
-          <strong>Encorajamos os candidatos que não foram aprovados anteriormente a se inscreverem novamente em nosso PS, visto que a alta demanda é frequentemente o principal fator de corte. Para atender a necessidade de todos, buscamos turmas de no máximo 30 trainees por semestre.</strong>
-        </p>
-        <p>
-        <p style="font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--navy); font-weight: 600; margin-top: 0.5rem;">
-          Venha fazer parte de um dos núcleos que mais cresce na PUC-Rio.
-        </p>
-        <a href="https://forms.gle/mD45B6L6guPYX6BY6" target="_blank" class="btn btn-primary" style="display: inline-flex; margin-top: 1.5rem;">
-  Inscreva-se no PS clicando aqui
-</a>
-      </div>
-      <div class="sobre-aside">
-        <div class="sobre-pillar">
-          <h4>Vídeo de Apresentação</h4>
-          <p>Um vídeo curto para nos contar quem você é e por que quer fazer parte do GAMA.</p>
-        </div>
-        <div class="sobre-pillar">
-          <h4>Prova de múltipla escolha</h4>
-          <p>Avaliação do raciocínio e de conhecimentos gerais.</p>
-        </div>
-        <div class="sobre-pillar">
-          <h4>Relatório</h4>
-          <p>Envio de um relatório que demonstre cuidado com a estética, capacidade de análise e comunicação escrita.</p>
-        </div>
-        <div class="sobre-pillar">
-          <h4>Dinâmica em Grupo</h4>
-          <p>Etapa final que avalia trabalho em equipe, postura, proatividade e comprometimento com o grupo.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-  </div>
-</section>
-
-  <!-- EQUIPE -->
-  <section id="equipe">
-    <div class="section-inner">
-      <div class="section-header fade-up">
-        <p class="section-eyebrow">Gestão 2026</p>
-        <h2 class="section-title">Nossa Equipe</h2>
-      </div>
-      <!-- Presidência -->
-      <div class="diretoria-bloco fade-up">
-        <p class="diretoria-label">Presidência</p>
-        <div class="equipe-grid">
-          <div class="membro-card">
-            <div class="membro-avatar">G</div>
-            <p class="membro-name">Guilherme Pinheiro</p>
-            <p class="membro-role">Presidente</p>
-            <p class="membro-period">Diretoria 26.2</p>
-          </div>
-          <div class="membro-card">
-            <div class="membro-avatar">R</div>
-            <p class="membro-name">Raphaela Garambone</p>
-            <p class="membro-role">Vice-Presidente</p>
-            <p class="membro-period">Diretoria 26.2</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Diretoria de Conjuntura -->
-      <div class="diretoria-bloco fade-up">
-        <p class="diretoria-label">Diretoria de Conjuntura</p>
-        <div class="equipe-grid">
-          <div class="membro-card">
-            <div class="membro-avatar">F</div>
-            <p class="membro-name">Felipe Becker</p>
-            <p class="membro-role">Diretor</p>
-            <p class="membro-period">Diretoria 26.2</p>
-          </div>
-          <div class="membro-card">
-            <div class="membro-avatar">D</div>
-            <p class="membro-name">Daniel Adler</p>
-            <p class="membro-role">Diretor</p>
-            <p class="membro-period">Diretoria 26.2</p>
-          </div>
-          <div class="membro-card">
-            <div class="membro-avatar">B</div>
-            <p class="membro-name">Bernardo Fuks</p>
-            <p class="membro-role">Membro</p>
-            <p class="membro-period">Diretoria 26.2</p>
-          </div>
-          <div class="membro-card">
-            <div class="membro-avatar">C</div>
-            <p class="membro-name">Carlos Eduardo Maiolino</p>
-            <p class="membro-role">Membro</p>
-            <p class="membro-period">Diretoria 26.2</p>
-          </div>
-          <div class="membro-card">
-            <div class="membro-avatar">D</div>
-            <p class="membro-name">Daniel Barret</p>
-            <p class="membro-role">Membro</p>
-            <p class="membro-period">Diretoria 26.2</p>
-          </div>
-          <div class="membro-card">
-            <div class="membro-avatar">D</div>
-            <p class="membro-name">Daniel Holck</p>
-            <p class="membro-role">Membro</p>
-            <p class="membro-period">Diretoria 26.2</p>
-          </div>
-          <div class="membro-card">
-            <div class="membro-avatar">E</div>
-            <p class="membro-name">Eduardo Costa</p>
-            <p class="membro-role">Membro</p>
-            <p class="membro-period">Diretoria 26.2</p>
-          </div>
-          <div class="membro-card">
-            <div class="membro-avatar">F</div>
-            <p class="membro-name">Felipe de Souza</p>
-            <p class="membro-role">Membro</p>
-            <p class="membro-period">Diretoria 26.2</p>
-          </div>
-          <div class="membro-card">
-            <div class="membro-avatar">G</div>
-            <p class="membro-name">Gabriel Meirelles</p>
-            <p class="membro-role">Membro</p>
-            <p class="membro-period">Diretoria 26.2</p>
-          </div>
-           <div class="membro-card">
-            <div class="membro-avatar">G</div>
-            <p class="membro-name">Gabriela Schaimberg</p>
-            <p class="membro-role">Membro</p>
-            <p class="membro-period">Diretoria 26.2</p>
-          </div>
-           <div class="membro-card">
-            <div class="membro-avatar">J</div>
-            <p class="membro-name">João Pedro Lucas</p>
-            <p class="membro-role">Membro</p>
-            <p class="membro-period">Diretoria 26.2</p>
-          </div>
-          <div class="membro-card">
-            <div class="membro-avatar">J</div>
-            <p class="membro-name">João Pedro Sertã</p>
-            <p class="membro-role">Membro</p>
-            <p class="membro-period">Diretoria 26.2</p>
-          </div>
-          <div class="membro-card">
-            <div class="membro-avatar">J</div>
-            <p class="membro-name">João Pedro Sertã</p>
-            <p class="membro-role">Membro</p>
-            <p class="membro-period">Diretoria 26.2</p>
-          </div>
-          <div class="membro-card">
-            <div class="membro-avatar">M</div>
-            <p class="membro-name">Maria Elisa Souza</p>
-            <p class="membro-role">Membro</p>
-            <p class="membro-period">Diretoria 26.2</p>
-          </div>
-           <div class="membro-card">
-            <div class="membro-avatar">M</div>
-            <p class="membro-name">Miguel Dias</p>
-            <p class="membro-role">Membro</p>
-            <p class="membro-period">Diretoria 26.2</p>
-          </div>
-            <div class="membro-card">
-            <div class="membro-avatar">P</div>
-            <p class="membro-name">Pedro de Freitas</p>
-            <p class="membro-role">Membro</p>
-            <p class="membro-period">Diretoria 26.2</p>
-          </div>
-            <div class="membro-card">
-            <div class="membro-avatar">S</div>
-            <p class="membro-name">Samy Balassiano</p>
-            <p class="membro-role">Membro</p>
-            <p class="membro-period">Diretoria 26.2</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Diretoria de Pessoas -->
-      <div class="diretoria-bloco fade-up">
-        <p class="diretoria-label">Diretoria de Pessoas</p>
-        <div class="equipe-grid">
-          <div class="membro-card">
-            <div class="membro-avatar">B</div>
-            <p class="membro-name">Beatriz Menezes</p>
-            <p class="membro-role">Diretora</p>
-            <p class="membro-period">Diretoria 26.2</p>
-          </div>
-          <div class="membro-card">
-            <div class="membro-avatar">M</div>
-            <p class="membro-name">Mariana Pontes</p>
-            <p class="membro-role">Diretora</p>
-            <p class="membro-period">Diretoria 26.2</p>
-          </div>
-          <div class="membro-card">
-            <div class="membro-avatar">C</div>
-            <p class="membro-name">Caio Kautlau</p>
-            <p class="membro-role">Membro</p>
-            <p class="membro-period">Diretoria 26.2</p>
-          </div>
-          <div class="membro-card">
-            <div class="membro-avatar">D</div>
-            <p class="membro-name">Diego Leal</p>
-            <p class="membro-role">Membro</p>
-            <p class="membro-period">Diretoria 26.2</p>
-          </div>
-          <div class="membro-card">
-            <div class="membro-avatar">J</div>
-            <p class="membro-name">João Pedro Aurélio</p>
-            <p class="membro-role">Membro</p>
-            <p class="membro-period">Diretoria 26.2</p>
-          </div>
-          <div class="membro-card">
-            <div class="membro-avatar">L</div>
-            <p class="membro-name">Lucas Ganem</p>
-            <p class="membro-role">Membro</p>
-            <p class="membro-period">Diretoria 26.2</p>
-          </div>
-          <div class="membro-card">
-            <div class="membro-avatar">S</div>
-            <p class="membro-name">Samuel Cavalcante</p>
-            <p class="membro-role">Membro</p>
-            <p class="membro-period">Diretoria 26.2</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Diretoria de Eventos -->
-      <div class="diretoria-bloco fade-up">
-        <p class="diretoria-label">Diretoria de Eventos</p>
-        <div class="equipe-grid">
-          <div class="membro-card">
-            <div class="membro-avatar">A</div>
-            <p class="membro-name">Alice Rezende</p>
-            <p class="membro-role">Diretora</p>
-            <p class="membro-period">Diretoria 26.2</p>
-          </div>
-          <div class="membro-card">
-            <div class="membro-avatar">V</div>
-            <p class="membro-name">Vinicius Paiva</p>
-            <p class="membro-role">Diretor</p>
-            <p class="membro-period">Diretoria 26.2</p>
+  <main>
+    <!-- ======================================================================
+         HERO SECTION - IMPACTO & AUTORIDADE EDITORIAL
+         ====================================================================== -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="badge-pill dark">
+            <span class="dot"></span>
+            Núcleo de Macroeconomia · PUC-Rio
           </div>
           
-          <div class="membro-card">
-            <div class="membro-avatar">A</div>
-            <p class="membro-name">Arthur Ituassu</p>
-            <p class="membro-role">Membro</p>
-            <p class="membro-period">Diretoria 26.2</p>
-          </div>
-          <div class="membro-card">
-            <div class="membro-avatar">C</div>
-            <p class="membro-name">Célio José Maidantchik</p>
-            <p class="membro-role">Membro</p>
-            <p class="membro-period">Diretoria 26.2</p>
-          </div>
-          <div class="membro-card">
-            <div class="membro-avatar">D</div>
-            <p class="membro-name">Daniel Conde</p>
-            <p class="membro-role">Membro</p>
-            <p class="membro-period">Diretoria 26.2</p>
-          </div>
-          <div class="membro-card">
-            <div class="membro-avatar">E</div>
-            <p class="membro-name">Eduarda Rezende</p>
-            <p class="membro-role">Membro</p>
-            <p class="membro-period">Diretoria 26.2</p>
-          </div>
-          <div class="membro-card">
-            <div class="membro-avatar">F</div>
-            <p class="membro-name">Filippo Pastura</p>
-            <p class="membro-role">Membro</p>
-            <p class="membro-period">Diretoria 26.2</p>
-          </div>
-          <div class="membro-card">
-            <div class="membro-avatar">G</div>
-            <p class="membro-name">Guilherme Lauria</p>
-            <p class="membro-role">Membro</p>
-            <p class="membro-period">Diretoria 26.2</p>
-          </div>
-          <div class="membro-card">
-            <div class="membro-avatar">H</div>
-            <p class="membro-name">Helena Baptista</p>
-            <p class="membro-role">Membro</p>
-            <p class="membro-period">Diretoria 26.2</p>
-          </div>
-          <div class="membro-card">
-            <div class="membro-avatar">J</div>
-            <p class="membro-name">Julia Feijó</p>
-            <p class="membro-role">Membro</p>
-            <p class="membro-period">Diretoria 26.2</p>
-          </div>
-          <div class="membro-card">
-            <div class="membro-avatar">M</div>
-            <p class="membro-name">Maria Beatriz Alves</p>
-            <p class="membro-role">Membro</p>
-            <p class="membro-period">Diretoria 26.2</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- CONTATO -->
-  <section id="contato">
-    <div class="section-inner">
-      <div class="fade-up" style="max-width: 600px;">
-        <p class="section-eyebrow" style="color: var(--accent); display: flex; align-items: center; gap: 0.75rem;">
-          <span style="display:inline-block;width:24px;height:1px;background:var(--accent);"></span>
-          Fale conosco
-        </p>
-        <h2 class="section-title" style="color: var(--white); margin-top: 0.5rem;">Contato</h2>
-        <p class="contato-desc">
-          Tem interesse em colaborar, propor uma palestra ou saber mais sobre o GAMA? Entre em contato conosco pelos canais abaixo.
-        </p>
-        <div class="contato-links">
-          <a href="mailto:gama@puc-rio.br" class="contato-link">
-            <span class="contato-link-icon">✉</span>
-            gama.diretoriadepessoas@gmail.com
-          </a>
-          <a href="https://www.instagram.com/gama_pucrio/" class="contato-link" target="_blank">
-            <span class="contato-link-icon">@</span>
-            @gama_pucrio
-          </a>
-          <a href="https://www.linkedin.com/company/gama-puc-rio/" class="contato-link" target="_blank">
-            <span class="contato-link-icon">in</span>
-            GAMA - PUC-Rio
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+          <h1 class="hero-title">
+            Análise macroeconômica aplicada <em>além da sala de aula.</em>
+          </h1>
+          
+          <p class="hero-lead">
+            O GAMA conecta o rigor teórico do Departamento de Economia da PUC-Rio à análise prática de cenários nacionais e globais. Produzimos Cartas de Conjuntura mensais, estudos temáticos e desenvolvemos as lideranças que moldarão o mercado financeiro e a formulação de políticas públicas.
+          </p>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-left">
-      <div class="footer-divider"></div>
-      <span class="footer-text">Elaboração do site: Guilherme Pinheiro © 2026 GAMA – Grupo de Análise Macroeconômica Aplicada</span>
-    </div>
-    <div class="footer-puc">
-      
-      <span>Departamento de Economia · PUC-Rio</span>
+          <div class="hero-ctas">
+            <a href="#cartas" class="btn btn-gold">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+              Ler Carta Mais Recente
+            </a>
+            <a href="#sobre" class="btn btn-outline-light">
+              Conheça o Núcleo
+            </a>
+          </div>
+
+          <!-- Métricas Institucionais -->
+          <div class="hero-metrics">
+            <div class="metric-item">
+              <span class="metric-value">2024</span>
+              <span class="metric-label">Ano de Fundação</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-value">50+</span>
+              <span class="metric-label">Membros & Trainees</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-value">30+</span>
+              <span class="metric-label">Aulas de Capacitação</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-value">15+</span>
+              <span class="metric-label">Visitas Institucionais</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Card Teaser Editorial -->
+        <div class="hero-card-container">
+          <div class="hero-preview-card">
+            <div class="card-top-tag">
+              <span class="live-badge">Edição Atual</span>
+              <span class="preview-doc-type">Publicação Mensal</span>
+            </div>
+            
+            <h2 class="preview-title">Carta de Conjuntura — Maio 2026</h2>
+            <p class="preview-excerpt">
+              Diagnóstico macroeconômico abrangente cobrindo dinâmica de política monetária (Copom e Fed), trajetória fiscal brasileira, atividade global e impactos no mercado de juros e câmbio.
+            </p>
+
+            <div class="preview-topics">
+              <span class="topic-chip">Política Monetária</span>
+              <span class="topic-chip">Cenário Fiscal</span>
+              <span class="topic-chip">EUA & FED</span>
+              <span class="topic-chip">Mercados Emergentes</span>
+            </div>
+
+            <div class="preview-footer-action">
+              <div class="author-lockup">
+                <span class="author-team">Diretoria de Conjuntura</span>
+                <span class="author-date">Gestão GAMA PUC-Rio</span>
+              </div>
+              <a href="cartas/Carta de Conjuntura - Maio 26.pdf" target="_blank" class="btn btn-gold" style="padding: 0.6rem 1.15rem; font-size: 0.82rem;">
+                Acessar PDF →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SOBRE O GAMA / PILARES DE EXCELÊNCIA
+         ====================================================================== -->
+    <section class="section-about" id="sobre">
+      <div class="container">
+        <div class="section-head reveal-on-scroll">
+          <span class="badge-pill">Excelência & Propósito</span>
+          <h2 class="section-title">Um núcleo orientado ao debate macroeconômico rigoroso</h2>
+          <p class="section-subtitle">
+            Fundado por alunos da PUC-Rio para integrar a sólida formação teórica do curso à prática diária das mesas de operações, consultorias e gestoras de investimentos.
+          </p>
+        </div>
+
+        <div class="about-layout reveal-on-scroll">
+          <div class="about-prose">
+            <p>
+              O <strong>GAMA (Grupo de Análise Macroeconômica Aplicada)</strong> nasceu com a missão de aproximar os graduandos do Departamento de Economia da PUC-Rio da dinâmica real da conjuntura econômica nacional e internacional.
+            </p>
+            <p>
+              Sob a coordenação da <strong>Diretoria de Conjuntura</strong>, estruturamos mensalmente a <em>Carta de Conjuntura</em>, combinando avaliações criteriosas de política fiscal e monetária, dinâmica inflacionária, setor externo e tendências nos mercados de capitais.
+            </p>
+            <p>
+              Paralelamente, a <strong>Diretoria de Eventos</strong> é a ponte institucional com o mercado, viabilizando visitas técnicas a bancos de investimento, gestoras de fundos multimercado e bate-papos com renomados economistas. A <strong>Diretoria de Pessoas</strong> conduz o processo seletivo e o programa semestral intensivo de capacitação dos novos membros.
+            </p>
+          </div>
+
+          <div class="about-pillars">
+            <div class="pillar-card">
+              <div class="pillar-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+              </div>
+              <div class="pillar-content">
+                <h3>Análise Macroeconômica Aplicada</h3>
+                <p>Monitoramento contínuo dos cenários econômicos doméstico e global através de dados de alta frequência e modelos econométricos.</p>
+              </div>
+            </div>
+
+            <div class="pillar-card">
+              <div class="pillar-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+              </div>
+              <div class="pillar-content">
+                <h3>Capacitação Técnica & Liderança</h3>
+                <p>Ciclo semestral estruturado de aulas, nivelamento conceitual e gestão de projetos com autonomia para os estudantes.</p>
+              </div>
+            </div>
+
+            <div class="pillar-card">
+              <div class="pillar-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+              </div>
+              <div class="pillar-content">
+                <h3>Ponte Universidade & Mercado</h3>
+                <p>Intercâmbio direto com gestoras renomadas (fundos macro/ações), consultorias e formulação de políticas econômicas.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         PUBLICAÇÕES: CARTAS DE CONJUNTURA
+         ====================================================================== -->
+    <section class="section-cartas" id="cartas">
+      <div class="container">
+        <div class="section-head reveal-on-scroll">
+          <span class="badge-pill">Publicações Regulares</span>
+          <h2 class="section-title">Cartas de Conjuntura</h2>
+          <p class="section-subtitle">
+            Relatórios analíticos mensais elaborados pelos membros do GAMA com avaliações de cenários e projeções macroeconômicas.
+          </p>
+        </div>
+
+        <!-- Carta Principal em Grande Destaque -->
+        <div class="featured-carta reveal-on-scroll">
+          <div>
+            <div class="badge-pill dark" style="margin-bottom: 0.75rem;">
+              <span class="dot"></span> Destaque Mais Recente
+            </div>
+            <span style="font-size: 0.85rem; color: var(--gold-light); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600;">
+              Maio 2026 · Diretoria de Conjuntura 26.1
+            </span>
+            <h3>Carta de Conjuntura — Edição Maio 2026</h3>
+            <p>
+              Avaliação aprofundada da trajetória fiscal e expectativas de inflação no Brasil, os desdobramentos da política de juros nos Estados Unidos pelo Federal Reserve e as repercussões geopolíticas nos fluxos de capitais globais.
+            </p>
+            <div class="featured-actions">
+              <a href="cartas/Carta de Conjuntura - Maio 26.pdf" target="_blank" class="btn btn-gold">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                Baixar Relatório Completo (PDF)
+              </a>
+              <a href="#relatorios" class="btn btn-outline-light">
+                Ver Relatórios Especiais
+              </a>
+            </div>
+          </div>
+
+          <div class="featured-insights">
+            <div class="insights-title">Tópicos desta edição</div>
+            <ul class="insights-list">
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Brasil:</strong> Pressões fiscais, meta de primário e projeções para a Selic no Copom.</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Internacional:</strong> Mercado de trabalho nos EUA e resiliência da economia americana.</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Mercados:</strong> Curva de juros futuros DI, paridade cambial BRL/USD e commodities.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Acervo de Cartas Anteriores -->
+        <div class="cartas-grid reveal-on-scroll">
+          
+          <!-- Abril 2026 -->
+          <article class="carta-item-card">
+            <div>
+              <div class="carta-meta-head">
+                <span class="carta-edition-tag">Edição Abril 2026</span>
+                <span style="font-size: 0.75rem; color: var(--text-subtle);">26.1</span>
+              </div>
+              <h4>Carta de Conjuntura — Abril 2026</h4>
+              <p>
+                Análise da comunicação das autoridades monetárias, surpresas no IPCA de curto prazo e evolução do comércio exterior diante das incertezas regionais.
+              </p>
+            </div>
+            <a href="cartas/Carta de Conjuntura - Abril 2026.pdf" target="_blank" class="carta-link-btn">
+              Acessar Edição de Abril →
+            </a>
+          </article>
+
+          <!-- Março 2026 -->
+          <article class="carta-item-card">
+            <div>
+              <div class="carta-meta-head">
+                <span class="carta-edition-tag">Edição Março 2026</span>
+                <span style="font-size: 0.75rem; color: var(--text-subtle);">26.1</span>
+              </div>
+              <h4>Carta de Conjuntura — Março 2026</h4>
+              <p>
+                Primeiro diagnóstico do ano: balanço do primeiro trimestre, revisões de PIB e dinâmica das contas públicas e arrecadação federal.
+              </p>
+            </div>
+            <a href="cartas/Carta_de_Conjuntura_Marco_2026.pdf" target="_blank" class="carta-link-btn">
+              Acessar Edição de Março →
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         RELATÓRIOS ESPECIAIS & TEMÁTICOS
+         ====================================================================== -->
+    <section class="section-reports" id="relatorios">
+      <div class="container">
+        <div class="section-head reveal-on-scroll">
+          <span class="badge-pill">Publicações Especiais</span>
+          <h2 class="section-title">Relatórios Temáticos</h2>
+          <p class="section-subtitle">
+            Estudos aprofundados sobre eventos macroeconômicos extraordinários, geopolítica e dinâmicas setoriais globais.
+          </p>
+        </div>
+
+        <div class="reports-grid reveal-on-scroll">
+          <div class="report-card-horizontal">
+            <div class="report-number">01</div>
+            <div class="report-info">
+              <span class="badge-pill" style="margin-bottom: 0.5rem; font-size: 0.7rem; padding: 0.2rem 0.6rem;">Geopolítica & Petróleo</span>
+              <h3>Conflito no Oriente Médio: Impactos Macroeconômicos sobre a Economia Global</h3>
+              <p>
+                Avaliação detalhada dos canais de transmissão do conflito regional: choque no preço do barril de petróleo (Brent), encarecimento do frete marítimo global e riscos inflacionários para economias emergentes.
+              </p>
+              <div class="report-meta-tags">
+                <span class="meta-tag">Data: Abril 2026</span>
+                <span class="meta-tag">Autoria: Ananda Botelho</span>
+                <span class="meta-tag">Formato: Relatório PDF (Analítico)</span>
+              </div>
+            </div>
+            <div>
+              <a href="relatorios/Conflito_no_Oriente_Medio_Abril_2026.pdf" target="_blank" class="btn btn-navy">
+                Ler Relatório →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         PROCESSO SELETIVO (TRAINEES)
+         ====================================================================== -->
+    <section class="section-ps" id="ps">
+      <div class="container">
+        
+        <!-- Banner de Inscrição / Informações -->
+        <div class="ps-banner reveal-on-scroll">
+          <div>
+            <span class="badge-pill dark" style="margin-bottom: 1rem;">
+              <span class="dot"></span> Inscrições Abertas
+            </span>
+            <h3>Faça parte do GAMA PUC-Rio</h3>
+            <p>
+              O Processo Seletivo do GAMA é a porta de entrada para vivenciar a macroeconomia na prática. Buscamos estudantes de Economia da PUC-Rio proativos, curiosos e comprometidos com a excelência técnica e o trabalho em equipe.
+            </p>
+            <p style="font-size: 0.95rem; color: rgba(255, 255, 255, 0.7);">
+              Os aprovados ingressam no <strong>Curso de Capacitação de Trainees</strong> durante um semestre letivo, com aulas de nivelamento e desenvolvimento de competências para integração às diretorias.
+            </p>
+            <a href="https://forms.gle/mD45B6L6guPYX6BY6" target="_blank" class="btn btn-gold" style="margin-top: 0.5rem;">
+              Inscreva-se no Processo Seletivo
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+
+          <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.14); border-radius: var(--radius-md); padding: 2rem;">
+            <h4 style="color: var(--gold-light); font-size: 1.15rem; margin-bottom: 0.85rem;">Nota da Diretoria de Pessoas</h4>
+            <p style="font-size: 0.9rem; color: rgba(255, 255, 255, 0.8); line-height: 1.6; margin-bottom: 1rem;">
+              Encorajamos fortemente candidatos que não foram aprovados em processos anteriores a se inscreverem novamente. A alta demanda é o principal fator limitante, mantendo turmas de até 30 trainees para assegurar a máxima qualidade de mentoria.
+            </p>
+            <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; color: var(--gold-light); font-weight: 600;">
+              <span>Turmas de até 30 trainees por semestre</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Etapas do Processo Seletivo -->
+        <div class="section-head reveal-on-scroll" style="margin-bottom: 2rem;">
+          <h3 style="font-size: 1.85rem;">Etapas da Seleção</h3>
+          <p class="section-subtitle">
+            Entenda como funciona o nosso fluxo seletivo estruturado:
+          </p>
+        </div>
+
+        <div class="ps-phases-grid reveal-on-scroll">
+          <div class="phase-card">
+            <span class="phase-step-num">ETAPA 01</span>
+            <h4>Vídeo de Apresentação</h4>
+            <p>Envio de um vídeo curto onde você se apresenta, compartilha sua trajetória e conta suas motivações para ingressar no GAMA.</p>
+          </div>
+
+          <div class="phase-card">
+            <span class="phase-step-num">ETAPA 02</span>
+            <h4>Prova Escrita</h4>
+            <p>Avaliação de raciocínio lógico, noções gerais de atualidades e interpretação de conceitos econômicos fundamentais.</p>
+          </div>
+
+          <div class="phase-card">
+            <span class="phase-step-num">ETAPA 03</span>
+            <h4>Relatório Analítico</h4>
+            <p>Elaboração de um estudo sintético demonstrando capacidade de síntese, clareza expositiva, rigor estético e comunicação escrita.</p>
+          </div>
+
+          <div class="phase-card">
+            <span class="phase-step-num">ETAPA 04</span>
+            <h4>Dinâmica em Grupo</h4>
+            <p>Atividade prática final focada em trabalho colaborativo, argumentação fundamentada, postura profissional e proatividade.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SEÇÃO: NOSSA EQUIPE (GESTÃO 2026) COM FILTRO DINÂMICO
+         ====================================================================== -->
+    <section class="section-team" id="equipe">
+      <div class="container">
+        <div class="section-head text-center reveal-on-scroll">
+          <span class="badge-pill">Gestão 2026.2</span>
+          <h2 class="section-title">Corpo de Membros e Lideranças</h2>
+          <p class="section-subtitle">
+            Estudantes dedicados do Departamento de Economia da PUC-Rio que coordenam as publicações, operações e eventos do núcleo.
+          </p>
+        </div>
+
+        <!-- Filtros Interativos por Diretoria -->
+        <div class="team-filter-bar reveal-on-scroll">
+          <button class="filter-btn active" data-filter="all">Todos os Membros</button>
+          <button class="filter-btn" data-filter="presidencia">Presidência</button>
+          <button class="filter-btn" data-filter="conjuntura">Conjuntura</button>
+          <button class="filter-btn" data-filter="pessoas">Pessoas & Trainees</button>
+          <button class="filter-btn" data-filter="eventos">Eventos & Relações</button>
+        </div>
+
+        <!-- Grid Unificado de Membros -->
+        <div class="team-grid reveal-on-scroll" id="teamGrid">
+          
+          <!-- Presidência -->
+          <div class="member-card" data-dept="presidencia">
+            <div class="member-avatar">G</div>
+            <div class="member-details">
+              <span class="member-name">Guilherme Pinheiro</span>
+              <span class="member-role">Presidente</span>
+              <span class="member-dept">Presidência · 26.2</span>
+            </div>
+          </div>
+
+          <div class="member-card" data-dept="presidencia">
+            <div class="member-avatar">R</div>
+            <div class="member-details">
+              <span class="member-name">Raphaela Garambone</span>
+              <span class="member-role">Vice-Presidente</span>
+              <span class="member-dept">Presidência · 26.2</span>
+            </div>
+          </div>
+
+          <!-- Diretoria de Conjuntura -->
+          <div class="member-card" data-dept="conjuntura">
+            <div class="member-avatar">F</div>
+            <div class="member-details">
+              <span class="member-name">Felipe Becker</span>
+              <span class="member-role">Diretor</span>
+              <span class="member-dept">Conjuntura · 26.2</span>
+            </div>
+          </div>
+
+          <div class="member-card" data-dept="conjuntura">
+            <div class="member-avatar">D</div>
+            <div class="member-details">
+              <span class="member-name">Daniel Adler</span>
+              <span class="member-role">Diretor</span>
+              <span class="member-dept">Conjuntura · 26.2</span>
+            </div>
+          </div>
+
+          <div class="member-card" data-dept="conjuntura">
+            <div class="member-avatar">B</div>
+            <div class="member-details">
+              <span class="member-name">Bernardo Fuks</span>
+              <span class="member-role">Membro</span>
+              <span class="member-dept">Conjuntura · 26.2</span>
+            </div>
+          </div>
+
+          <div class="member-card" data-dept="conjuntura">
+            <div class="member-avatar">C</div>
+            <div class="member-details">
+              <span class="member-name">Carlos Eduardo Maiolino</span>
+              <span class="member-role">Membro</span>
+              <span class="member-dept">Conjuntura · 26.2</span>
+            </div>
+          </div>
+
+          <div class="member-card" data-dept="conjuntura">
+            <div class="member-avatar">D</div>
+            <div class="member-details">
+              <span class="member-name">Daniel Barret</span>
+              <span class="member-role">Membro</span>
+              <span class="member-dept">Conjuntura · 26.2</span>
+            </div>
+          </div>
+
+          <div class="member-card" data-dept="conjuntura">
+            <div class="member-avatar">D</div>
+            <div class="member-details">
+              <span class="member-name">Daniel Holck</span>
+              <span class="member-role">Membro</span>
+              <span class="member-dept">Conjuntura · 26.2</span>
+            </div>
+          </div>
+
+          <div class="member-card" data-dept="conjuntura">
+            <div class="member-avatar">E</div>
+            <div class="member-details">
+              <span class="member-name">Eduardo Costa</span>
+              <span class="member-role">Membro</span>
+              <span class="member-dept">Conjuntura · 26.2</span>
+            </div>
+          </div>
+
+          <div class="member-card" data-dept="conjuntura">
+            <div class="member-avatar">F</div>
+            <div class="member-details">
+              <span class="member-name">Felipe de Souza</span>
+              <span class="member-role">Membro</span>
+              <span class="member-dept">Conjuntura · 26.2</span>
+            </div>
+          </div>
+
+          <div class="member-card" data-dept="conjuntura">
+            <div class="member-avatar">G</div>
+            <div class="member-details">
+              <span class="member-name">Gabriel Meirelles</span>
+              <span class="member-role">Membro</span>
+              <span class="member-dept">Conjuntura · 26.2</span>
+            </div>
+          </div>
+
+          <div class="member-card" data-dept="conjuntura">
+            <div class="member-avatar">G</div>
+            <div class="member-details">
+              <span class="member-name">Gabriela Schaimberg</span>
+              <span class="member-role">Membro</span>
+              <span class="member-dept">Conjuntura · 26.2</span>
+            </div>
+          </div>
+
+          <div class="member-card" data-dept="conjuntura">
+            <div class="member-avatar">J</div>
+            <div class="member-details">
+              <span class="member-name">João Pedro Lucas</span>
+              <span class="member-role">Membro</span>
+              <span class="member-dept">Conjuntura · 26.2</span>
+            </div>
+          </div>
+
+          <div class="member-card" data-dept="conjuntura">
+            <div class="member-avatar">J</div>
+            <div class="member-details">
+              <span class="member-name">João Pedro Sertã</span>
+              <span class="member-role">Membro</span>
+              <span class="member-dept">Conjuntura · 26.2</span>
+            </div>
+          </div>
+
+          <div class="member-card" data-dept="conjuntura">
+            <div class="member-avatar">M</div>
+            <div class="member-details">
+              <span class="member-name">Maria Elisa Souza</span>
+              <span class="member-role">Membro</span>
+              <span class="member-dept">Conjuntura · 26.2</span>
+            </div>
+          </div>
+
+          <div class="member-card" data-dept="conjuntura">
+            <div class="member-avatar">M</div>
+            <div class="member-details">
+              <span class="member-name">Miguel Dias</span>
+              <span class="member-role">Membro</span>
+              <span class="member-dept">Conjuntura · 26.2</span>
+            </div>
+          </div>
+
+          <div class="member-card" data-dept="conjuntura">
+            <div class="member-avatar">P</div>
+            <div class="member-details">
+              <span class="member-name">Pedro de Freitas</span>
+              <span class="member-role">Membro</span>
+              <span class="member-dept">Conjuntura · 26.2</span>
+            </div>
+          </div>
+
+          <div class="member-card" data-dept="conjuntura">
+            <div class="member-avatar">S</div>
+            <div class="member-details">
+              <span class="member-name">Samy Balassiano</span>
+              <span class="member-role">Membro</span>
+              <span class="member-dept">Conjuntura · 26.2</span>
+            </div>
+          </div>
+
+          <!-- Diretoria de Pessoas -->
+          <div class="member-card" data-dept="pessoas">
+            <div class="member-avatar">B</div>
+            <div class="member-details">
+              <span class="member-name">Beatriz Menezes</span>
+              <span class="member-role">Diretora</span>
+              <span class="member-dept">Pessoas · 26.2</span>
+            </div>
+          </div>
+
+          <div class="member-card" data-dept="pessoas">
+            <div class="member-avatar">M</div>
+            <div class="member-details">
+              <span class="member-name">Mariana Pontes</span>
+              <span class="member-role">Diretora</span>
+              <span class="member-dept">Pessoas · 26.2</span>
+            </div>
+          </div>
+
+          <div class="member-card" data-dept="pessoas">
+            <div class="member-avatar">C</div>
+            <div class="member-details">
+              <span class="member-name">Caio Kautlau</span>
+              <span class="member-role">Membro</span>
+              <span class="member-dept">Pessoas · 26.2</span>
+            </div>
+          </div>
+
+          <div class="member-card" data-dept="pessoas">
+            <div class="member-avatar">D</div>
+            <div class="member-details">
+              <span class="member-name">Diego Leal</span>
+              <span class="member-role">Membro</span>
+              <span class="member-dept">Pessoas · 26.2</span>
+            </div>
+          </div>
+
+          <div class="member-card" data-dept="pessoas">
+            <div class="member-avatar">J</div>
+            <div class="member-details">
+              <span class="member-name">João Pedro Aurélio</span>
+              <span class="member-role">Membro</span>
+              <span class="member-dept">Pessoas · 26.2</span>
+            </div>
+          </div>
+
+          <div class="member-card" data-dept="pessoas">
+            <div class="member-avatar">L</div>
+            <div class="member-details">
+              <span class="member-name">Lucas Ganem</span>
+              <span class="member-role">Membro</span>
+              <span class="member-dept">Pessoas · 26.2</span>
+            </div>
+          </div>
+
+          <div class="member-card" data-dept="pessoas">
+            <div class="member-avatar">S</div>
+            <div class="member-details">
+              <span class="member-name">Samuel Cavalcante</span>
+              <span class="member-role">Membro</span>
+              <span class="member-dept">Pessoas · 26.2</span>
+            </div>
+          </div>
+
+          <!-- Diretoria de Eventos -->
+          <div class="member-card" data-dept="eventos">
+            <div class="member-avatar">A</div>
+            <div class="member-details">
+              <span class="member-name">Alice Rezende</span>
+              <span class="member-role">Diretora</span>
+              <span class="member-dept">Eventos · 26.2</span>
+            </div>
+          </div>
+
+          <div class="member-card" data-dept="eventos">
+            <div class="member-avatar">V</div>
+            <div class="member-details">
+              <span class="member-name">Vinicius Paiva</span>
+              <span class="member-role">Diretor</span>
+              <span class="member-dept">Eventos · 26.2</span>
+            </div>
+          </div>
+
+          <div class="member-card" data-dept="eventos">
+            <div class="member-avatar">A</div>
+            <div class="member-details">
+              <span class="member-name">Arthur Ituassu</span>
+              <span class="member-role">Membro</span>
+              <span class="member-dept">Eventos · 26.2</span>
+            </div>
+          </div>
+
+          <div class="member-card" data-dept="eventos">
+            <div class="member-avatar">C</div>
+            <div class="member-details">
+              <span class="member-name">Célio José Maidantchik</span>
+              <span class="member-role">Membro</span>
+              <span class="member-dept">Eventos · 26.2</span>
+            </div>
+          </div>
+
+          <div class="member-card" data-dept="eventos">
+            <div class="member-avatar">D</div>
+            <div class="member-details">
+              <span class="member-name">Daniel Conde</span>
+              <span class="member-role">Membro</span>
+              <span class="member-dept">Eventos · 26.2</span>
+            </div>
+          </div>
+
+          <div class="member-card" data-dept="eventos">
+            <div class="member-avatar">E</div>
+            <div class="member-details">
+              <span class="member-name">Eduarda Rezende</span>
+              <span class="member-role">Membro</span>
+              <span class="member-dept">Eventos · 26.2</span>
+            </div>
+          </div>
+
+          <div class="member-card" data-dept="eventos">
+            <div class="member-avatar">F</div>
+            <div class="member-details">
+              <span class="member-name">Filippo Pastura</span>
+              <span class="member-role">Membro</span>
+              <span class="member-dept">Eventos · 26.2</span>
+            </div>
+          </div>
+
+          <div class="member-card" data-dept="eventos">
+            <div class="member-avatar">G</div>
+            <div class="member-details">
+              <span class="member-name">Guilherme Lauria</span>
+              <span class="member-role">Membro</span>
+              <span class="member-dept">Eventos · 26.2</span>
+            </div>
+          </div>
+
+          <div class="member-card" data-dept="eventos">
+            <div class="member-avatar">H</div>
+            <div class="member-details">
+              <span class="member-name">Helena Baptista</span>
+              <span class="member-role">Membro</span>
+              <span class="member-dept">Eventos · 26.2</span>
+            </div>
+          </div>
+
+          <div class="member-card" data-dept="eventos">
+            <div class="member-avatar">J</div>
+            <div class="member-details">
+              <span class="member-name">Julia Feijó</span>
+              <span class="member-role">Membro</span>
+              <span class="member-dept">Eventos · 26.2</span>
+            </div>
+          </div>
+
+          <div class="member-card" data-dept="eventos">
+            <div class="member-avatar">M</div>
+            <div class="member-details">
+              <span class="member-name">Maria Beatriz Alves</span>
+              <span class="member-role">Membro</span>
+              <span class="member-dept">Eventos · 26.2</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         CONTATO & CANAIS INSTITUCIONAIS
+         ====================================================================== -->
+    <section class="section-contact" id="contato">
+      <div class="container contact-grid">
+        <div class="contact-info reveal-on-scroll">
+          <span class="badge-pill dark" style="margin-bottom: 1rem;">
+            <span class="dot"></span> Conecte-se Conosco
+          </span>
+          <h2>Diálogo aberto com a comunidade e o mercado</h2>
+          <p>
+            Deseja propor parcerias, convidar nossos pesquisadores para palestras ou tirar dúvidas institucionais sobre o GAMA? Entre em contato pelos canais oficiais:
+          </p>
+
+          <div class="contact-links-list">
+            <a href="mailto:gama.diretoriadepessoas@gmail.com" class="contact-pill-link">
+              <div class="contact-icon-wrapper">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              </div>
+              <div>
+                <div style="font-size: 0.76rem; color: var(--gold-light); text-transform: uppercase; font-weight: 600;">E-mail Oficial</div>
+                <div style="font-size: 0.95rem; font-weight: 500;">gama.diretoriadepessoas@gmail.com</div>
+              </div>
+            </a>
+
+            <a href="https://www.linkedin.com/company/gama-puc-rio/" target="_blank" class="contact-pill-link">
+              <div class="contact-icon-wrapper">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+              </div>
+              <div>
+                <div style="font-size: 0.76rem; color: var(--gold-light); text-transform: uppercase; font-weight: 600;">LinkedIn</div>
+                <div style="font-size: 0.95rem; font-weight: 500;">GAMA - PUC-Rio</div>
+              </div>
+            </a>
+
+            <a href="https://www.instagram.com/gama_pucrio/" target="_blank" class="contact-pill-link">
+              <div class="contact-icon-wrapper">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              </div>
+              <div>
+                <div style="font-size: 0.76rem; color: var(--gold-light); text-transform: uppercase; font-weight: 600;">Instagram</div>
+                <div style="font-size: 0.95rem; font-weight: 500;">@gama_pucrio</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Formulário Institucional Rápido -->
+        <div class="contact-form-card reveal-on-scroll">
+          <h3>Envie uma Mensagem</h3>
+          <form action="mailto:gama.diretoriadepessoas@gmail.com" method="POST" enctype="text/plain">
+            <div class="form-field">
+              <label for="nome">Nome Completo</label>
+              <input type="text" id="nome" name="nome" placeholder="Ex: Ana Silva" required />
+            </div>
+            <div class="form-field">
+              <label for="email">E-mail Institucional ou Pessoal</label>
+              <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required />
+            </div>
+            <div class="form-field">
+              <label for="assunto">Assunto</label>
+              <input type="text" id="assunto" name="assunto" placeholder="Ex: Proposta de Palestra / Parceria" required />
+            </div>
+            <div class="form-field">
+              <label for="mensagem">Mensagem</label>
+              <textarea id="mensagem" name="mensagem" rows="4" placeholder="Como podemos colaborar?" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-gold" style="width: 100%;">
+              Enviar Mensagem
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       RODAPÉ INSTITUCIONAL
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <div class="footer-credits">
+          <p style="color: rgba(255,255,255,0.85); font-weight: 600;">GAMA — Grupo de Análise Macroeconômica Aplicada</p>
+          <p style="font-size: 0.78rem; color: rgba(255,255,255,0.45);">Elaboração do site: Guilherme Pinheiro © 2026 GAMA · Todos os direitos reservados.</p>
+        </div>
+      </div>
+
+      <div class="footer-right">
+        <div class="puc-badge">
+          <img src="logo_puc.png" alt="PUC-Rio" onerror="this.style.display='none'">
+          <span style="font-size: 0.78rem; color: rgba(255, 255, 255, 0.65);">Departamento de Economia · PUC-Rio</span>
+        </div>
+      </div>
     </div>
   </footer>
 
+  <!-- ========================================================================
+       SCRIPTS: NAVEGAÇÃO, FILTRO INTERATIVO & ANIMAÇÕES
+       ======================================================================== -->
   <script>
-    // Scroll fade-up
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Menu Mobile Toggle
+      const mobileToggle = document.getElementById('mobileToggle');
+      const navMenu = document.getElementById('navMenu');
+      
+      if (mobileToggle && navMenu) {
+        mobileToggle.addEventListener('click', () => {
+          const isOpen = navMenu.classList.toggle('is-open');
+          mobileToggle.setAttribute('aria-expanded', isOpen);
+        });
+
+        navMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            navMenu.classList.remove('is-open');
+            mobileToggle.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+
+      // 2. Navbar encolhe suavemente ao rolar
+      const navbar = document.getElementById('navbar');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 40) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
         }
       });
-    }, { threshold: 0.12 });
 
-    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+      // 3. Highlight do Link Ativo na Navegação
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.nav-menu a');
+      
+      window.addEventListener('scroll', () => {
+        let currentSectionId = '';
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop - 140;
+          if (window.scrollY >= sectionTop) {
+            currentSectionId = section.getAttribute('id');
+          }
+        });
 
-    // Mobile menu
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('navLinks');
-    hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
-    });
-
-    // Close menu on link click
-    navLinks.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => navLinks.classList.remove('open'));
-    });
-
-    // Active nav link on scroll
-    const sections = document.querySelectorAll('section[id]');
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(s => {
-        if (window.scrollY >= s.offsetTop - 120) current = s.id;
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${currentSectionId}`) {
+            link.classList.add('active');
+          }
+        });
       });
-      document.querySelectorAll('.nav-links a').forEach(a => {
-        a.classList.remove('active');
-        if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+
+      // 4. Filtro Dinâmico da Equipe por Diretoria
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const memberCards = document.querySelectorAll('#teamGrid .member-card');
+
+      filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterButtons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          const filter = btn.getAttribute('data-filter');
+
+          memberCards.forEach(card => {
+            const dept = card.getAttribute('data-dept');
+            if (filter === 'all' || dept === filter) {
+              card.style.display = 'flex';
+              setTimeout(() => { card.style.opacity = '1'; card.style.transform = 'translateY(0)'; }, 20);
+            } else {
+              card.style.opacity = '0';
+              card.style.transform = 'translateY(10px)';
+              setTimeout(() => { card.style.display = 'none'; }, 200);
+            }
+          });
+        });
       });
+
+      // 5. Intersection Observer para Animação Editorial "Reveal on Scroll"
+      const revealElements = document.querySelectorAll('.reveal-on-scroll');
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.08,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      revealElements.forEach(el => revealObserver.observe(el));
     });
   </script>
 </body>

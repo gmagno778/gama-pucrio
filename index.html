@@ -774,7 +774,7 @@
 
     .market-metrics-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1rem;
     }
 
@@ -782,40 +782,80 @@
       background: var(--white);
       border: 1px solid var(--border);
       border-radius: var(--radius-sm);
-      padding: 1.2rem;
+      padding: 1.25rem 1.4rem;
       display: flex;
       flex-direction: column;
-      transition: transform 0.2s;
+      cursor: pointer;
+      position: relative;
+      user-select: none;
+      transition: all 0.2s ease;
     }
 
     .metric-card:hover {
       transform: translateY(-2px);
       border-color: var(--navy);
+      box-shadow: 0 4px 14px rgba(0, 27, 88, 0.07);
+    }
+
+    .metric-card.active {
+      border: 2px solid var(--navy);
+      background: #ffffff;
+      box-shadow: 0 6px 18px rgba(0, 27, 88, 0.12);
+    }
+
+    .metric-card.active::after {
+      content: '';
+      position: absolute;
+      bottom: -9px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-top: 8px solid var(--navy);
     }
 
     .metric-label {
-      font-size: 0.72rem;
+      font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.06em;
       color: var(--slate-muted);
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.35rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .metric-live-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #0f8a48;
+      display: inline-block;
     }
 
     .metric-value {
       font-family: 'Playfair Display', serif;
-      font-size: 1.6rem;
+      font-size: 1.65rem;
       font-weight: 700;
       color: var(--navy);
-      line-height: 1.1;
+      line-height: 1.15;
+    }
+
+    .metric-subval {
+      font-size: 0.74rem;
+      color: var(--slate-muted);
+      margin-top: 0.15rem;
     }
 
     .metric-change {
-      font-size: 0.76rem;
+      font-size: 0.78rem;
       font-weight: 600;
-      margin-top: 0.4rem;
+      margin-top: 0.45rem;
       display: inline-flex;
       align-items: center;
-      gap: 0.2rem;
+      gap: 0.25rem;
     }
 
     .metric-change.positive { color: #0f8a48; }
@@ -826,51 +866,111 @@
       border: 1px solid var(--border);
       border-radius: var(--radius-md);
       padding: 2.2rem;
+      margin-top: 0.5rem;
+      box-shadow: 0 4px 20px rgba(0, 27, 88, 0.04);
     }
 
     .chart-header {
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: flex-start;
       margin-bottom: 1.5rem;
       flex-wrap: wrap;
       gap: 1rem;
     }
 
-    .chart-header h3 {
-      font-size: 1.25rem;
+    .chart-header-left {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .chart-header-left h3 {
+      font-size: 1.4rem;
       color: var(--navy);
     }
 
-    .chart-legend-custom {
+    .chart-current-price-row {
       display: flex;
-      gap: 1.2rem;
-      font-size: 0.78rem;
-      font-weight: 600;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-top: 0.2rem;
     }
 
-    .legend-tag {
+    .chart-big-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1;
+    }
+
+    .chart-header-controls {
       display: flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 0.5rem;
+      flex-wrap: wrap;
     }
 
-    .legend-tag-brent::before {
-      content: '';
-      width: 12px;
-      height: 12px;
+    .range-btn-group {
+      display: inline-flex;
+      background: var(--off-white);
+      padding: 0.2rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+    }
+
+    .range-btn {
+      background: transparent;
+      border: none;
+      padding: 0.35rem 0.85rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--slate-muted);
+      cursor: pointer;
+      border-radius: 3px;
+      transition: all 0.15s ease;
+    }
+
+    .range-btn:hover {
+      color: var(--navy);
+    }
+
+    .range-btn.active {
       background: var(--navy);
-      display: inline-block;
-      border-radius: 2px;
+      color: var(--white);
+      box-shadow: 0 1px 4px rgba(0, 27, 88, 0.2);
     }
 
-    .legend-tag-usd::before {
-      content: '';
-      width: 12px;
-      height: 12px;
-      background: var(--accent-gold);
-      display: inline-block;
-      border-radius: 2px;
+    .chart-live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--slate-muted);
+      background: var(--off-white);
+      padding: 0.35rem 0.75rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+    }
+
+    .pulse-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #0f8a48;
+      box-shadow: 0 0 0 rgba(15, 138, 72, 0.4);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(15, 138, 72, 0.6); }
+      70% { box-shadow: 0 0 0 6px rgba(15, 138, 72, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(15, 138, 72, 0); }
     }
 
     /* ── ABA 5: RELATÓRIOS ───────────────────────────────────── */
@@ -1545,62 +1645,133 @@
 
         <div class="markets-dashboard">
           
-          <!-- Cards de Cotações com dados reais de Agosto/2026 -->
-          <div class="market-metrics-grid">
-            <div class="metric-card">
-              <span class="metric-label">DXY (EUA)</span>
-              <span class="metric-value">99,70</span>
-              <span class="metric-change positive">▲ +1,44% (2026)</span>
+          <!-- Cards de Cotações dos 8 Ativos Solicitados -->
+          <div class="market-metrics-grid" id="marketMetricsGrid">
+            <!-- 1. USD/BRL -->
+            <div class="metric-card active" id="card-USDBRL" onclick="selectMarketAsset('USDBRL')">
+              <span class="metric-label">
+                <span>USD / BRL</span>
+                <span class="metric-live-dot" title="API em tempo real"></span>
+              </span>
+              <span class="metric-value" id="val-USDBRL">R$ 5,08</span>
+              <span class="metric-subval" id="sub-USDBRL">Dólar Comercial</span>
+              <span class="metric-change positive" id="chg-USDBRL">▲ +0,00%</span>
             </div>
 
-            <div class="metric-card">
-              <span class="metric-label">Real (USD/BRL)</span>
-              <span class="metric-value">R$ 5,16</span>
-              <span class="metric-change positive">▲ +4,88% (LTM)</span>
+            <!-- 2. EUR/BRL -->
+            <div class="metric-card" id="card-EURBRL" onclick="selectMarketAsset('EURBRL')">
+              <span class="metric-label">
+                <span>EUR / BRL</span>
+                <span class="metric-live-dot" title="API em tempo real"></span>
+              </span>
+              <span class="metric-value" id="val-EURBRL">R$ 5,90</span>
+              <span class="metric-subval" id="sub-EURBRL">Euro Comercial</span>
+              <span class="metric-change positive" id="chg-EURBRL">▲ +0,00%</span>
             </div>
 
-            <div class="metric-card">
-              <span class="metric-label">Euro (EUR/BRL)</span>
-              <span class="metric-value">R$ 6,01</span>
-              <span class="metric-change positive">▲ +5,12% (LTM)</span>
+            <!-- 3. Selic Atual -->
+            <div class="metric-card" id="card-SELIC" onclick="selectMarketAsset('SELIC')">
+              <span class="metric-label">
+                <span>Selic Atual</span>
+                <span class="metric-live-dot" title="API Banco Central do Brasil"></span>
+              </span>
+              <span class="metric-value" id="val-SELIC">14,00%</span>
+              <span class="metric-subval" id="sub-SELIC">Última mudança: 06/08/2026</span>
+              <span class="metric-change negative" id="chg-SELIC">▼ -0,25 p.p. (Copom)</span>
             </div>
 
-            <div class="metric-card">
-              <span class="metric-label">Petróleo Brent</span>
-              <span class="metric-value">US$ 89,31</span>
-              <span class="metric-change positive">▲ +46,77% (2026)</span>
+            <!-- 4. Inflação Atual a.a. -->
+            <div class="metric-card" id="card-IPCA" onclick="selectMarketAsset('IPCA')">
+              <span class="metric-label">
+                <span>Inflação (IPCA)</span>
+                <span class="metric-live-dot" title="API IBGE / BCB"></span>
+              </span>
+              <span class="metric-value" id="val-IPCA">4,44% a.a.</span>
+              <span class="metric-subval" id="sub-IPCA">Acumulado 12 meses</span>
+              <span class="metric-change positive" id="chg-IPCA">▲ +0,07% no mês</span>
             </div>
 
-            <div class="metric-card">
-              <span class="metric-label">Ouro (on./troy)</span>
-              <span class="metric-value">US$ 4.478</span>
-              <span class="metric-change positive">▲ +28,91% (LTM)</span>
+            <!-- 5. Petróleo Brent -->
+            <div class="metric-card" id="card-BRENT" onclick="selectMarketAsset('BRENT')">
+              <span class="metric-label">
+                <span>Petróleo Brent</span>
+                <span class="metric-live-dot" title="Mercado Global"></span>
+              </span>
+              <span class="metric-value" id="val-BRENT">US$ 97,76</span>
+              <span class="metric-subval" id="sub-BRENT">Barril (ICE/NYMEX)</span>
+              <span class="metric-change positive" id="chg-BRENT">▲ +48,08% (1A)</span>
             </div>
 
-            <div class="metric-card">
-              <span class="metric-label">Minério de Ferro</span>
-              <span class="metric-value">US$ 101,20</span>
-              <span class="metric-change negative">▼ -2,22% (2026)</span>
+            <!-- 6. Ouro -->
+            <div class="metric-card" id="card-GOLD" onclick="selectMarketAsset('GOLD')">
+              <span class="metric-label">
+                <span>Ouro (XAU/USD)</span>
+                <span class="metric-live-dot" title="Mercado Global"></span>
+              </span>
+              <span class="metric-value" id="val-GOLD">US$ 4.437</span>
+              <span class="metric-subval" id="sub-GOLD">Onça-troy</span>
+              <span class="metric-change positive" id="chg-GOLD">▲ +21,96% (1A)</span>
+            </div>
+
+            <!-- 7. SPX -->
+            <div class="metric-card" id="card-SPX" onclick="selectMarketAsset('SPX')">
+              <span class="metric-label">
+                <span>S&P 500 (SPX)</span>
+                <span class="metric-live-dot" title="Nova York"></span>
+              </span>
+              <span class="metric-value" id="val-SPX">7.690,92</span>
+              <span class="metric-subval" id="sub-SPX">Índice EUA</span>
+              <span class="metric-change positive" id="chg-SPX">▲ +18,41% (1A)</span>
+            </div>
+
+            <!-- 8. Ibovespa -->
+            <div class="metric-card" id="card-IBOV" onclick="selectMarketAsset('IBOV')">
+              <span class="metric-label">
+                <span>Ibovespa</span>
+                <span class="metric-live-dot" title="B3 Brasil"></span>
+              </span>
+              <span class="metric-value" id="val-IBOV">189.159</span>
+              <span class="metric-subval" id="sub-IBOV">B3 São Paulo</span>
+              <span class="metric-change positive" id="chg-IBOV">▲ +33,41% (1A)</span>
             </div>
           </div>
 
-          <!-- Gráfico Interativo Chart.js -->
+          <!-- Gráfico Interativo Chart.js estilo Google Finance -->
           <div class="chart-container-box">
             <div class="chart-header">
-              <div>
-                <h3 data-i18n="chart-title">Petróleo Brent e Taxa de Câmbio USD/BRL</h3>
-                <p style="font-size: 0.82rem; color: var(--slate-muted);" data-i18n="chart-sub">
-                  Variações Diárias (%) em Agosto e início de Setembro de 2026 | Fonte: Diretoria de Conjuntura GAMA
-                </p>
+              <div class="chart-header-left">
+                <h3 id="chartActiveTitle">USD / BRL — Dólar Comercial</h3>
+                <div class="chart-current-price-row">
+                  <span class="chart-big-price" id="chartBigPrice">R$ 5,08</span>
+                  <span class="metric-change positive" id="chartBigChange">▲ +0,00%</span>
+                  <span style="font-size: 0.8rem; color: var(--slate-muted);" id="chartTimeScope">(Período selecionado)</span>
+                </div>
               </div>
-              <div class="chart-legend-custom">
-                <span class="legend-tag legend-tag-brent">Petróleo Brent (Var%)</span>
-                <span class="legend-tag legend-tag-usd">USD/BRL (Var%)</span>
+              <div class="chart-header-controls">
+                <div class="chart-live-badge">
+                  <span class="pulse-dot"></span>
+                  <span id="chartSourceBadge">API BCB & Mercado</span>
+                </div>
+                <div class="range-btn-group">
+                  <button class="range-btn" id="range-1M" onclick="setChartRange('1M')">1M</button>
+                  <button class="range-btn" id="range-6M" onclick="setChartRange('6M')">6M</button>
+                  <button class="range-btn active" id="range-1A" onclick="setChartRange('1A')">1A</button>
+                  <button class="range-btn" id="range-MAX" onclick="setChartRange('MAX')">Tudo</button>
+                </div>
               </div>
             </div>
 
-            <div style="position: relative; height: 350px; width: 100%;">
+            <div style="position: relative; height: 380px; width: 100%;">
               <canvas id="macroChart"></canvas>
+            </div>
+            
+            <div style="margin-top: 1rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; border-top: 1px solid var(--border); padding-top: 0.8rem;">
+              <span style="font-size: 0.78rem; color: var(--slate-muted);" id="chartDataSourceNote">
+                Fonte: Banco Central do Brasil (SGS), AwesomeAPI e Séries Históricas Oficiais auditadas pelo GAMA Macro.
+              </span>
+              <span style="font-size: 0.78rem; color: var(--slate-muted);" id="chartLastUpdated">
+                Atualização automática contínua
+              </span>
             </div>
           </div>
 
@@ -2094,9 +2265,9 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
         history.replaceState(null, '', '#' + tabId);
 
-        // Se abrir aba de Mercados, renderiza o gráfico
-        if (tabId === 'mercados' && !window.macroChartInstance) {
-          setTimeout(initMacroChart, 100);
+        // Se abrir aba de Mercados, renderiza ou redimensiona o gráfico
+        if (tabId === 'mercados') {
+          setTimeout(renderActiveChart, 100);
         }
       }
     }
@@ -2189,66 +2360,442 @@
       }
     }
 
-    // Sugestão 3: Inicialização do Gráfico Interativo Chart.js
-    function initMacroChart() {
-      const ctx = document.getElementById('macroChart');
-      if (!ctx || window.macroChartInstance) return;
+    // ========================================================================
+    // PAINEL DE MERCADOS & INDICADORES: MOTOR DE DADOS EM TEMPO REAL (8 ATIVOS)
+    // ========================================================================
+    const MARKET_ASSETS = {
+      'USDBRL': {
+        name: 'USD / BRL',
+        title: 'USD / BRL — Dólar Comercial Americano',
+        unit: 'R$',
+        source: 'AwesomeAPI / BCB PTAX',
+        isPct: false,
+        decimals: 4
+      },
+      'EURBRL': {
+        name: 'EUR / BRL',
+        title: 'EUR / BRL — Euro Comercial',
+        unit: 'R$',
+        source: 'AwesomeAPI / BCB PTAX',
+        isPct: false,
+        decimals: 4
+      },
+      'SELIC': {
+        name: 'Meta Selic',
+        title: 'Taxa Selic Meta — Banco Central do Brasil (Copom)',
+        unit: '% a.a.',
+        source: 'API BCB SGS (Série 432)',
+        isPct: true,
+        decimals: 2
+      },
+      'IPCA': {
+        name: 'Inflação (IPCA)',
+        title: 'IPCA — Acumulado em 12 meses (IBGE / BCB)',
+        unit: '%',
+        source: 'API BCB SGS (Série 13522)',
+        isPct: true,
+        decimals: 2
+      },
+      'BRENT': {
+        name: 'Petróleo Brent',
+        title: 'Petróleo Brent — Contratos Futuros ICE (Barril)',
+        unit: 'US$',
+        source: 'Mercado de Commodities Global / ICE',
+        isPct: false,
+        decimals: 2
+      },
+      'GOLD': {
+        name: 'Ouro (Gold)',
+        title: 'Ouro Spot — XAU/USD (Onça-troy)',
+        unit: 'US$',
+        source: 'Mercado de Metais Preciosos / LBMA',
+        isPct: false,
+        decimals: 2
+      },
+      'SPX': {
+        name: 'S&P 500 (SPX)',
+        title: 'S&P 500 — Standard & Poor\'s 500 Index (Nova York)',
+        unit: 'pts',
+        source: 'Bolsa de Nova York (NYSE/Nasdaq)',
+        isPct: false,
+        decimals: 2
+      },
+      'IBOV': {
+        name: 'Ibovespa',
+        title: 'Índice Bovespa — B3 Brasil Bolsa Balcão (São Paulo)',
+        unit: 'pts',
+        source: 'B3 — Brasil, Bolsa, Balcão',
+        isPct: false,
+        decimals: 0
+      }
+    };
 
-      const dates = ["03/08", "04/08", "05/08", "06/08", "07/08", "10/08", "11/08", "12/08", "13/08", "14/08", "17/08", "18/08", "19/08", "20/08", "21/08", "24/08", "25/08", "26/08", "27/08", "28/08", "31/08", "01/09", "02/09"];
-      const brentData = [-7.05, -5.26, 0.11, 3.83, 1.29, 4.99, 1.36, 0.08, -2.15, 1.67, 0.58, 0.47, 0.38, 2.43, 0.76, -2.3, -3.61, -0.38, 1.82, -0.47, 0.31, 3.62, 4.19];
-      const usdData = [0.25, 0.79, -0.15, -0.2, -0.57, 0.56, 1.04, 0.29, 0.2, 0.66, -0.41, 0.33, -0.82, 0.43, -1.13, 0.27, -0.07, 0.01, 0.22, 0.61, -0.18, -0.54, -1.04];
+    let activeMarketAsset = 'USDBRL';
+    let activeRange = '1A';
+    let marketDataCache = {};
+    let globalMarketCache = null;
+
+    // Formatação elegante de números
+    function formatMarketVal(val, assetKey) {
+      if (val === null || val === undefined || isNaN(val)) return '—';
+      const meta = MARKET_ASSETS[assetKey];
+      if (!meta) return val.toString();
+
+      if (assetKey === 'SELIC') return Number(val).toFixed(2).replace('.', ',') + '%';
+      if (assetKey === 'IPCA') return Number(val).toFixed(2).replace('.', ',') + '% a.a.';
+      if (assetKey === 'USDBRL' || assetKey === 'EURBRL') {
+        return 'R$ ' + Number(val).toFixed(meta.decimals).replace('.', ',');
+      }
+      if (assetKey === 'BRENT' || assetKey === 'GOLD') {
+        return 'US$ ' + Number(val).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      }
+      if (assetKey === 'IBOV') {
+        return Number(val).toLocaleString('pt-BR', { maximumFractionDigits: 0 });
+      }
+      if (assetKey === 'SPX') {
+        return Number(val).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      }
+      return Number(val).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+
+    // Carregamento de Cotações em Tempo Real e Séries Oficiais
+    async function loadMarketData() {
+      // 1. Carrega dados do market_cache.json local (IBOV, SPX, BRENT, GOLD)
+      try {
+        const resp = await fetch('market_cache.json');
+        if (resp.ok) {
+          globalMarketCache = await resp.json();
+          ['IBOV', 'SPX', 'BRENT', 'GOLD'].forEach(k => {
+            if (globalMarketCache[k]) {
+              const item = globalMarketCache[k];
+              const pts = item.points || [];
+              marketDataCache[k] = {
+                currentPrice: item.price,
+                pctChange: item.pctChange || 0,
+                series: pts.map(p => ({
+                  date: new Date(p.t * 1000).toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: '2-digit' }),
+                  rawDate: new Date(p.t * 1000),
+                  value: p.c
+                }))
+              };
+              updateMetricCardUI(k, item.price, item.pctChange);
+            }
+          });
+        }
+      } catch (err) {
+        console.warn('Erro ao carregar market_cache.json:', err);
+      }
+
+      // 2. AwesomeAPI: Câmbio Tempo Real e Série Histórica 365 dias para USD e EUR
+      try {
+        const [usdDailyResp, eurDailyResp, liveResp] = await Promise.all([
+          fetch('https://economia.awesomeapi.com.br/json/daily/USD-BRL/365'),
+          fetch('https://economia.awesomeapi.com.br/json/daily/EUR-BRL/365'),
+          fetch('https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL')
+        ]);
+
+        if (liveResp.ok) {
+          const live = await liveResp.json();
+          if (live.USDBRL) {
+            const p = parseFloat(live.USDBRL.bid);
+            const chg = parseFloat(live.USDBRL.pctChange);
+            updateMetricCardUI('USDBRL', p, chg);
+          }
+          if (live.EURBRL) {
+            const p = parseFloat(live.EURBRL.bid);
+            const chg = parseFloat(live.EURBRL.pctChange);
+            updateMetricCardUI('EURBRL', p, chg);
+          }
+        }
+
+        if (usdDailyResp.ok) {
+          const usdData = await usdDailyResp.json();
+          // Inverte para ordem cronológica (mais antigo primeiro)
+          const series = usdData.slice().reverse().map(d => ({
+            date: new Date(parseInt(d.timestamp) * 1000).toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: '2-digit' }),
+            rawDate: new Date(parseInt(d.timestamp) * 1000),
+            value: parseFloat(d.bid)
+          }));
+          const curr = parseFloat(usdData[0].bid);
+          const chg = parseFloat(usdData[0].pctChange || 0);
+          marketDataCache['USDBRL'] = { currentPrice: curr, pctChange: chg, series };
+        }
+
+        if (eurDailyResp.ok) {
+          const eurData = await eurDailyResp.json();
+          const series = eurData.slice().reverse().map(d => ({
+            date: new Date(parseInt(d.timestamp) * 1000).toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: '2-digit' }),
+            rawDate: new Date(parseInt(d.timestamp) * 1000),
+            value: parseFloat(d.bid)
+          }));
+          const curr = parseFloat(eurData[0].bid);
+          const chg = parseFloat(eurData[0].pctChange || 0);
+          marketDataCache['EURBRL'] = { currentPrice: curr, pctChange: chg, series };
+        }
+      } catch (err) {
+        console.warn('Erro ao conectar AwesomeAPI:', err);
+      }
+
+      // 3. Banco Central do Brasil (SGS): Selic Meta e IPCA
+      try {
+        const [selicResp, ipcaResp, ipcaMensalResp] = await Promise.all([
+          fetch('https://api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados?formato=json&dataInicial=01/01/2023&dataFinal=31/12/2026'),
+          fetch('https://api.bcb.gov.br/dados/serie/bcdata.sgs.13522/dados?formato=json&dataInicial=01/01/2023&dataFinal=31/12/2026'),
+          fetch('https://api.bcb.gov.br/dados/serie/bcdata.sgs.433/dados?formato=json&dataInicial=01/01/2026&dataFinal=31/12/2026')
+        ]);
+
+        if (selicResp.ok) {
+          const sData = await selicResp.json();
+          if (sData.length > 0) {
+            const curr = parseFloat(sData[sData.length - 1].valor);
+            // Identifica data da última mudança
+            let lastChangeDate = sData[0].data;
+            let prevVal = curr;
+            for (let i = sData.length - 1; i >= 1; i--) {
+              if (sData[i].valor !== sData[i - 1].valor) {
+                lastChangeDate = sData[i].data;
+                prevVal = parseFloat(sData[i - 1].valor);
+                break;
+              }
+            }
+            const diff = curr - prevVal;
+            const chgStr = diff === 0 ? 'Sem alteração recente' : (diff > 0 ? `▲ +${diff.toFixed(2)} p.p.` : `▼ ${diff.toFixed(2)} p.p.`) + ' (Copom)';
+            
+            const selicSeries = sData.map(d => {
+              const [dia, mes, ano] = d.data.split('/');
+              const dateObj = new Date(`${ano}-${mes}-${dia}`);
+              return {
+                date: `${dia}/${mes}/${ano.slice(-2)}`,
+                rawDate: dateObj,
+                value: parseFloat(d.valor)
+              };
+            });
+
+            marketDataCache['SELIC'] = {
+              currentPrice: curr,
+              pctChange: diff,
+              series: selicSeries,
+              lastChange: lastChangeDate
+            };
+
+            const selicValEl = document.getElementById('val-SELIC');
+            const selicSubEl = document.getElementById('sub-SELIC');
+            const selicChgEl = document.getElementById('chg-SELIC');
+            if (selicValEl) selicValEl.innerText = curr.toFixed(2).replace('.', ',') + '%';
+            if (selicSubEl) selicSubEl.innerText = `Última mudança: ${lastChangeDate}`;
+            if (selicChgEl) {
+              selicChgEl.innerText = chgStr;
+              selicChgEl.className = 'metric-change ' + (diff >= 0 ? 'positive' : 'negative');
+            }
+          }
+        }
+
+        if (ipcaResp.ok) {
+          const ipca12m = await ipcaResp.json();
+          let mensalStr = '+0,07%';
+          if (ipcaMensalResp.ok) {
+            const ipcaM = await ipcaMensalResp.json();
+            if (ipcaM.length > 0) {
+              const lastM = parseFloat(ipcaM[ipcaM.length - 1].valor);
+              mensalStr = (lastM >= 0 ? '+' : '') + lastM.toFixed(2).replace('.', ',') + '%';
+            }
+          }
+
+          if (ipca12m.length > 0) {
+            const curr12 = parseFloat(ipca12m[ipca12m.length - 1].valor);
+            const prev12 = parseFloat(ipca12m[ipca12m.length - 2]?.valor || curr12);
+            const diff12 = curr12 - prev12;
+
+            const ipcaSeries = ipca12m.map(d => {
+              const [dia, mes, ano] = d.data.split('/');
+              const dateObj = new Date(`${ano}-${mes}-${dia}`);
+              return {
+                date: `${mes}/${ano.slice(-2)}`,
+                rawDate: dateObj,
+                value: parseFloat(d.valor)
+              };
+            });
+
+            marketDataCache['IPCA'] = {
+              currentPrice: curr12,
+              pctChange: diff12,
+              series: ipcaSeries,
+              mensal: mensalStr
+            };
+
+            const ipcaValEl = document.getElementById('val-IPCA');
+            const ipcaChgEl = document.getElementById('chg-IPCA');
+            if (ipcaValEl) ipcaValEl.innerText = curr12.toFixed(2).replace('.', ',') + '% a.a.';
+            if (ipcaChgEl) {
+              ipcaChgEl.innerText = `${mensalStr} no mês`;
+              ipcaChgEl.className = 'metric-change ' + (parseFloat(mensalStr) >= 0 ? 'positive' : 'negative');
+            }
+          }
+        }
+      } catch (err) {
+        console.warn('Erro ao conectar BCB SGS:', err);
+      }
+
+      // Atualiza o gráfico com o ativo atualmente selecionado
+      renderActiveChart();
+    }
+
+    // Atualiza a interface do card
+    function updateMetricCardUI(assetKey, price, pctChange) {
+      const valEl = document.getElementById('val-' + assetKey);
+      const chgEl = document.getElementById('chg-' + assetKey);
+      if (valEl) valEl.innerText = formatMarketVal(price, assetKey);
+      if (chgEl) {
+        const isPos = pctChange >= 0;
+        const sign = isPos ? '+' : '';
+        chgEl.innerText = `${isPos ? '▲' : '▼'} ${sign}${pctChange.toFixed(2).replace('.', ',')}%`;
+        chgEl.className = 'metric-change ' + (isPos ? 'positive' : 'negative');
+      }
+    }
+
+    // Clique em um card de ativo (estilo Google Finance)
+    function selectMarketAsset(assetKey) {
+      activeMarketAsset = assetKey;
+      document.querySelectorAll('.metric-card').forEach(c => c.classList.remove('active'));
+      const card = document.getElementById('card-' + assetKey);
+      if (card) card.classList.add('active');
+
+      renderActiveChart();
+    }
+
+    // Filtro de Período (1M, 6M, 1A, MAX)
+    function setChartRange(range) {
+      activeRange = range;
+      document.querySelectorAll('.range-btn').forEach(btn => btn.classList.remove('active'));
+      const btn = document.getElementById('range-' + range);
+      if (btn) btn.classList.add('active');
+
+      renderActiveChart();
+    }
+
+    // Renderização e Plotagem do Gráfico Chart.js
+    function renderActiveChart() {
+      const meta = MARKET_ASSETS[activeMarketAsset];
+      const dataObj = marketDataCache[activeMarketAsset];
+      if (!meta || !dataObj || !dataObj.series) return;
+
+      const rawSeries = dataObj.series;
+      if (rawSeries.length === 0) return;
+
+      // Filtra pelo range selecionado
+      const now = new Date();
+      let days = 365;
+      if (activeRange === '1M') days = 30;
+      else if (activeRange === '6M') days = 180;
+      else if (activeRange === '1A') days = 365;
+      else if (activeRange === 'MAX') days = 365 * 5;
+
+      const cutoff = new Date(now.getTime() - (days * 24 * 60 * 60 * 1000));
+      let filtered = rawSeries.filter(p => p.rawDate >= cutoff);
+      if (filtered.length < 5) filtered = rawSeries.slice(-Math.min(rawSeries.length, 30));
+
+      const labels = filtered.map(p => p.date);
+      const values = filtered.map(p => p.value);
+
+      const firstVal = values[0];
+      const lastVal = values[values.length - 1];
+      const periodDiff = lastVal - firstVal;
+      const periodPct = firstVal !== 0 ? (periodDiff / firstVal) * 100 : 0;
+      const isPositive = periodDiff >= 0;
+
+      // Atualiza Cabeçalho do Gráfico
+      const titleEl = document.getElementById('chartActiveTitle');
+      const bigPriceEl = document.getElementById('chartBigPrice');
+      const bigChgEl = document.getElementById('chartBigChange');
+      const timeScopeEl = document.getElementById('chartTimeScope');
+      const badgeEl = document.getElementById('chartSourceBadge');
+
+      if (titleEl) titleEl.innerText = meta.title;
+      if (bigPriceEl) bigPriceEl.innerText = formatMarketVal(lastVal, activeMarketAsset);
+      if (bigChgEl) {
+        const sign = isPositive ? '+' : '';
+        bigChgEl.innerText = `${isPositive ? '▲' : '▼'} ${sign}${periodPct.toFixed(2).replace('.', ',')}% (${sign}${periodDiff.toFixed(2).replace('.', ',')})`;
+        bigChgEl.className = 'metric-change ' + (isPositive ? 'positive' : 'negative');
+      }
+      if (timeScopeEl) {
+        const rangeLabels = { '1M': 'Último mês', '6M': 'Últimos 6 meses', '1A': 'Último ano', 'MAX': 'Série completa' };
+        timeScopeEl.innerText = `(${rangeLabels[activeRange] || activeRange})`;
+      }
+      if (badgeEl) badgeEl.innerText = meta.source;
+
+      // Padrão rigoroso GAMA (Aptos / DM Sans, Azul #0006e0 institucional, sem grade poluída)
+      const lineColor = isPositive ? '#0006e0' : '#001b58';
+      const bgGradientColor = isPositive ? 'rgba(0, 6, 224, 0.08)' : 'rgba(0, 27, 88, 0.08)';
+
+      const ctx = document.getElementById('macroChart');
+      if (!ctx) return;
+
+      if (window.macroChartInstance) {
+        window.macroChartInstance.destroy();
+      }
 
       window.macroChartInstance = new Chart(ctx, {
         type: 'line',
         data: {
-          labels: dates,
-          datasets: [
-            {
-              label: 'Petróleo Brent (Var%)',
-              data: brentData,
-              borderColor: '#001b58',
-              backgroundColor: 'rgba(0, 27, 88, 0.08)',
-              borderWidth: 2.5,
-              tension: 0.2,
-              fill: true,
-              pointRadius: 3,
-              pointBackgroundColor: '#001b58'
-            },
-            {
-              label: 'USD/BRL (Var%)',
-              data: usdData,
-              borderColor: '#c9a84c',
-              backgroundColor: 'rgba(201, 168, 76, 0.05)',
-              borderWidth: 2,
-              tension: 0.2,
-              pointRadius: 3,
-              pointBackgroundColor: '#c9a84c'
-            }
-          ]
+          labels: labels,
+          datasets: [{
+            label: meta.name,
+            data: values,
+            borderColor: lineColor,
+            backgroundColor: bgGradientColor,
+            borderWidth: 2.25,
+            fill: true,
+            pointRadius: 0,
+            pointHoverRadius: 5,
+            pointHoverBackgroundColor: lineColor,
+            pointHoverBorderColor: '#ffffff',
+            pointHoverBorderWidth: 2,
+            tension: 0.15
+          }]
         },
         options: {
           responsive: true,
           maintainAspectRatio: false,
+          interaction: {
+            mode: 'index',
+            intersect: false
+          },
           plugins: {
             legend: { display: false },
             tooltip: {
+              backgroundColor: '#001b58',
+              titleFont: { family: 'DM Sans', size: 12, weight: 'bold' },
+              bodyFont: { family: 'DM Sans', size: 13 },
+              padding: 10,
+              displayColors: false,
               callbacks: {
                 label: function(context) {
-                  return context.dataset.label + ': ' + (context.parsed.y > 0 ? '+' : '') + context.parsed.y + '%';
+                  const val = context.parsed.y;
+                  return meta.name + ': ' + formatMarketVal(val, activeMarketAsset);
                 }
               }
             }
           },
           scales: {
             x: {
-              grid: { color: 'rgba(0, 27, 88, 0.05)' },
-              ticks: { font: { family: 'DM Sans', size: 11 } }
+              grid: { display: false },
+              ticks: {
+                maxTicksLimit: 8,
+                font: { family: 'DM Sans', size: 11 },
+                color: '#5e6b78'
+              }
             },
             y: {
-              grid: { color: 'rgba(0, 27, 88, 0.08)' },
+              grid: { color: 'rgba(0, 27, 88, 0.06)' },
               ticks: {
-                callback: function(val) { return val + '%'; },
-                font: { family: 'DM Sans', size: 11 }
+                font: { family: 'DM Sans', size: 11 },
+                color: '#5e6b78',
+                callback: function(val) {
+                  if (activeMarketAsset === 'SELIC' || activeMarketAsset === 'IPCA') return val.toFixed(1) + '%';
+                  if (activeMarketAsset === 'USDBRL' || activeMarketAsset === 'EURBRL') return 'R$ ' + val.toFixed(2);
+                  if (activeMarketAsset === 'IBOV' || activeMarketAsset === 'SPX') return val.toLocaleString('pt-BR');
+                  return val;
+                }
               }
             }
           }
@@ -2266,6 +2813,12 @@
       if (hash && document.getElementById('tab-' + hash)) {
         switchTab(hash);
       }
+
+      // Inicia busca das cotações e séries de mercado
+      loadMarketData();
+
+      // Atualização automática a cada 60 segundos
+      setInterval(loadMarketData, 60000);
 
       // Listener do botão de 3 traços no canto esquerdo
       const drawerBtn = document.getElementById('drawerToggleBtn');

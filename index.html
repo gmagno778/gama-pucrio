@@ -1301,10 +1301,10 @@
     }
 
     .footer-puc img {
-      height: 44px;
+      height: 48px;
       width: auto;
-      filter: brightness(0) invert(1);
-      opacity: 0.9;
+      display: block;
+      opacity: 0.92;
     }
 
     /* ── RESPONSIVIDADE ──────────────────────────────────────── */
@@ -2017,7 +2017,7 @@
         <span data-i18n="footer-text">Elaboração do site: Guilherme Pinheiro e Daniel Adler © 2026 GAMA – Grupo de Análise Macroeconômica Aplicada</span>
       </div>
       <div class="footer-puc">
-        <img src="lg-puc-rio.png" alt="PUC-Rio" onerror="this.style.display='none'">
+        <img src="lg-puc-white.png" alt="PUC-Rio" onerror="this.onerror=null; this.src='lg-puc-rio.png';">
         <span data-i18n="footer-dept">Departamento de Economia · PUC-Rio</span>
       </div>
     </div>
@@ -2641,14 +2641,8 @@
             };
 
             const selicValEl = document.getElementById('val-SELIC');
-            const selicSubEl = document.getElementById('sub-SELIC');
-            const selicChgEl = document.getElementById('chg-SELIC');
             if (selicValEl) selicValEl.innerText = curr.toFixed(2).replace('.', ',') + '%';
-            if (selicSubEl) selicSubEl.innerText = `Última mudança: ${lastChangeDate}`;
-            if (selicChgEl) {
-              selicChgEl.innerText = chgStr;
-              selicChgEl.className = 'metric-change ' + (diff >= 0 ? 'positive' : 'negative');
-            }
+            updateSpecialMarketCardsLang();
           }
         }
 
@@ -2686,12 +2680,8 @@
             };
 
             const ipcaValEl = document.getElementById('val-IPCA');
-            const ipcaChgEl = document.getElementById('chg-IPCA');
             if (ipcaValEl) ipcaValEl.innerText = curr12.toFixed(2).replace('.', ',') + '% a.a.';
-            if (ipcaChgEl) {
-              ipcaChgEl.innerText = `${mensalStr} no mês`;
-              ipcaChgEl.className = 'metric-change ' + (parseFloat(mensalStr) >= 0 ? 'positive' : 'negative');
-            }
+            updateSpecialMarketCardsLang();
           }
         }
       } catch (err) {
@@ -2767,34 +2757,33 @@
     function updateSpecialMarketCardsLang() {
       const isEn = currentLang === 'en';
       const selicData = marketDataCache['SELIC'];
-      if (selicData) {
-        const subEl = document.getElementById('sub-SELIC');
-        const chgEl = document.getElementById('chg-SELIC');
-        if (subEl) {
-          subEl.innerText = isEn ? `Last change: ${selicData.lastChange}` : `Última mudança: ${selicData.lastChange}`;
-        }
-        if (chgEl) {
-          const diff = selicData.pctChange;
-          if (diff === 0) {
-            chgEl.innerText = isEn ? 'No recent change' : 'Sem alteração recente';
-          } else {
-            const arrow = diff > 0 ? '▲' : '▼';
-            const sign = diff > 0 ? '+' : '';
-            chgEl.innerText = `${arrow} ${sign}${diff.toFixed(2).replace('.', ',')} p.p. (Copom)`;
-          }
+      const subSelicEl = document.getElementById('sub-SELIC');
+      const chgSelicEl = document.getElementById('chg-SELIC');
+
+      const lastDate = selicData ? selicData.lastChange : '06/08/2026';
+      if (subSelicEl) {
+        subSelicEl.innerText = isEn ? `Last change: ${lastDate}` : `Última mudança: ${lastDate}`;
+      }
+      if (chgSelicEl) {
+        const diff = selicData ? selicData.pctChange : -0.25;
+        if (diff === 0) {
+          chgSelicEl.innerText = isEn ? 'No recent change' : 'Sem alteração recente';
+        } else {
+          const arrow = diff > 0 ? '▲' : '▼';
+          const sign = diff > 0 ? '+' : '';
+          chgSelicEl.innerText = `${arrow} ${sign}${diff.toFixed(2).replace('.', ',')} p.p. (Copom)`;
         }
       }
 
       const ipcaData = marketDataCache['IPCA'];
-      if (ipcaData) {
-        const subEl = document.getElementById('sub-IPCA');
-        const chgEl = document.getElementById('chg-IPCA');
-        if (subEl) {
-          subEl.innerText = isEn ? '12-month accumulated' : 'Acumulado 12 meses';
-        }
-        if (chgEl && ipcaData.mensal) {
-          chgEl.innerText = isEn ? `${ipcaData.mensal} this month` : `${ipcaData.mensal} no mês`;
-        }
+      const subIpcaEl = document.getElementById('sub-IPCA');
+      const chgIpcaEl = document.getElementById('chg-IPCA');
+      if (subIpcaEl) {
+        subIpcaEl.innerText = isEn ? '12-month accumulated' : 'Acumulado 12 meses';
+      }
+      if (chgIpcaEl) {
+        const mStr = (ipcaData && ipcaData.mensal) ? ipcaData.mensal : '+0,07%';
+        chgIpcaEl.innerText = isEn ? `${mStr} this month` : `${mStr} no mês`;
       }
     }
 

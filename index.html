@@ -144,6 +144,42 @@
       align-items: center;
       justify-content: space-between;
       height: 74px;
+      gap: 1.5rem;
+    }
+
+    .header-left-group {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+    }
+
+    /* Botão Hambúrguer Padrão (Canto Esquerdo com 3 traços) */
+    .drawer-toggle-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: var(--radius-sm);
+      padding: 8px 10px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.2s ease;
+    }
+
+    .drawer-toggle-btn:hover {
+      background: rgba(255, 255, 255, 0.18);
+      border-color: #ffffff;
+    }
+
+    .drawer-toggle-btn span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: #ffffff;
+      border-radius: 1px;
+      transition: all 0.2s ease;
     }
 
     .nav-logo {
@@ -180,11 +216,11 @@
       text-transform: uppercase;
     }
 
-    /* Abas de Navegação */
+    /* Abas de Navegação no Header */
     .tabs-nav {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.4rem;
       list-style: none;
     }
 
@@ -214,23 +250,126 @@
       border-color: rgba(255, 255, 255, 0.2);
     }
 
-    /* Menu Mobile Hamburger */
-    .mobile-hamburger {
-      display: none;
-      background: none;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: var(--radius-sm);
-      padding: 6px 8px;
-      cursor: pointer;
+    /* ── MENU LATERAL (OFF-CANVAS DRAWER DO CANTO ESQUERDO) ── */
+    .drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 6, 46, 0.7);
+      backdrop-filter: blur(4px);
+      z-index: 999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
     }
 
-    .mobile-hamburger span {
-      display: block;
-      width: 22px;
-      height: 2px;
-      background: var(--white);
-      margin: 4px 0;
-      transition: all 0.25s;
+    .drawer-overlay.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .side-drawer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 320px;
+      max-width: 85vw;
+      background: var(--navy-deep);
+      z-index: 1000;
+      transform: translateX(-100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 10px 0 35px rgba(0, 0, 0, 0.5);
+    }
+
+    .side-drawer.is-open {
+      transform: translateX(0);
+    }
+
+    .drawer-header {
+      padding: 1.5rem 1.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .drawer-close-btn {
+      background: none;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      width: 34px;
+      height: 34px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+
+    .drawer-close-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .drawer-nav {
+      padding: 1.5rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      flex: 1;
+      overflow-y: auto;
+    }
+
+    .drawer-item-btn {
+      background: none;
+      border: none;
+      text-align: left;
+      color: rgba(255, 255, 255, 0.75);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      padding: 0.8rem 1.2rem;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.2s;
+    }
+
+    .drawer-item-btn:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .drawer-item-btn.active {
+      color: #ffffff;
+      background: var(--blue-mid);
+      font-weight: 600;
+    }
+
+    .drawer-footer {
+      padding: 1.5rem 1.8rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .drawer-footer a {
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.6);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .drawer-footer a:hover {
+      color: #ffffff;
     }
 
     /* ── CONTEÚDO DAS ABAS (TAB PANELS) ──────────────────────── */
@@ -855,7 +994,7 @@
     /* ── FOOTER ──────────────────────────────────────────────── */
     footer {
       background: var(--navy-deep);
-      color: rgba(255, 255, 255, 0.6);
+      color: rgba(255, 255, 255, 0.65);
       padding: 2.5rem 0;
       border-top: 1px solid rgba(255, 255, 255, 0.08);
       font-size: 0.8rem;
@@ -865,19 +1004,20 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 1.5rem;
     }
 
     .footer-puc {
       display: flex;
       align-items: center;
-      gap: 0.8rem;
+      gap: 0.9rem;
     }
 
     .footer-puc img {
-      height: 28px;
+      height: 44px;
       width: auto;
       filter: brightness(0) invert(1);
-      opacity: 0.7;
+      opacity: 0.9;
     }
 
     /* ── RESPONSIVIDADE ──────────────────────────────────────── */
@@ -892,26 +1032,6 @@
       }
       .tabs-nav {
         display: none;
-      }
-      .mobile-hamburger {
-        display: block;
-      }
-      .tabs-nav.is-open {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        position: fixed;
-        top: 104px;
-        left: 0;
-        right: 0;
-        background: var(--navy);
-        padding: 1.5rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        gap: 0.5rem;
-      }
-      .tab-btn {
-        text-align: left;
-        padding: 0.75rem 1rem;
       }
     }
 
@@ -951,19 +1071,29 @@
   </div>
 
   <!-- ========================================================================
-       CABEÇALHO & MENU DE ABAS
+       CABEÇALHO COM MENU DO CANTO ESQUERDO & NAVEGAÇÃO DE ABAS
        ======================================================================== -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="#inicio" class="nav-logo" onclick="switchTab('inicio'); return false;">
-        <img src="logo grande.png" alt="GAMA" onerror="this.style.display='none'">
-        <div class="nav-logo-text">
-          <span>GAMA</span>
-          <span data-i18n="nav-sub">Núcleo de Macroeconomia · PUC-Rio</span>
-        </div>
-      </a>
+      
+      <!-- Canto Esquerdo: Botão 3 Traços + Logotipo GAMA -->
+      <div class="header-left-group">
+        <button class="drawer-toggle-btn" id="drawerToggleBtn" aria-label="Abrir Menu Principal">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
 
-      <!-- Menu em Formato de Abas -->
+        <a href="#inicio" class="nav-logo" onclick="switchTab('inicio'); return false;">
+          <img src="logo grande.png" alt="GAMA" onerror="this.style.display='none'">
+          <div class="nav-logo-text">
+            <span>GAMA</span>
+            <span data-i18n="nav-sub">Núcleo de Macroeconomia · PUC-Rio</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Abas no Cabeçalho Desktop -->
       <nav aria-label="Abas de Navegação">
         <ul class="tabs-nav" id="tabsNav">
           <li><button class="tab-btn active" data-tab="inicio" onclick="switchTab('inicio')"><span data-i18n="tab-inicio">Início</span></button></li>
@@ -976,13 +1106,63 @@
         </ul>
       </nav>
 
-      <button class="mobile-hamburger" id="mobileHamburger" aria-label="Abrir Menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
     </div>
   </header>
+
+  <!-- ========================================================================
+       MENU LATERAL (OFF-CANVAS DRAWER DO CANTO ESQUERDO COM 3 TRAÇOS)
+       ======================================================================== -->
+  <div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
+  <aside class="side-drawer" id="sideDrawer" aria-label="Menu Lateral">
+    <div class="drawer-header">
+      <div class="nav-logo">
+        <img src="logo grande.png" alt="GAMA" style="height: 32px; width: auto;" onerror="this.style.display='none'">
+        <div class="nav-logo-text">
+          <span style="color:#fff; font-size:1.1rem; font-weight:700;">GAMA</span>
+        </div>
+      </div>
+      <button class="drawer-close-btn" id="drawerCloseBtn" aria-label="Fechar Menu" onclick="closeDrawer()">✕</button>
+    </div>
+
+    <nav class="drawer-nav">
+      <button class="drawer-item-btn active" data-tab="inicio" onclick="drawerSwitchTab('inicio')">
+        <span data-i18n="tab-inicio">Início</span> <span>→</span>
+      </button>
+      <button class="drawer-item-btn" data-tab="sobre" onclick="drawerSwitchTab('sobre')">
+        <span data-i18n="tab-sobre">Sobre</span> <span>→</span>
+      </button>
+      <button class="drawer-item-btn" data-tab="cartas" onclick="drawerSwitchTab('cartas')">
+        <span data-i18n="tab-cartas">Cartas de Conjuntura</span> <span>→</span>
+      </button>
+      <button class="drawer-item-btn" data-tab="relatorios" onclick="drawerSwitchTab('relatorios')">
+        <span data-i18n="tab-relatorios">Relatórios Especiais</span> <span>→</span>
+      </button>
+      <button class="drawer-item-btn" data-tab="ps" onclick="drawerSwitchTab('ps')">
+        <span data-i18n="tab-ps">Processo Seletivo</span> <span>→</span>
+      </button>
+      <button class="drawer-item-btn" data-tab="equipe" onclick="drawerSwitchTab('equipe')">
+        <span data-i18n="tab-equipe">Nossa Equipe</span> <span>→</span>
+      </button>
+      <button class="drawer-item-btn" data-tab="contato" onclick="drawerSwitchTab('contato')">
+        <span data-i18n="tab-contato">Contato</span> <span>→</span>
+      </button>
+    </nav>
+
+    <div class="drawer-footer">
+      <a href="cartas/Carta de Conjuntura - Maio 26.pdf" target="_blank" style="color: var(--accent-gold); font-weight: 600;">
+        <span>📄</span> <span data-i18n="drawer-pdf">Baixar Última Carta (Maio 2026)</span>
+      </a>
+      <a href="https://www.linkedin.com/company/gama-puc-rio/" target="_blank">
+        <span>🔗</span> LinkedIn: GAMA - PUC-Rio
+      </a>
+      <a href="https://www.instagram.com/gama_pucrio/" target="_blank">
+        <span>📸</span> Instagram: @gama_pucrio
+      </a>
+      <a href="mailto:gama.diretoriadepessoas@gmail.com">
+        <span>✉</span> gama.diretoriadepessoas@gmail.com
+      </a>
+    </div>
+  </aside>
 
   <main class="main-content">
     
@@ -1353,10 +1533,10 @@
   <footer>
     <div class="container footer-inner">
       <div>
-        <span data-i18n="footer-text">Elaboração do site: Guilherme Pinheiro © 2026 GAMA – Grupo de Análise Macroeconômica Aplicada</span>
+        <span data-i18n="footer-text">Elaboração do site: Guilherme Pinheiro e Daniel Adler © 2026 GAMA – Grupo de Análise Macroeconômica Aplicada</span>
       </div>
       <div class="footer-puc">
-        <img src="logo_puc.png" alt="PUC-Rio" onerror="this.style.display='none'">
+        <img src="lg-puc-rio.png" alt="PUC-Rio" onerror="this.style.display='none'">
         <span data-i18n="footer-dept">Departamento de Economia · PUC-Rio</span>
       </div>
     </div>
@@ -1378,6 +1558,7 @@
         "tab-ps": "PS",
         "tab-equipe": "Equipe",
         "tab-contato": "Contato",
+        "drawer-pdf": "Baixar Última Carta (Maio 2026)",
         
         "hero-eyebrow": "PUC-Rio · Departamento de Economia",
         "hero-title": "Análise macroeconômica aplicada para fora da sala de aula.",
@@ -1452,7 +1633,7 @@
         "form-btn": "Enviar Mensagem",
         "form-help": "Ao clicar em enviar, seu aplicativo de e-mail padrão será aberto com a mensagem pronta para envio direto para gama.diretoriadepessoas@gmail.com.",
         
-        "footer-text": "Elaboração do site: Guilherme Pinheiro © 2026 GAMA – Grupo de Análise Macroeconômica Aplicada",
+        "footer-text": "Elaboração do site: Guilherme Pinheiro e Daniel Adler © 2026 GAMA – Grupo de Análise Macroeconômica Aplicada",
         "footer-dept": "Departamento de Economia · PUC-Rio"
       },
       en: {
@@ -1465,6 +1646,7 @@
         "tab-ps": "Admissions",
         "tab-equipe": "Team",
         "tab-contato": "Contact",
+        "drawer-pdf": "Download Latest Letter (May 2026)",
         
         "hero-eyebrow": "PUC-Rio · Department of Economics",
         "hero-title": "Applied macroeconomic analysis beyond the classroom.",
@@ -1539,7 +1721,7 @@
         "form-btn": "Send Message",
         "form-help": "Clicking send will launch your default email client with a pre-filled draft directly addressed to gama.diretoriadepessoas@gmail.com.",
         
-        "footer-text": "Website development: Guilherme Pinheiro © 2026 GAMA – Applied Macroeconomic Analysis Group",
+        "footer-text": "Website development: Guilherme Pinheiro and Daniel Adler © 2026 GAMA – Applied Macroeconomic Analysis Group",
         "footer-dept": "Department of Economics · PUC-Rio"
       }
     };
@@ -1573,6 +1755,12 @@
           btn.classList.add('active');
         }
       });
+      document.querySelectorAll('.drawer-item-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.getAttribute('data-tab') === tabId) {
+          btn.classList.add('active');
+        }
+      });
 
       const target = document.getElementById('tab-' + tabId);
       if (target) {
@@ -1580,10 +1768,22 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
         history.replaceState(null, '', '#' + tabId);
       }
+    }
 
-      // Fecha menu mobile se estiver aberto
-      const tabsNav = document.getElementById('tabsNav');
-      if (tabsNav) tabsNav.classList.remove('is-open');
+    // Controle do Drawer Lateral do Canto Esquerdo
+    function openDrawer() {
+      document.getElementById('sideDrawer').classList.add('is-open');
+      document.getElementById('drawerOverlay').classList.add('is-open');
+    }
+
+    function closeDrawer() {
+      document.getElementById('sideDrawer').classList.remove('is-open');
+      document.getElementById('drawerOverlay').classList.remove('is-open');
+    }
+
+    function drawerSwitchTab(tabId) {
+      switchTab(tabId);
+      closeDrawer();
     }
 
     // Manipulação do Formulário de Contato
@@ -1610,13 +1810,10 @@
         switchTab(hash);
       }
 
-      // Menu Mobile toggle
-      const mobileBtn = document.getElementById('mobileHamburger');
-      const tabsNav = document.getElementById('tabsNav');
-      if (mobileBtn && tabsNav) {
-        mobileBtn.addEventListener('click', () => {
-          tabsNav.classList.toggle('is-open');
-        });
+      // Listener do botão de 3 traços no canto esquerdo
+      const drawerBtn = document.getElementById('drawerToggleBtn');
+      if (drawerBtn) {
+        drawerBtn.addEventListener('click', openDrawer);
       }
     });
   </script>

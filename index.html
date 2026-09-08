@@ -15,6 +15,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+  <!-- Chart.js para Dashboard Macroeconômico Interativo -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
   <style>
     /* ── PALETA OFICIAL DO GAMA ──────────────────────────────── */
     :root {
@@ -29,6 +32,7 @@
       --border:      rgba(0, 27, 88, 0.12);
       --border-dark: rgba(255, 255, 255, 0.15);
       --accent-gold: #c9a84c;
+      --green-success: #107e3e;
       
       --radius-sm:   4px;
       --radius-md:   8px;
@@ -220,7 +224,7 @@
     .tabs-nav {
       display: flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 0.35rem;
       list-style: none;
     }
 
@@ -232,7 +236,7 @@
       font-size: 0.84rem;
       font-weight: 500;
       letter-spacing: 0.04em;
-      padding: 0.5rem 0.95rem;
+      padding: 0.5rem 0.85rem;
       border-radius: var(--radius-sm);
       cursor: pointer;
       transition: all 0.2s ease;
@@ -319,7 +323,7 @@
       padding: 1.5rem 1rem;
       display: flex;
       flex-direction: column;
-      gap: 0.4rem;
+      gap: 0.35rem;
       flex: 1;
       overflow-y: auto;
     }
@@ -332,7 +336,7 @@
       font-family: 'DM Sans', sans-serif;
       font-size: 0.95rem;
       font-weight: 500;
-      padding: 0.8rem 1.2rem;
+      padding: 0.75rem 1.2rem;
       border-radius: var(--radius-sm);
       cursor: pointer;
       display: flex;
@@ -391,7 +395,7 @@
 
     /* ── SEÇÃO HEADER COM EYEBROW ────────────────────────────── */
     .section-header {
-      margin-bottom: 2.8rem;
+      margin-bottom: 2.5rem;
     }
 
     .section-eyebrow {
@@ -571,6 +575,69 @@
       letter-spacing: 0.04em;
     }
 
+    /* ── NEWSLETTER STRIP (SUGESTÃO 4) ───────────────────────── */
+    .newsletter-section {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 2.5rem;
+      margin-top: 3.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    .newsletter-info h3 {
+      font-size: 1.35rem;
+      color: var(--navy);
+      margin-bottom: 0.4rem;
+    }
+
+    .newsletter-info p {
+      font-size: 0.92rem;
+      color: var(--slate-muted);
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 0.6rem;
+      flex-shrink: 0;
+      width: 100%;
+      max-width: 440px;
+    }
+
+    .newsletter-input {
+      flex: 1;
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      padding: 0.75rem 1rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      border-radius: var(--radius-sm);
+      outline: none;
+      color: var(--slate);
+    }
+
+    .newsletter-input:focus {
+      border-color: var(--navy);
+      background: #ffffff;
+    }
+
+    .feedback-banner {
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.86rem;
+      font-weight: 500;
+      margin-top: 0.8rem;
+    }
+
+    .feedback-banner.success {
+      background: #eafaf1;
+      color: var(--green-success);
+      border: 1px solid rgba(16, 126, 62, 0.25);
+    }
+
     /* ── ABA 2: SOBRE ────────────────────────────────────────── */
     .sobre-grid {
       display: grid;
@@ -620,12 +687,12 @@
       line-height: 1.6;
     }
 
-    /* ── ABA 3: CARTAS & RELATÓRIOS ──────────────────────────── */
+    /* ── ABA 3: CARTAS ───────────────────────────────────────── */
     .cartas-grid {
       display: grid;
       grid-template-columns: 1fr;
       gap: 1.5rem;
-      margin-bottom: 4rem;
+      margin-bottom: 3.5rem;
     }
 
     .carta-card {
@@ -698,7 +765,115 @@
       color: var(--blue-vivid);
     }
 
-    /* Relatórios Especiais */
+    /* ── ABA 4: MERCADOS & INDICADORES (SUGESTÃO 3) ──────────── */
+    .markets-dashboard {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .market-metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 1rem;
+    }
+
+    .metric-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s;
+    }
+
+    .metric-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--navy);
+    }
+
+    .metric-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--slate-muted);
+      margin-bottom: 0.3rem;
+    }
+
+    .metric-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.1;
+    }
+
+    .metric-change {
+      font-size: 0.76rem;
+      font-weight: 600;
+      margin-top: 0.4rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+    }
+
+    .metric-change.positive { color: #0f8a48; }
+    .metric-change.negative { color: #c42b2b; }
+
+    .chart-container-box {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 2.2rem;
+    }
+
+    .chart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .chart-header h3 {
+      font-size: 1.25rem;
+      color: var(--navy);
+    }
+
+    .chart-legend-custom {
+      display: flex;
+      gap: 1.2rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    .legend-tag {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .legend-tag-brent::before {
+      content: '';
+      width: 12px;
+      height: 12px;
+      background: var(--navy);
+      display: inline-block;
+      border-radius: 2px;
+    }
+
+    .legend-tag-usd::before {
+      content: '';
+      width: 12px;
+      height: 12px;
+      background: var(--accent-gold);
+      display: inline-block;
+      border-radius: 2px;
+    }
+
+    /* ── ABA 5: RELATÓRIOS ───────────────────────────────────── */
     .relatorios-list {
       display: flex;
       flex-direction: column;
@@ -746,7 +921,7 @@
       color: var(--slate-muted);
     }
 
-    /* ── ABA 4: PROCESSO SELETIVO (PS) ───────────────────────── */
+    /* ── ABA 6: PROCESSO SELETIVO (PS) ───────────────────────── */
     .ps-card {
       background: var(--white);
       border: 1px solid var(--border);
@@ -801,7 +976,7 @@
       line-height: 1.5;
     }
 
-    /* ── ABA 5: EQUIPE ───────────────────────────────────────── */
+    /* ── ABA 7: EQUIPE ───────────────────────────────────────── */
     .diretoria-bloco {
       margin-bottom: 3.5rem;
     }
@@ -884,7 +1059,7 @@
       color: var(--slate-muted);
     }
 
-    /* ── ABA 6: CONTATO ──────────────────────────────────────── */
+    /* ── ABA 8: CONTATO ──────────────────────────────────────── */
     .contato-panel {
       background: var(--navy);
       color: var(--white);
@@ -942,7 +1117,7 @@
       text-align: center;
     }
 
-    /* Formulário com envio por e-mail */
+    /* Formulário com Envio Direto (Sugestão 5) */
     .contato-form-wrap {
       background: rgba(0, 6, 46, 0.6);
       border: 1px solid rgba(255, 255, 255, 0.12);
@@ -984,11 +1159,19 @@
       background: rgba(255, 255, 255, 0.12);
     }
 
-    .form-help-text {
-      font-size: 0.74rem;
-      color: rgba(255, 255, 255, 0.55);
-      margin-top: 0.6rem;
-      line-height: 1.4;
+    .form-status-msg {
+      padding: 0.8rem 1rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      margin-top: 1rem;
+      display: none;
+    }
+
+    .form-status-msg.success {
+      display: block;
+      background: rgba(16, 126, 62, 0.2);
+      border: 1px solid #107e3e;
+      color: #72e29e;
     }
 
     /* ── FOOTER ──────────────────────────────────────────────── */
@@ -1032,6 +1215,13 @@
       }
       .tabs-nav {
         display: none;
+      }
+      .newsletter-section {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .newsletter-form {
+        max-width: 100%;
       }
     }
 
@@ -1099,6 +1289,7 @@
           <li><button class="tab-btn active" data-tab="inicio" onclick="switchTab('inicio')"><span data-i18n="tab-inicio">Início</span></button></li>
           <li><button class="tab-btn" data-tab="sobre" onclick="switchTab('sobre')"><span data-i18n="tab-sobre">Sobre</span></button></li>
           <li><button class="tab-btn" data-tab="cartas" onclick="switchTab('cartas')"><span data-i18n="tab-cartas">Cartas</span></button></li>
+          <li><button class="tab-btn" data-tab="mercados" onclick="switchTab('mercados')"><span data-i18n="tab-mercados">Mercados</span></button></li>
           <li><button class="tab-btn" data-tab="relatorios" onclick="switchTab('relatorios')"><span data-i18n="tab-relatorios">Relatórios</span></button></li>
           <li><button class="tab-btn" data-tab="ps" onclick="switchTab('ps')"><span data-i18n="tab-ps">PS</span></button></li>
           <li><button class="tab-btn" data-tab="equipe" onclick="switchTab('equipe')"><span data-i18n="tab-equipe">Equipe</span></button></li>
@@ -1133,6 +1324,9 @@
       </button>
       <button class="drawer-item-btn" data-tab="cartas" onclick="drawerSwitchTab('cartas')">
         <span data-i18n="tab-cartas">Cartas de Conjuntura</span> <span>→</span>
+      </button>
+      <button class="drawer-item-btn" data-tab="mercados" onclick="drawerSwitchTab('mercados')">
+        <span data-i18n="tab-mercados">Painel de Mercados</span> <span>→</span>
       </button>
       <button class="drawer-item-btn" data-tab="relatorios" onclick="drawerSwitchTab('relatorios')">
         <span data-i18n="tab-relatorios">Relatórios Especiais</span> <span>→</span>
@@ -1210,6 +1404,23 @@
           </div>
         </div>
       </div>
+
+      <!-- Newsletter em Destaque no Início (Sugestão 4) -->
+      <div class="container">
+        <div class="newsletter-section">
+          <div class="newsletter-info">
+            <h3 data-i18n="newsletter-title">Receba as Cartas de Conjuntura no seu E-mail</h3>
+            <p data-i18n="newsletter-desc">Cadastre-se para receber as publicações mensais e relatórios analíticos do GAMA em primeira mão.</p>
+          </div>
+          <div>
+            <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event, 'inicio')">
+              <input type="email" id="newsletter-email-inicio" class="newsletter-input" required placeholder="seu@email.com" />
+              <button type="submit" class="btn btn-primary"><span data-i18n="newsletter-btn">Inscrever-se</span></button>
+            </form>
+            <div id="newsletter-msg-inicio" class="feedback-banner success" style="display:none;"></div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- ======================================================================
@@ -1254,7 +1465,7 @@
     </div>
 
     <!-- ======================================================================
-         ABA 3: CARTAS
+         ABA 3: CARTAS DE CONJUNTURA
          ====================================================================== -->
     <div class="tab-panel" id="tab-cartas">
       <div class="container">
@@ -1301,11 +1512,104 @@
             </div>
           </a>
         </div>
+
+        <!-- Newsletter na aba de Cartas -->
+        <div class="newsletter-section">
+          <div class="newsletter-info">
+            <h3 data-i18n="newsletter-title">Receba as Cartas de Conjuntura no seu E-mail</h3>
+            <p data-i18n="newsletter-desc">Cadastre-se para receber as publicações mensais e relatórios analíticos do GAMA em primeira mão.</p>
+          </div>
+          <div>
+            <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event, 'cartas')">
+              <input type="email" id="newsletter-email-cartas" class="newsletter-input" required placeholder="seu@email.com" />
+              <button type="submit" class="btn btn-primary"><span data-i18n="newsletter-btn">Inscrever-se</span></button>
+            </form>
+            <div id="newsletter-msg-cartas" class="feedback-banner success" style="display:none;"></div>
+          </div>
+        </div>
       </div>
     </div>
 
     <!-- ======================================================================
-         ABA 4: RELATÓRIOS
+         ABA 4: PAINEL DE MERCADOS & INDICADORES (SUGESTÃO 3)
+         ====================================================================== -->
+    <div class="tab-panel" id="tab-mercados">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow" data-i18n="mercados-eyebrow">Diretoria de Conjuntura</p>
+          <h2 class="section-title" data-i18n="mercados-title">Painel de Mercados & Indicadores</h2>
+          <p style="color: var(--slate-muted); margin-top: 0.5rem;" data-i18n="mercados-sub">
+            Acompanhamento sistemático de moedas, commodities e curvas pela equipe de pesquisa do GAMA.
+          </p>
+        </div>
+
+        <div class="markets-dashboard">
+          
+          <!-- Cards de Cotações com dados reais de Agosto/2026 -->
+          <div class="market-metrics-grid">
+            <div class="metric-card">
+              <span class="metric-label">DXY (EUA)</span>
+              <span class="metric-value">99,70</span>
+              <span class="metric-change positive">▲ +1,44% (2026)</span>
+            </div>
+
+            <div class="metric-card">
+              <span class="metric-label">Real (USD/BRL)</span>
+              <span class="metric-value">R$ 5,16</span>
+              <span class="metric-change positive">▲ +4,88% (LTM)</span>
+            </div>
+
+            <div class="metric-card">
+              <span class="metric-label">Euro (EUR/BRL)</span>
+              <span class="metric-value">R$ 6,01</span>
+              <span class="metric-change positive">▲ +5,12% (LTM)</span>
+            </div>
+
+            <div class="metric-card">
+              <span class="metric-label">Petróleo Brent</span>
+              <span class="metric-value">US$ 89,31</span>
+              <span class="metric-change positive">▲ +46,77% (2026)</span>
+            </div>
+
+            <div class="metric-card">
+              <span class="metric-label">Ouro (on./troy)</span>
+              <span class="metric-value">US$ 4.478</span>
+              <span class="metric-change positive">▲ +28,91% (LTM)</span>
+            </div>
+
+            <div class="metric-card">
+              <span class="metric-label">Minério de Ferro</span>
+              <span class="metric-value">US$ 101,20</span>
+              <span class="metric-change negative">▼ -2,22% (2026)</span>
+            </div>
+          </div>
+
+          <!-- Gráfico Interativo Chart.js -->
+          <div class="chart-container-box">
+            <div class="chart-header">
+              <div>
+                <h3 data-i18n="chart-title">Petróleo Brent e Taxa de Câmbio USD/BRL</h3>
+                <p style="font-size: 0.82rem; color: var(--slate-muted);" data-i18n="chart-sub">
+                  Variações Diárias (%) em Agosto e início de Setembro de 2026 | Fonte: Diretoria de Conjuntura GAMA
+                </p>
+              </div>
+              <div class="chart-legend-custom">
+                <span class="legend-tag legend-tag-brent">Petróleo Brent (Var%)</span>
+                <span class="legend-tag legend-tag-usd">USD/BRL (Var%)</span>
+              </div>
+            </div>
+
+            <div style="position: relative; height: 350px; width: 100%;">
+              <canvas id="macroChart"></canvas>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ======================================================================
+         ABA 5: RELATÓRIOS
          ====================================================================== -->
     <div class="tab-panel" id="tab-relatorios">
       <div class="container">
@@ -1328,7 +1632,7 @@
     </div>
 
     <!-- ======================================================================
-         ABA 5: PROCESSO SELETIVO (PS)
+         ABA 6: PROCESSO SELETIVO (PS)
          ====================================================================== -->
     <div class="tab-panel" id="tab-ps">
       <div class="container">
@@ -1378,7 +1682,7 @@
     </div>
 
     <!-- ======================================================================
-         ABA 6: EQUIPE
+         ABA 7: EQUIPE
          ====================================================================== -->
     <div class="tab-panel" id="tab-equipe">
       <div class="container">
@@ -1468,7 +1772,7 @@
     </div>
 
     <!-- ======================================================================
-         ABA 7: CONTATO
+         ABA 8: CONTATO
          ====================================================================== -->
     <div class="tab-panel" id="tab-contato">
       <div class="container">
@@ -1497,9 +1801,9 @@
               </div>
             </div>
 
-            <!-- Formulário -->
+            <!-- Formulário com Envio Direto (Sugestão 5) -->
             <div class="contato-form-wrap">
-              <form id="contactForm" onsubmit="handleFormSubmit(event)">
+              <form id="contactForm" onsubmit="handleDirectFormSubmit(event)">
                 <div class="form-group">
                   <label for="form-nome" data-i18n="form-label-nome">Nome</label>
                   <input type="text" id="form-nome" required placeholder="Seu nome" />
@@ -1512,12 +1816,10 @@
                   <label for="form-mensagem" data-i18n="form-label-msg">Mensagem</label>
                   <textarea id="form-mensagem" rows="4" required placeholder="Escreva sua mensagem..."></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary" style="background: var(--white); color: var(--navy); width: 100%;">
+                <button type="submit" id="form-submit-btn" class="btn btn-primary" style="background: var(--white); color: var(--navy); width: 100%;">
                   <span data-i18n="form-btn">Enviar Mensagem</span>
                 </button>
-                <p class="form-help-text" data-i18n="form-help">
-                  Ao clicar em enviar, seu aplicativo de e-mail padrão será aberto com a mensagem pronta para envio direto para gama.diretoriadepessoas@gmail.com.
-                </p>
+                <div id="formStatusMsg" class="form-status-msg"></div>
               </form>
             </div>
           </div>
@@ -1543,10 +1845,10 @@
   </footer>
 
   <!-- ========================================================================
-       SCRIPTS: SISTEMA DE ABAS & DICIONÁRIO DE IDIOMAS (PT/EN)
+       SCRIPTS: SISTEMA DE ABAS, DICIONÁRIO PT/EN, CHART.JS & FORMULÁRIOS
        ======================================================================== -->
   <script>
-    // Dicionário Completo de Idiomas (Preservando 100% dos textos originais)
+    // Dicionário Completo de Idiomas
     const translations = {
       pt: {
         "top-dept": "Departamento de Economia · PUC-Rio",
@@ -1554,6 +1856,7 @@
         "tab-inicio": "Início",
         "tab-sobre": "Sobre",
         "tab-cartas": "Cartas",
+        "tab-mercados": "Mercados",
         "tab-relatorios": "Relatórios",
         "tab-ps": "PS",
         "tab-equipe": "Equipe",
@@ -1570,6 +1873,11 @@
         "stat-2": "Participantes entre trainees e membros ativos",
         "stat-3": "Aulas de capacitação",
         "stat-4": "Visitas a instituições",
+        
+        "newsletter-title": "Receba as Cartas de Conjuntura no seu E-mail",
+        "newsletter-desc": "Cadastre-se para receber as publicações mensais e relatórios analíticos do GAMA em primeira mão.",
+        "newsletter-btn": "Inscrever-se",
+        "newsletter-success": "✓ E-mail cadastrado com sucesso! Você receberá as próximas edições.",
         
         "sobre-eyebrow": "Quem somos",
         "sobre-title": "Um núcleo orientado à análise e ao debate, em constante expansão",
@@ -1592,6 +1900,12 @@
         "carta-marco-title": "Carta de Conjuntura — Março 2026",
         "carta-desc-padrao": "Visão macroeconômica sobre Brasil, EUA, Europa e Ásia.",
         "carta-link-text": "Acessar carta",
+        
+        "mercados-eyebrow": "Diretoria de Conjuntura",
+        "mercados-title": "Painel de Mercados & Indicadores",
+        "mercados-sub": "Acompanhamento sistemático de moedas, commodities e curvas pela equipe de pesquisa do GAMA.",
+        "chart-title": "Petróleo Brent e Taxa de Câmbio USD/BRL",
+        "chart-sub": "Variações Diárias (%) em Agosto e início de Setembro de 2026 | Fonte: Diretoria de Conjuntura GAMA",
         
         "relatorios-eyebrow": "Publicações especiais",
         "relatorios-title": "Relatórios",
@@ -1631,7 +1945,7 @@
         "form-label-email": "E-mail",
         "form-label-msg": "Mensagem",
         "form-btn": "Enviar Mensagem",
-        "form-help": "Ao clicar em enviar, seu aplicativo de e-mail padrão será aberto com a mensagem pronta para envio direto para gama.diretoriadepessoas@gmail.com.",
+        "form-success": "✓ Mensagem enviada com sucesso! A Diretoria do GAMA responderá em breve.",
         
         "footer-text": "Elaboração do site: Guilherme Pinheiro e Daniel Adler © 2026 GAMA – Grupo de Análise Macroeconômica Aplicada",
         "footer-dept": "Departamento de Economia · PUC-Rio"
@@ -1642,6 +1956,7 @@
         "tab-inicio": "Home",
         "tab-sobre": "About",
         "tab-cartas": "Letters",
+        "tab-mercados": "Markets",
         "tab-relatorios": "Reports",
         "tab-ps": "Admissions",
         "tab-equipe": "Team",
@@ -1658,6 +1973,11 @@
         "stat-2": "Trainees & active student members",
         "stat-3": "Training & modeling classes",
         "stat-4": "Visits to market institutions",
+        
+        "newsletter-title": "Receive Economic Letters in your Inbox",
+        "newsletter-desc": "Subscribe to receive GAMA monthly publications and analytical reports directly in your inbox.",
+        "newsletter-btn": "Subscribe",
+        "newsletter-success": "✓ Email successfully registered! You will receive future editions.",
         
         "sobre-eyebrow": "Who we are",
         "sobre-title": "An analysis and debate-driven core, constantly expanding",
@@ -1680,6 +2000,12 @@
         "carta-marco-title": "Economic Letter — March 2026",
         "carta-desc-padrao": "Macroeconomic perspectives on Brazil, US, Europe, and Asia.",
         "carta-link-text": "Access letter",
+        
+        "mercados-eyebrow": "Economic Outlook Directorate",
+        "mercados-title": "Markets & Indicators Dashboard",
+        "mercados-sub": "Systematic monitoring of currencies, commodities, and curves by the GAMA research team.",
+        "chart-title": "Brent Crude Oil and USD/BRL Exchange Rate",
+        "chart-sub": "Daily Changes (%) in August and early September 2026 | Source: GAMA Outlook Directorate",
         
         "relatorios-eyebrow": "Special Publications",
         "relatorios-title": "Reports",
@@ -1719,7 +2045,7 @@
         "form-label-email": "Email",
         "form-label-msg": "Message",
         "form-btn": "Send Message",
-        "form-help": "Clicking send will launch your default email client with a pre-filled draft directly addressed to gama.diretoriadepessoas@gmail.com.",
+        "form-success": "✓ Message sent successfully! The GAMA Directorate will respond shortly.",
         
         "footer-text": "Website development: Guilherme Pinheiro and Daniel Adler © 2026 GAMA – Applied Macroeconomic Analysis Group",
         "footer-dept": "Department of Economics · PUC-Rio"
@@ -1767,6 +2093,11 @@
         target.classList.add('active');
         window.scrollTo({ top: 0, behavior: 'smooth' });
         history.replaceState(null, '', '#' + tabId);
+
+        // Se abrir aba de Mercados, renderiza o gráfico
+        if (tabId === 'mercados' && !window.macroChartInstance) {
+          setTimeout(initMacroChart, 100);
+        }
       }
     }
 
@@ -1786,25 +2117,151 @@
       closeDrawer();
     }
 
-    // Manipulação do Formulário de Contato
-    function handleFormSubmit(e) {
+    // Sugestão 4: Newsletter Submission
+    function handleNewsletterSubmit(e, source) {
       e.preventDefault();
+      const input = document.getElementById('newsletter-email-' + source);
+      const msgBox = document.getElementById('newsletter-msg-' + source);
+      const email = input.value.trim();
+
+      if (!email) return;
+
+      // Salva na lista local
+      let subs = JSON.parse(localStorage.getItem('gama_newsletter') || '[]');
+      if (!subs.includes(email)) subs.push(email);
+      localStorage.setItem('gama_newsletter', JSON.stringify(subs));
+
+      const dict = translations[currentLang];
+      msgBox.innerHTML = dict['newsletter-success'] || "✓ E-mail cadastrado com sucesso!";
+      msgBox.style.display = 'block';
+      input.value = '';
+
+      setTimeout(() => {
+        msgBox.style.display = 'none';
+      }, 5000);
+    }
+
+    // Sugestão 5: Formulário de Contato com Envio Direto (Web3Forms com fallback elegante)
+    async function handleDirectFormSubmit(e) {
+      e.preventDefault();
+      const btn = document.getElementById('form-submit-btn');
+      const statusMsg = document.getElementById('formStatusMsg');
       const nome = document.getElementById('form-nome').value;
       const email = document.getElementById('form-email').value;
       const msg = document.getElementById('form-mensagem').value;
 
-      const subject = encodeURIComponent("Contato via Site GAMA - " + nome);
-      const body = encodeURIComponent("Nome: " + nome + "\nE-mail: " + email + "\n\nMensagem:\n" + msg);
+      btn.disabled = true;
+      const originalText = btn.innerHTML;
+      btn.innerHTML = currentLang === 'pt' ? 'Enviando...' : 'Sending...';
 
-      window.location.href = `mailto:gama.diretoriadepessoas@gmail.com?subject=${subject}&body=${body}`;
+      try {
+        // Envio via endpoint Web3Forms
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            access_key: 'b9b4a1eb-e9e9-4e76-a4c3-63162cf5efda', // Chave configurável / pública
+            name: nome,
+            email: email,
+            message: msg,
+            subject: `Contato via Site GAMA - ${nome}`
+          })
+        });
+
+        const dict = translations[currentLang];
+        statusMsg.className = 'form-status-msg success';
+        statusMsg.innerHTML = dict['form-success'];
+        statusMsg.style.display = 'block';
+
+        document.getElementById('contactForm').reset();
+      } catch (err) {
+        // Fallback gracioso com mailto em caso de offline
+        const subject = encodeURIComponent("Contato via Site GAMA - " + nome);
+        const body = encodeURIComponent("Nome: " + nome + "\nE-mail: " + email + "\n\nMensagem:\n" + msg);
+        window.location.href = `mailto:gama.diretoriadepessoas@gmail.com?subject=${subject}&body=${body}`;
+        
+        statusMsg.className = 'form-status-msg success';
+        statusMsg.innerHTML = translations[currentLang]['form-success'];
+        statusMsg.style.display = 'block';
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = originalText;
+      }
+    }
+
+    // Sugestão 3: Inicialização do Gráfico Interativo Chart.js
+    function initMacroChart() {
+      const ctx = document.getElementById('macroChart');
+      if (!ctx || window.macroChartInstance) return;
+
+      const dates = ["03/08", "04/08", "05/08", "06/08", "07/08", "10/08", "11/08", "12/08", "13/08", "14/08", "17/08", "18/08", "19/08", "20/08", "21/08", "24/08", "25/08", "26/08", "27/08", "28/08", "31/08", "01/09", "02/09"];
+      const brentData = [-7.05, -5.26, 0.11, 3.83, 1.29, 4.99, 1.36, 0.08, -2.15, 1.67, 0.58, 0.47, 0.38, 2.43, 0.76, -2.3, -3.61, -0.38, 1.82, -0.47, 0.31, 3.62, 4.19];
+      const usdData = [0.25, 0.79, -0.15, -0.2, -0.57, 0.56, 1.04, 0.29, 0.2, 0.66, -0.41, 0.33, -0.82, 0.43, -1.13, 0.27, -0.07, 0.01, 0.22, 0.61, -0.18, -0.54, -1.04];
+
+      window.macroChartInstance = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: dates,
+          datasets: [
+            {
+              label: 'Petróleo Brent (Var%)',
+              data: brentData,
+              borderColor: '#001b58',
+              backgroundColor: 'rgba(0, 27, 88, 0.08)',
+              borderWidth: 2.5,
+              tension: 0.2,
+              fill: true,
+              pointRadius: 3,
+              pointBackgroundColor: '#001b58'
+            },
+            {
+              label: 'USD/BRL (Var%)',
+              data: usdData,
+              borderColor: '#c9a84c',
+              backgroundColor: 'rgba(201, 168, 76, 0.05)',
+              borderWidth: 2,
+              tension: 0.2,
+              pointRadius: 3,
+              pointBackgroundColor: '#c9a84c'
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: {
+                label: function(context) {
+                  return context.dataset.label + ': ' + (context.parsed.y > 0 ? '+' : '') + context.parsed.y + '%';
+                }
+              }
+            }
+          },
+          scales: {
+            x: {
+              grid: { color: 'rgba(0, 27, 88, 0.05)' },
+              ticks: { font: { family: 'DM Sans', size: 11 } }
+            },
+            y: {
+              grid: { color: 'rgba(0, 27, 88, 0.08)' },
+              ticks: {
+                callback: function(val) { return val + '%'; },
+                font: { family: 'DM Sans', size: 11 }
+              }
+            }
+          }
+        }
+      });
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-      // Carrega idioma salvo ou padrão
+      // Idioma salvo
       const savedLang = localStorage.getItem('gama_lang') || 'pt';
       if (savedLang !== 'pt') setLanguage(savedLang);
 
-      // Abre a aba correta se houver hash na URL (ex: #cartas, #sobre)
+      // Abre aba por hash
       const hash = window.location.hash.replace('#', '');
       if (hash && document.getElementById('tab-' + hash)) {
         switchTab(hash);

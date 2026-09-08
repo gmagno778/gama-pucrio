@@ -3,71 +3,66 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GAMA – Grupo de Análise Macroeconômica Aplicada | PUC-Rio</title>
+  <title>GAMA — Grupo de Análise Macroeconômica Aplicada | PUC-Rio</title>
   
-  <!-- SEO & Meta Institucional -->
-  <meta name="description" content="O GAMA é o núcleo de macroeconomia da PUC-Rio. Produzimos Cartas de Conjuntura mensais, relatórios especiais e eventos conectando rigor teórico e análise prática de mercado." />
-  <meta name="keywords" content="GAMA, PUC-Rio, Macroeconomia, Carta de Conjuntura, Economia, Finanças, Análise Econômica, Mercado Financeiro" />
-  <meta name="author" content="GAMA PUC-Rio" />
+  <!-- SEO & Metadados Institucionais -->
+  <meta name="description" content="Núcleo de macroeconomia do Departamento de Economia da PUC-Rio. Produção de Cartas de Conjuntura mensais, relatórios analíticos e formação de lideranças para o mercado e a academia." />
+  <meta name="keywords" content="GAMA PUC-Rio, Macroeconomia, Carta de Conjuntura, Economia PUC-Rio, Política Monetária, Cenário Fiscal" />
+  <meta name="author" content="GAMA — Departamento de Economia da PUC-Rio" />
   
   <!-- Open Graph / Redes Sociais -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="GAMA – Grupo de Análise Macroeconômica Aplicada | PUC-Rio" />
-  <meta property="og:description" content="Núcleo de Macroeconomia do Departamento de Economia da PUC-Rio. Análise aplicada, publicações mensais e formação de lideranças." />
+  <meta property="og:title" content="GAMA — Grupo de Análise Macroeconômica Aplicada | PUC-Rio" />
+  <meta property="og:description" content="Análise macroeconômica aplicada desenvolvida no Departamento de Economia da PUC-Rio." />
   <meta property="og:image" content="logo grande.png" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Tipografia Editorial & Profissional -->
+  <!-- Tipografia Restrita (Padrão 2 Famílias: Newsreader + Inter) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500;1,6..72,600&display=swap" rel="stylesheet">
 
   <style>
     /* ==========================================================================
-       DESIGN SYSTEM - HUMAN-GRADE CRAFTSMANSHIP (GAMA PUC-RIO)
+       HUMAN-GRADE DESIGN SYSTEM — GAMA PUC-RIO
+       Direção de Arte: Editorial Acadêmico Suíço / Atelier de Macroeconomia
        ========================================================================== */
     :root {
-      /* Cores Institucionais Nobres */
-      --navy-deep:    #040a18;
-      --navy-900:     #08142c;
-      --navy-800:     #0d1e3f;
-      --navy-700:     #142a55;
-      --navy-600:     #1d386f;
+      /* Paleta Físico-Editorial (Papel Linho, Tinta e Azul PUC Profundo) */
+      --paper:         #fbfbfa;
+      --paper-pure:    #ffffff;
+      --paper-subtle:  #f4f3ef;
       
-      --gold-primary: #c29949;
-      --gold-light:   #e8c880;
-      --gold-surface: #f9f5eb;
-      --gold-border:  rgba(194, 153, 73, 0.35);
+      --ink:           #0a1128;
+      --ink-secondary: #3b4353;
+      --ink-muted:     #687282;
+      --ink-subtle:    #98a2b3;
       
-      --bg-cream:     #f8f9fb;
-      --bg-surface:   #ffffff;
-      --bg-subtle:    #f1f4f8;
+      --navy-puc:      #002244;
+      --navy-deep:     #050d1e;
+      --navy-surface:  #0e1b38;
       
-      --text-main:    #182333;
-      --text-muted:   #4e5c70;
-      --text-subtle:  #7a899e;
-      --text-on-dark: #f0f4fc;
+      --ochre:         #9e7432;
+      --ochre-light:   #f7f2ea;
+      --ochre-border:  #dfcfb7;
       
-      --border-subtle: rgba(8, 20, 44, 0.08);
-      --border-focus:  rgba(194, 153, 73, 0.5);
+      --line:          #e6e4dc;
+      --line-dark:     rgba(255, 255, 255, 0.12);
       
-      --shadow-sm:  0 2px 8px rgba(8, 20, 44, 0.04);
-      --shadow-md:  0 8px 24px -4px rgba(8, 20, 44, 0.08);
-      --shadow-lg:  0 18px 42px -8px rgba(8, 20, 44, 0.12);
-      --shadow-glow: 0 0 35px rgba(194, 153, 73, 0.15);
+      /* Tipografia com Hierarquia Rigorosa */
+      --font-serif:    'Newsreader', Georgia, serif;
+      --font-sans:     'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono:     ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
-      --radius-sm:  6px;
-      --radius-md:  12px;
-      --radius-lg:  20px;
+      /* Escala de Raios Contidos (Sem pílulas infantis) */
+      --radius-sm:     4px;
+      --radius-md:     8px;
+      --radius-lg:     12px;
       
-      --font-serif:   'Newsreader', Georgia, serif;
-      --font-display: 'Cinzel', serif;
-      --font-sans:    'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-      
-      --container:    1180px;
-      --ease-out:     cubic-bezier(0.16, 1, 0.3, 1);
+      --container:     1160px;
     }
 
-    /* Reset & Base */
+    /* Reset Estrutural & Anti-Overflow */
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
@@ -83,33 +78,34 @@
 
     body {
       font-family: var(--font-sans);
-      background-color: var(--bg-cream);
-      color: var(--text-main);
-      line-height: 1.68;
+      background-color: var(--paper);
+      color: var(--ink);
+      line-height: 1.6;
+      max-width: 100%;
       overflow-x: hidden;
-      position: relative;
     }
 
-    /* Tipografia de Prestígio */
+    /* Tipografia de Alto Padrão */
     h1, h2, h3, h4 {
-      color: var(--navy-900);
       font-family: var(--font-serif);
-      font-weight: 600;
-      line-height: 1.22;
-      letter-spacing: -0.015em;
+      color: var(--ink);
+      font-weight: 500;
+      line-height: 1.18;
+      letter-spacing: -0.022em;
+      text-wrap: balance;
     }
 
-    p {
-      color: var(--text-muted);
+    p, .lead-text {
+      color: var(--ink-secondary);
       font-size: 1rem;
-      font-weight: 400;
       line-height: 1.7;
+      text-wrap: pretty;
     }
 
     a {
       color: inherit;
       text-decoration: none;
-      transition: all 0.25s var(--ease-out);
+      transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
     }
 
     img {
@@ -125,1211 +121,1013 @@
       padding: 0 2rem;
     }
 
-    /* Section Headers */
-    .section-head {
-      margin-bottom: 3.5rem;
-    }
-    
-    .section-head.text-center {
-      text-align: center;
-      max-width: 760px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .badge-pill {
+    /* Rótulos Técnicos Monospaçados */
+    .mono-tag {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--ink-muted);
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.35rem 0.9rem;
-      background: rgba(194, 153, 73, 0.12);
-      border: 1px solid var(--gold-border);
-      border-radius: 9999px;
-      font-family: var(--font-sans);
-      font-size: 0.76rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--gold-primary);
-      margin-bottom: 1rem;
     }
 
-    .badge-pill.dark {
-      background: rgba(255, 255, 255, 0.08);
-      border-color: rgba(255, 255, 255, 0.15);
-      color: var(--gold-light);
+    .mono-tag.accent {
+      color: var(--ochre);
     }
 
-    .badge-pill .dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background-color: var(--gold-primary);
-      box-shadow: 0 0 8px var(--gold-primary);
+    .mono-tag.dark {
+      color: #dfcfb7;
     }
 
-    .section-title {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      color: var(--navy-900);
-    }
-
-    .section-subtitle {
-      font-size: 1.1rem;
-      color: var(--text-muted);
-      max-width: 680px;
-    }
-
-    /* Botões Refinados */
+    /* Botões Tácteis com Clique Real */
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.65rem;
+      gap: 0.55rem;
       font-family: var(--font-sans);
-      font-size: 0.88rem;
+      font-size: 0.84rem;
       font-weight: 600;
-      letter-spacing: 0.02em;
-      padding: 0.85rem 1.75rem;
+      letter-spacing: 0.01em;
+      padding: 0.75rem 1.4rem;
       border-radius: var(--radius-sm);
       cursor: pointer;
       border: 1px solid transparent;
-      transition: all 0.28s var(--ease-out);
+      transition: all 0.18s ease;
       white-space: nowrap;
     }
 
-    .btn-gold {
-      background: linear-gradient(135deg, #d3a953 0%, #b38833 100%);
+    .btn:active {
+      transform: scale(0.98);
+    }
+
+    .btn-primary {
+      background: var(--navy-puc);
       color: #ffffff;
-      box-shadow: 0 4px 14px rgba(194, 153, 73, 0.32);
+      border-color: var(--navy-puc);
     }
 
-    .btn-gold:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 22px rgba(194, 153, 73, 0.42);
-      filter: brightness(1.05);
+    .btn-primary:hover {
+      background: #001730;
+      border-color: #001730;
     }
 
-    .btn-outline-light {
-      background: rgba(255, 255, 255, 0.06);
-      color: #ffffff;
-      border-color: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(8px);
-    }
-
-    .btn-outline-light:hover {
-      background: rgba(255, 255, 255, 0.14);
-      border-color: #ffffff;
-      transform: translateY(-2px);
-    }
-
-    .btn-navy {
-      background: var(--navy-900);
-      color: #ffffff;
-      box-shadow: 0 4px 14px rgba(8, 20, 44, 0.18);
-    }
-
-    .btn-navy:hover {
-      background: var(--navy-800);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(8, 20, 44, 0.25);
-    }
-
-    .btn-outline-navy {
+    .btn-outline {
       background: transparent;
-      color: var(--navy-900);
-      border-color: rgba(8, 20, 44, 0.22);
+      color: var(--ink);
+      border-color: var(--line);
     }
 
-    .btn-outline-navy:hover {
-      border-color: var(--navy-900);
-      background: rgba(8, 20, 44, 0.04);
-      transform: translateY(-2px);
+    .btn-outline:hover {
+      background: var(--paper-subtle);
+      border-color: var(--ink);
+    }
+
+    .btn-light {
+      background: #ffffff;
+      color: var(--navy-puc);
+      border-color: #ffffff;
+    }
+
+    .btn-light:hover {
+      background: var(--paper-subtle);
+      color: var(--ink);
+    }
+
+    .btn-light-outline {
+      background: transparent;
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .btn-light-outline:hover {
+      border-color: #ffffff;
+      background: rgba(255, 255, 255, 0.08);
     }
 
     /* ==========================================================================
-       NAVBAR INSTITUCIONAL
+       TOP MASTHEAD & BARRA DE NAVEGAÇÃO INSTITUCIONAL
        ========================================================================== */
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      background: rgba(4, 10, 24, 0.88);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      transition: all 0.3s ease;
-      height: 76px;
+    .masthead-strip {
+      background: #ffffff;
+      border-bottom: 1px solid var(--line);
+      padding: 0.45rem 0;
+      font-size: 0.72rem;
+      color: var(--ink-muted);
+      font-family: var(--font-mono);
+      letter-spacing: 0.04em;
+    }
+
+    .masthead-inner {
       display: flex;
+      justify-content: space-between;
       align-items: center;
     }
 
-    .navbar.scrolled {
-      height: 68px;
-      background: rgba(4, 10, 24, 0.96);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 500;
+      background: rgba(251, 251, 250, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+      transition: background 0.2s;
     }
 
-    .nav-inner {
+    .nav-container {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      width: 100%;
+      height: 72px;
     }
 
-    .brand-link {
+    .brand-mark {
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 0.9rem;
       text-decoration: none;
     }
 
-    .brand-logo-img {
-      height: 40px;
+    .brand-mark img {
+      height: 38px;
       width: auto;
-      object-fit: contain;
-      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
     }
 
-    .brand-text {
+    .brand-typography {
       display: flex;
       flex-direction: column;
     }
 
-    .brand-name {
-      font-family: var(--font-display);
-      font-size: 1.22rem;
+    .brand-title {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
       font-weight: 700;
-      letter-spacing: 0.08em;
-      color: #ffffff;
+      color: var(--navy-puc);
       line-height: 1;
+      letter-spacing: 0.02em;
     }
 
-    .brand-dept {
+    .brand-sub {
       font-size: 0.68rem;
       font-weight: 500;
-      color: rgba(255, 255, 255, 0.65);
-      letter-spacing: 0.08em;
+      color: var(--ink-muted);
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      margin-top: 0.25rem;
+      margin-top: 0.2rem;
     }
 
-    .nav-menu {
+    .nav-list {
       display: flex;
       align-items: center;
-      gap: 2.2rem;
+      gap: 2rem;
       list-style: none;
     }
 
-    .nav-link {
-      font-size: 0.84rem;
+    .nav-item a {
+      font-size: 0.85rem;
       font-weight: 500;
-      letter-spacing: 0.04em;
-      color: rgba(255, 255, 255, 0.78);
+      color: var(--ink-secondary);
       position: relative;
-      padding: 0.4rem 0;
+      padding: 0.35rem 0;
     }
 
-    .nav-link::after {
+    .nav-item a:hover,
+    .nav-item a.active {
+      color: var(--navy-puc);
+    }
+
+    .nav-item a.active::after {
       content: '';
       position: absolute;
       bottom: 0;
       left: 0;
-      width: 0%;
+      right: 0;
       height: 2px;
-      background-color: var(--gold-primary);
-      transition: width 0.25s ease;
+      background: var(--navy-puc);
     }
 
-    .nav-link:hover,
-    .nav-link.active {
-      color: #ffffff;
-    }
-
-    .nav-link:hover::after,
-    .nav-link.active::after {
-      width: 100%;
-    }
-
-    .nav-actions {
+    .nav-end-action {
       display: flex;
       align-items: center;
       gap: 1rem;
     }
 
-    /* Menu Mobile */
-    .mobile-toggle {
+    .mobile-nav-btn {
       display: none;
       background: none;
-      border: none;
-      cursor: pointer;
-      width: 42px;
-      height: 42px;
-      padding: 8px;
+      border: 1px solid var(--line);
       border-radius: var(--radius-sm);
+      padding: 0.5rem;
+      cursor: pointer;
     }
 
-    .mobile-toggle span {
+    .mobile-nav-btn span {
       display: block;
-      width: 24px;
+      width: 20px;
       height: 2px;
-      background-color: #ffffff;
-      margin: 5px 0;
-      transition: all 0.3s ease;
+      background: var(--ink);
+      margin: 4px 0;
+      transition: all 0.2s ease;
     }
 
     /* ==========================================================================
-       HERO EDITORIAL
+       HERO: CAPA EDITORIAL DE CONJUNTURA
        ========================================================================== */
-    .hero-section {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding: 130px 0 80px;
-      background: 
-        radial-gradient(circle at 85% 20%, rgba(20, 42, 85, 0.6) 0%, transparent 50%),
-        radial-gradient(circle at 10% 80%, rgba(194, 153, 73, 0.1) 0%, transparent 40%),
-        linear-gradient(175deg, var(--navy-deep) 0%, var(--navy-900) 65%, #071736 100%);
-      color: #ffffff;
-      overflow: hidden;
+    .hero-editorial {
+      padding: 4.5rem 0 5rem;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #ffffff 0%, var(--paper) 100%);
     }
 
-    .hero-section::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: 
-        radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-      background-size: 32px 32px;
-      pointer-events: none;
-      opacity: 0.6;
-    }
-
-    .hero-grid {
+    .hero-layout {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 4rem;
-      align-items: center;
-      position: relative;
-      z-index: 2;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 4.5rem;
+      align-items: start;
     }
 
-    .hero-content {
-      max-width: 640px;
+    .hero-kicker {
+      margin-bottom: 1.2rem;
     }
 
-    .hero-title {
-      font-size: 3.45rem;
-      color: #ffffff;
-      line-height: 1.14;
-      margin-bottom: 1.5rem;
-      font-weight: 600;
+    .hero-main-title {
+      font-size: 3.25rem;
+      color: var(--ink);
+      margin-bottom: 1.4rem;
+      line-height: 1.12;
     }
 
-    .hero-title em {
+    .hero-main-title em {
       font-style: italic;
-      color: var(--gold-light);
-      font-family: var(--font-serif);
       font-weight: 400;
+      color: var(--navy-puc);
     }
 
-    .hero-lead {
-      font-size: 1.12rem;
-      color: rgba(240, 244, 252, 0.82);
-      line-height: 1.75;
-      margin-bottom: 2.4rem;
+    .hero-narrative {
+      font-size: 1.08rem;
+      color: var(--ink-secondary);
+      line-height: 1.72;
+      margin-bottom: 2rem;
     }
 
-    .hero-ctas {
+    .hero-buttons {
       display: flex;
+      gap: 1rem;
       flex-wrap: wrap;
-      gap: 1.1rem;
       margin-bottom: 3.5rem;
     }
 
-    /* Cards de Estatísticas Institucionais */
-    .hero-metrics {
+    /* Grid de Métricas Institucionais */
+    .hero-data-strip {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 1.5rem;
       padding-top: 2rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      border-top: 1px solid var(--line);
     }
 
-    .metric-item {
+    .data-unit {
       display: flex;
       flex-direction: column;
     }
 
-    .metric-value {
+    .data-value {
       font-family: var(--font-serif);
       font-size: 2.1rem;
-      font-weight: 700;
-      color: var(--gold-light);
+      font-weight: 600;
+      color: var(--navy-puc);
       line-height: 1;
+      font-variant-numeric: tabular-nums;
     }
 
-    .metric-label {
-      font-size: 0.74rem;
-      color: rgba(255, 255, 255, 0.65);
-      margin-top: 0.45rem;
+    .data-descriptor {
+      font-size: 0.72rem;
+      color: var(--ink-muted);
+      margin-top: 0.4rem;
       line-height: 1.35;
-      font-weight: 500;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.05em;
+      font-weight: 600;
     }
 
-    /* Hero Right - Card de Destaque Editorial */
-    .hero-card-container {
-      position: relative;
-    }
-
-    .hero-preview-card {
-      background: rgba(13, 30, 63, 0.75);
-      border: 1px solid rgba(255, 255, 255, 0.16);
+    /* Card Destaque: Edição Atual da Carta */
+    .hero-featured-dispatch {
+      background: #ffffff;
+      border: 1px solid var(--line);
       border-radius: var(--radius-md);
       padding: 2.2rem;
-      backdrop-filter: blur(20px);
-      box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.4), var(--shadow-glow);
+      box-shadow: 0 4px 20px -2px rgba(10, 17, 40, 0.05);
       position: relative;
-      transition: transform 0.35s var(--ease-out);
     }
 
-    .hero-preview-card:hover {
-      transform: translateY(-4px);
-    }
-
-    .card-top-tag {
+    .dispatch-header {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      margin-bottom: 1.25rem;
-    }
-
-    .live-badge {
-      display: inline-flex;
       align-items: center;
-      gap: 0.45rem;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #55d697;
-      background: rgba(85, 214, 151, 0.14);
-      padding: 0.25rem 0.7rem;
-      border-radius: 9999px;
+      padding-bottom: 1rem;
+      margin-bottom: 1.4rem;
+      border-bottom: 1px solid var(--line);
     }
 
-    .live-badge::before {
-      content: '';
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background-color: #55d697;
-      box-shadow: 0 0 8px #55d697;
-    }
-
-    .preview-doc-type {
-      font-size: 0.75rem;
-      color: var(--gold-light);
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-
-    .preview-title {
+    .dispatch-title {
       font-size: 1.65rem;
-      color: #ffffff;
       margin-bottom: 0.75rem;
-      line-height: 1.25;
+      color: var(--navy-puc);
     }
 
-    .preview-excerpt {
+    .dispatch-summary {
       font-size: 0.92rem;
-      color: rgba(255, 255, 255, 0.75);
+      color: var(--ink-secondary);
+      line-height: 1.65;
       margin-bottom: 1.6rem;
-      line-height: 1.6;
     }
 
-    .preview-topics {
+    .dispatch-tags-cluster {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 2rem;
+      gap: 0.45rem;
+      margin-bottom: 1.8rem;
     }
 
-    .topic-chip {
-      font-size: 0.74rem;
+    .topic-tag {
+      font-size: 0.72rem;
       font-weight: 500;
-      background: rgba(255, 255, 255, 0.08);
-      color: rgba(255, 255, 255, 0.85);
-      padding: 0.25rem 0.65rem;
+      background: var(--paper-subtle);
+      border: 1px solid var(--line);
+      padding: 0.2rem 0.55rem;
       border-radius: var(--radius-sm);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--ink-secondary);
     }
 
-    .preview-footer-action {
+    .dispatch-cta-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-top: 1px solid rgba(255, 255, 255, 0.12);
-      padding-top: 1.25rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid var(--line);
     }
 
-    .author-lockup {
-      display: flex;
-      flex-direction: column;
+    .dispatch-byline {
+      font-size: 0.75rem;
+      color: var(--ink-muted);
     }
 
-    .author-team {
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: #ffffff;
-    }
-
-    .author-date {
-      font-size: 0.72rem;
-      color: rgba(255, 255, 255, 0.55);
+    .dispatch-byline strong {
+      color: var(--ink);
+      display: block;
     }
 
     /* ==========================================================================
-       SEÇÃO: QUEM SOMOS / PILARES
+       SEÇÃO: SOBRE O NÚCLEO & PILARES ACADÊMICOS
        ========================================================================== */
-    .section-about {
-      padding: 7.5rem 0;
-      background-color: var(--bg-cream);
+    .section-editorial {
+      padding: 5.5rem 0;
+      border-bottom: 1px solid var(--line);
     }
 
-    .about-layout {
+    .editorial-head {
+      margin-bottom: 3.5rem;
+    }
+
+    .editorial-title {
+      font-size: 2.35rem;
+      color: var(--ink);
+      margin-top: 0.5rem;
+      max-width: 820px;
+    }
+
+    .about-columns {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 4.5rem;
       align-items: start;
     }
 
-    .about-prose p {
-      margin-bottom: 1.4rem;
-      font-size: 1.05rem;
+    .prose-block p {
+      margin-bottom: 1.35rem;
+      font-size: 1.02rem;
     }
 
-    .about-prose p strong {
-      color: var(--navy-900);
+    .prose-block p strong {
+      color: var(--navy-puc);
       font-weight: 600;
     }
 
-    .about-pillars {
+    /* Pilares com Tipografia Estrutural */
+    .pillars-stack {
       display: flex;
       flex-direction: column;
-      gap: 1.6rem;
+      border-top: 1px solid var(--line);
     }
 
-    .pillar-card {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-md);
-      padding: 1.85rem;
-      transition: all 0.3s var(--ease-out);
-      box-shadow: var(--shadow-sm);
-      display: flex;
-      gap: 1.25rem;
+    .pillar-row {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 1.5rem;
+      padding: 1.8rem 0;
+      border-bottom: 1px solid var(--line);
     }
 
-    .pillar-card:hover {
-      border-color: var(--gold-primary);
-      box-shadow: var(--shadow-md);
-      transform: translateY(-3px);
+    .pillar-index {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      color: var(--ochre);
+      font-weight: 500;
+      line-height: 1;
+      padding-top: 2px;
     }
 
-    .pillar-icon-box {
-      width: 48px;
-      height: 48px;
-      border-radius: var(--radius-sm);
-      background: var(--gold-surface);
-      color: var(--gold-dark);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
+    .pillar-body h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.4rem;
+      color: var(--ink);
     }
 
-    .pillar-content h3 {
-      font-size: 1.22rem;
-      margin-bottom: 0.45rem;
-    }
-
-    .pillar-content p {
-      font-size: 0.94rem;
-      line-height: 1.62;
+    .pillar-body p {
+      font-size: 0.9rem;
+      line-height: 1.6;
     }
 
     /* ==========================================================================
-       SEÇÃO: CARTAS DE CONJUNTURA (PUBLICAÇÕES)
+       SEÇÃO: CARTAS DE CONJUNTURA (PUBLICAÇÕES MENSAIS)
        ========================================================================== */
     .section-cartas {
-      padding: 7.5rem 0;
-      background-color: #ffffff;
-      border-top: 1px solid var(--border-subtle);
-      border-bottom: 1px solid var(--border-subtle);
+      padding: 5.5rem 0;
+      background: #ffffff;
+      border-bottom: 1px solid var(--line);
     }
 
-    /* Carta Destaque Master */
-    .featured-carta {
-      background: linear-gradient(135deg, var(--navy-900) 0%, var(--navy-800) 100%);
+    /* Cartão Editorial Master (Maio 2026) */
+    .carta-featured-spread {
+      background: var(--navy-puc);
       color: #ffffff;
-      border-radius: var(--radius-lg);
-      padding: 3.2rem;
-      margin-bottom: 3.5rem;
-      position: relative;
-      overflow: hidden;
-      box-shadow: var(--shadow-lg);
+      border-radius: var(--radius-md);
+      padding: 3rem;
+      margin-bottom: 3rem;
       display: grid;
       grid-template-columns: 1.3fr 0.7fr;
-      gap: 3rem;
+      gap: 3.5rem;
       align-items: center;
     }
 
-    .featured-carta::after {
-      content: '';
-      position: absolute;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      width: 45%;
-      background: radial-gradient(circle at 70% 30%, rgba(194, 153, 73, 0.15) 0%, transparent 60%);
-      pointer-events: none;
-    }
-
-    .featured-carta h3 {
+    .carta-featured-spread h3 {
       color: #ffffff;
-      font-size: 2.15rem;
+      font-size: 2.1rem;
       margin: 0.8rem 0 1rem;
     }
 
-    .featured-carta p {
+    .carta-featured-spread p {
       color: rgba(255, 255, 255, 0.8);
-      font-size: 1.02rem;
+      font-size: 0.98rem;
       line-height: 1.7;
       margin-bottom: 1.8rem;
     }
 
-    .featured-actions {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .featured-insights {
+    .editorial-bullet-box {
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: var(--radius-md);
+      border-radius: var(--radius-sm);
       padding: 1.8rem;
-      backdrop-filter: blur(10px);
     }
 
-    .insights-title {
-      font-size: 0.8rem;
+    .bullet-box-title {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: #dfcfb7;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--gold-light);
-      font-weight: 700;
+      letter-spacing: 0.06em;
       margin-bottom: 1rem;
+      font-weight: 600;
     }
 
-    .insights-list {
+    .bullet-entries {
       list-style: none;
       display: flex;
       flex-direction: column;
       gap: 0.85rem;
     }
 
-    .insights-list li {
-      font-size: 0.88rem;
-      color: rgba(255, 255, 255, 0.82);
-      display: flex;
-      align-items: flex-start;
-      gap: 0.65rem;
-      line-height: 1.5;
-    }
-
-    .insights-list li svg {
-      flex-shrink: 0;
-      color: var(--gold-light);
-      margin-top: 3px;
-    }
-
-    /* Grid de Cartas Anteriores */
-    .cartas-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-      gap: 2rem;
-    }
-
-    .carta-item-card {
-      background: var(--bg-cream);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-md);
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: all 0.28s var(--ease-out);
-    }
-
-    .carta-item-card:hover {
-      background: #ffffff;
-      border-color: rgba(8, 20, 44, 0.2);
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .carta-meta-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1rem;
-    }
-
-    .carta-edition-tag {
-      font-size: 0.76rem;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--navy-700);
-    }
-
-    .carta-item-card h4 {
-      font-size: 1.38rem;
-      margin-bottom: 0.75rem;
-      color: var(--navy-900);
-    }
-
-    .carta-item-card p {
-      font-size: 0.92rem;
-      margin-bottom: 1.6rem;
-    }
-
-    .carta-link-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
+    .bullet-entries li {
       font-size: 0.86rem;
-      font-weight: 600;
-      color: var(--navy-800);
-      margin-top: auto;
+      color: rgba(255, 255, 255, 0.82);
+      line-height: 1.5;
+      padding-left: 1rem;
+      position: relative;
     }
 
-    .carta-link-btn:hover {
-      color: var(--gold-dark);
-      gap: 0.75rem;
+    .bullet-entries li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: #dfcfb7;
+    }
+
+    /* Tabela / Arquivo de Cartas Anteriores */
+    .archive-listing {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: var(--paper);
+      overflow: hidden;
+    }
+
+    .archive-row {
+      display: grid;
+      grid-template-columns: 140px 1fr 180px;
+      gap: 2rem;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid var(--line);
+      transition: background 0.15s ease;
+    }
+
+    .archive-row:last-child {
+      border-bottom: none;
+    }
+
+    .archive-row:hover {
+      background: #ffffff;
+    }
+
+    .archive-period {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--ink-muted);
+    }
+
+    .archive-content h4 {
+      font-size: 1.15rem;
+      margin-bottom: 0.25rem;
+      color: var(--ink);
+    }
+
+    .archive-content p {
+      font-size: 0.88rem;
+      color: var(--ink-secondary);
+    }
+
+    .archive-action {
+      text-align: right;
     }
 
     /* ==========================================================================
-       SEÇÃO: RELATÓRIOS ESPECIAIS
+       SEÇÃO: RELATÓRIOS ESPECIAIS & TEMÁTICOS
        ========================================================================== */
     .section-reports {
-      padding: 7.5rem 0;
-      background: var(--bg-cream);
+      padding: 5.5rem 0;
+      border-bottom: 1px solid var(--line);
     }
 
-    .reports-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.8rem;
-    }
-
-    .report-card-horizontal {
+    .report-dignified-card {
       background: #ffffff;
-      border: 1px solid var(--border-subtle);
+      border: 1px solid var(--line);
       border-radius: var(--radius-md);
-      padding: 2.2rem;
+      padding: 2.5rem;
       display: grid;
-      grid-template-columns: auto 1fr auto;
+      grid-template-columns: 80px 1fr auto;
       gap: 2.5rem;
       align-items: center;
-      transition: all 0.3s var(--ease-out);
-      box-shadow: var(--shadow-sm);
     }
 
-    .report-card-horizontal:hover {
-      border-color: var(--gold-primary);
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .report-number {
+    .report-number-flag {
       font-family: var(--font-serif);
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: var(--navy-700);
-      opacity: 0.45;
-      padding-right: 1.5rem;
-      border-right: 1px solid var(--border-subtle);
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: var(--ochre);
+      line-height: 1;
     }
 
-    .report-info h3 {
+    .report-body h3 {
       font-size: 1.35rem;
       margin-bottom: 0.5rem;
     }
 
-    .report-meta-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-top: 0.75rem;
+    .report-body p {
+      font-size: 0.94rem;
+      color: var(--ink-secondary);
+      margin-bottom: 0.8rem;
     }
 
-    .meta-tag {
-      font-size: 0.78rem;
-      font-weight: 500;
-      color: var(--text-muted);
-      background: var(--bg-subtle);
-      padding: 0.2rem 0.65rem;
-      border-radius: var(--radius-sm);
+    .report-metadata-strip {
+      display: flex;
+      gap: 1.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--ink-muted);
+      letter-spacing: 0.04em;
     }
 
     /* ==========================================================================
-       SEÇÃO: PROCESSO SELETIVO (TRAINEES)
+       SEÇÃO: PROCESSO SELETIVO (EDITAL & ETAPAS)
        ========================================================================== */
     .section-ps {
-      padding: 7.5rem 0;
-      background: linear-gradient(180deg, #ffffff 0%, var(--bg-cream) 100%);
-      border-top: 1px solid var(--border-subtle);
+      padding: 5.5rem 0;
+      background: var(--paper-subtle);
+      border-bottom: 1px solid var(--line);
     }
 
-    .ps-banner {
-      background: var(--navy-900);
-      color: #ffffff;
-      border-radius: var(--radius-lg);
-      padding: 3.5rem;
+    .ps-notice-box {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 3rem;
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 4rem;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 3.5rem;
       align-items: center;
-      box-shadow: var(--shadow-lg);
       margin-bottom: 3.5rem;
     }
 
-    .ps-banner h3 {
-      color: #ffffff;
-      font-size: 2.2rem;
-      margin-bottom: 1.2rem;
+    .ps-notice-box h3 {
+      font-size: 2rem;
+      margin: 0.5rem 0 1rem;
+      color: var(--navy-puc);
     }
 
-    .ps-banner p {
-      color: rgba(255, 255, 255, 0.82);
-      font-size: 1.05rem;
-      margin-bottom: 1.6rem;
-      line-height: 1.7;
+    .ps-notice-box p {
+      font-size: 0.98rem;
+      margin-bottom: 1.4rem;
     }
 
-    /* Timeline / Fases do PS */
-    .ps-phases-grid {
+    .ps-criteria-aside {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 1.8rem;
+    }
+
+    .ps-criteria-aside h4 {
+      font-size: 1rem;
+      margin-bottom: 0.6rem;
+      color: var(--ink);
+    }
+
+    .ps-criteria-aside p {
+      font-size: 0.86rem;
+      line-height: 1.6;
+    }
+
+    /* Grade das 4 Etapas */
+    .ps-steps-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 1.5rem;
     }
 
-    .phase-card {
+    .step-card {
       background: #ffffff;
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-md);
-      padding: 1.8rem;
-      position: relative;
-      transition: all 0.3s var(--ease-out);
-      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 1.6rem;
     }
 
-    .phase-card:hover {
-      border-color: var(--navy-800);
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .phase-step-num {
-      font-family: var(--font-display);
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: var(--gold-primary);
-      margin-bottom: 0.85rem;
+    .step-id {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--ochre);
+      font-weight: 600;
+      margin-bottom: 0.8rem;
       display: block;
-      letter-spacing: 0.08em;
     }
 
-    .phase-card h4 {
-      font-size: 1.18rem;
-      margin-bottom: 0.6rem;
+    .step-card h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: var(--ink);
     }
 
-    .phase-card p {
-      font-size: 0.88rem;
+    .step-card p {
+      font-size: 0.86rem;
       line-height: 1.55;
     }
 
     /* ==========================================================================
-       SEÇÃO: EQUIPE (GESTÃO 2026) COM FILTROS INTERATIVOS
+       SEÇÃO: DIRETORIA & CORPO DE MEMBROS (ROSTER INSTITUCIONAL)
        ========================================================================== */
     .section-team {
-      padding: 7.5rem 0;
-      background-color: var(--bg-cream);
+      padding: 5.5rem 0;
+      background: #ffffff;
+      border-bottom: 1px solid var(--line);
     }
 
-    .team-filter-bar {
+    .team-filter-controls {
       display: flex;
-      justify-content: center;
       flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-bottom: 3.5rem;
+      gap: 0.5rem;
+      margin-bottom: 2.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--line);
     }
 
-    .filter-btn {
-      background: #ffffff;
-      border: 1px solid var(--border-subtle);
-      padding: 0.55rem 1.35rem;
-      border-radius: 9999px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--text-muted);
+    .team-tab-btn {
+      background: transparent;
+      border: 1px solid var(--line);
+      padding: 0.45rem 1rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--ink-secondary);
+      border-radius: var(--radius-sm);
       cursor: pointer;
-      transition: all 0.25s ease;
+      font-family: var(--font-sans);
+      transition: all 0.15s ease;
     }
 
-    .filter-btn:hover {
-      border-color: var(--navy-800);
-      color: var(--navy-900);
+    .team-tab-btn:hover {
+      border-color: var(--ink);
+      color: var(--ink);
     }
 
-    .filter-btn.active {
-      background: var(--navy-900);
+    .team-tab-btn.active {
+      background: var(--navy-puc);
       color: #ffffff;
-      border-color: var(--navy-900);
-      box-shadow: 0 4px 12px rgba(8, 20, 44, 0.15);
+      border-color: var(--navy-puc);
     }
 
-    .team-grid {
+    .roster-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .member-card {
-      background: #ffffff;
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-md);
-      padding: 1.6rem;
-      display: flex;
-      align-items: center;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       gap: 1.2rem;
-      transition: all 0.28s var(--ease-out);
-      box-shadow: var(--shadow-sm);
     }
 
-    .member-card:hover {
-      border-color: var(--gold-primary);
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .member-avatar {
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--navy-900) 0%, var(--navy-700) 100%);
-      color: var(--gold-light);
-      font-family: var(--font-serif);
-      font-size: 1.2rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      border: 2px solid #ffffff;
-      box-shadow: 0 2px 8px rgba(8, 20, 44, 0.12);
-    }
-
-    .member-details {
+    .roster-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 1.2rem 1.4rem;
+      background: var(--paper);
       display: flex;
       flex-direction: column;
-      overflow: hidden;
+      justify-content: space-between;
+      min-height: 104px;
+      transition: border-color 0.2s, background 0.2s;
     }
 
-    .member-name {
-      font-size: 0.98rem;
+    .roster-card:hover {
+      border-color: var(--navy-puc);
+      background: #ffffff;
+    }
+
+    .roster-name {
+      font-size: 0.95rem;
       font-weight: 600;
-      color: var(--navy-900);
-      line-height: 1.3;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      color: var(--ink);
+      margin-bottom: 0.2rem;
     }
 
-    .member-role {
-      font-size: 0.78rem;
-      font-weight: 600;
-      color: var(--gold-primary);
-      margin-top: 0.18rem;
+    .roster-role-tag {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--ochre);
     }
 
-    .member-dept {
-      font-size: 0.72rem;
-      color: var(--text-subtle);
-      margin-top: 0.1rem;
+    .roster-dept-tag {
+      font-size: 0.7rem;
+      color: var(--ink-muted);
+      font-family: var(--font-mono);
+      margin-top: 0.5rem;
     }
 
     /* ==========================================================================
-       SEÇÃO: CONTATO & INSTITUCIONAL
+       SEÇÃO: CONTATO & LOCALIZAÇÃO INSTITUCIONAL
        ========================================================================== */
     .section-contact {
-      padding: 7.5rem 0;
-      background: var(--navy-900);
-      color: #ffffff;
-      position: relative;
+      padding: 5.5rem 0;
+      background: var(--paper);
+      border-bottom: 1px solid var(--line);
     }
 
-    .contact-grid {
+    .contact-layout {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 5rem;
+      gap: 4.5rem;
       align-items: start;
     }
 
-    .contact-info h2 {
-      color: #ffffff;
-      font-size: 2.5rem;
-      margin-bottom: 1.2rem;
+    .contact-prose h2 {
+      font-size: 2.35rem;
+      margin: 0.5rem 0 1rem;
+      color: var(--navy-puc);
     }
 
-    .contact-info p {
-      color: rgba(255, 255, 255, 0.75);
-      font-size: 1.05rem;
-      margin-bottom: 2.5rem;
-    }
-
-    .contact-links-list {
+    .contact-channels {
       display: flex;
       flex-direction: column;
       gap: 1rem;
+      margin-top: 2rem;
     }
 
-    .contact-pill-link {
-      display: flex;
-      align-items: center;
-      gap: 1.2rem;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: var(--radius-sm);
-      padding: 1rem 1.4rem;
-      color: #ffffff;
-      transition: all 0.25s ease;
-    }
-
-    .contact-pill-link:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: var(--gold-primary);
-      transform: translateX(4px);
-    }
-
-    .contact-icon-wrapper {
-      width: 38px;
-      height: 38px;
-      border-radius: var(--radius-sm);
-      background: rgba(194, 153, 73, 0.15);
-      color: var(--gold-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .contact-form-card {
-      background: rgba(13, 30, 63, 0.6);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: var(--radius-md);
-      padding: 2.5rem;
-      backdrop-filter: blur(12px);
-    }
-
-    .contact-form-card h3 {
-      color: #ffffff;
-      font-size: 1.4rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .form-field {
-      margin-bottom: 1.25rem;
-    }
-
-    .form-field label {
-      display: block;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.7);
-      margin-bottom: 0.4rem;
-    }
-
-    .form-field input,
-    .form-field textarea {
-      width: 100%;
-      background: rgba(255, 255, 255, 0.07);
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      border-radius: var(--radius-sm);
-      padding: 0.85rem 1rem;
-      color: #ffffff;
-      font-family: var(--font-sans);
-      font-size: 0.95rem;
-      outline: none;
-      transition: border-color 0.25s ease;
-    }
-
-    .form-field input:focus,
-    .form-field textarea:focus {
-      border-color: var(--gold-primary);
-      background: rgba(255, 255, 255, 0.1);
-    }
-
-    /* ==========================================================================
-       FOOTER INSTITUCIONAL
-       ========================================================================== */
-    .site-footer {
-      background: var(--navy-deep);
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 3rem 0;
-      color: rgba(255, 255, 255, 0.65);
-      font-size: 0.85rem;
-    }
-
-    .footer-inner {
+    .channel-item {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1.5rem;
+      padding: 1rem 1.2rem;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      background: #ffffff;
+      color: var(--ink);
     }
 
-    .footer-left {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
+    .channel-item:hover {
+      border-color: var(--navy-puc);
     }
 
-    .footer-credits {
-      line-height: 1.5;
+    .channel-label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--ink-muted);
+      text-transform: uppercase;
     }
 
-    .footer-right {
-      display: flex;
-      align-items: center;
-      gap: 1.25rem;
-    }
-
-    .puc-badge {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      color: rgba(255, 255, 255, 0.85);
+    .channel-value {
+      font-size: 0.9rem;
       font-weight: 500;
     }
 
-    .puc-badge img {
-      height: 32px;
+    .form-panel {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 2.4rem;
+    }
+
+    .form-panel h3 {
+      font-size: 1.35rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .form-row {
+      margin-bottom: 1.2rem;
+    }
+
+    .form-row label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--ink-secondary);
+      margin-bottom: 0.35rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .form-row input,
+    .form-row textarea {
+      width: 100%;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 0.75rem 0.9rem;
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.15s ease;
+    }
+
+    .form-row input:focus,
+    .form-row textarea:focus {
+      border-color: var(--navy-puc);
+      background: #ffffff;
+    }
+
+    /* ==========================================================================
+       RODAPÉ INSTITUCIONAL COM DOMÍNIO & LOCALIZAÇÃO REAL
+       ========================================================================== */
+    .site-footer {
+      background: var(--navy-deep);
+      color: #ffffff;
+      padding: 3.5rem 0 2.5rem;
+      font-size: 0.82rem;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--line-dark);
+      margin-bottom: 2rem;
+    }
+
+    .footer-identity h4 {
+      color: #ffffff;
+      font-size: 1.25rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .footer-identity p {
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 0.84rem;
+      line-height: 1.6;
+    }
+
+    .footer-location {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: rgba(255, 255, 255, 0.55);
+      line-height: 1.7;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: rgba(255, 255, 255, 0.45);
+      font-size: 0.75rem;
+    }
+
+    .footer-puc-lockup {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .footer-puc-lockup img {
+      height: 28px;
       width: auto;
       filter: brightness(0) invert(1);
       opacity: 0.75;
     }
 
-    /* Animações Suaves */
-    .reveal-on-scroll {
-      opacity: 0;
-      transform: translateY(26px);
-      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .reveal-on-scroll.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
     /* ==========================================================================
-       RESPONSIVIDADE (MOBILE & TABLETS)
+       RESPONSIVIDADE RIGOROSA (320px a 1440px+)
        ========================================================================== */
     @media (max-width: 1024px) {
-      .hero-grid {
+      .hero-layout {
         grid-template-columns: 1fr;
-        gap: 3.5rem;
+        gap: 3rem;
       }
-      .hero-metrics {
+      .about-columns {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      .carta-featured-spread {
+        grid-template-columns: 1fr;
+      }
+      .ps-notice-box {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .ps-steps-grid {
         grid-template-columns: repeat(2, 1fr);
       }
-      .about-layout {
+      .contact-layout {
         grid-template-columns: 1fr;
-        gap: 3.5rem;
+        gap: 3rem;
       }
-      .featured-carta {
+      .footer-top {
         grid-template-columns: 1fr;
-      }
-      .ps-banner {
-        grid-template-columns: 1fr;
-      }
-      .ps-phases-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 3.5rem;
       }
     }
 
     @media (max-width: 768px) {
-      .mobile-toggle {
+      .masthead-strip {
+        display: none;
+      }
+      .mobile-nav-btn {
         display: block;
       }
-      .nav-menu {
+      .nav-list {
         position: fixed;
-        top: 76px;
+        top: 72px;
         left: 0;
         right: 0;
-        background: var(--navy-900);
+        background: #ffffff;
         flex-direction: column;
         align-items: flex-start;
-        padding: 2.2rem 2rem;
+        padding: 2rem;
         gap: 1.5rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        transform: translateY(-120%);
-        opacity: 0;
-        pointer-events: none;
-        transition: all 0.35s ease;
+        border-bottom: 1px solid var(--line);
+        display: none;
       }
-      .nav-menu.is-open {
-        transform: translateY(0);
-        opacity: 1;
-        pointer-events: auto;
+      .nav-list.is-open {
+        display: flex;
       }
-      .hero-title {
-        font-size: 2.45rem;
+      .hero-main-title {
+        font-size: 2.35rem;
       }
-      .section-title {
-        font-size: 2rem;
+      .hero-data-strip {
+        grid-template-columns: repeat(2, 1fr);
       }
-      .report-card-horizontal {
+      .archive-row {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+      }
+      .archive-action {
+        text-align: left;
+      }
+      .report-dignified-card {
         grid-template-columns: 1fr;
         gap: 1.2rem;
       }
-      .report-number {
-        border-right: none;
-        padding-right: 0;
-        border-bottom: 1px solid var(--border-subtle);
-        padding-bottom: 0.5rem;
-      }
-      .ps-phases-grid {
+      .ps-steps-grid {
         grid-template-columns: 1fr;
       }
-      .footer-inner {
+      .footer-bottom {
         flex-direction: column;
+        gap: 1.2rem;
         text-align: center;
-        justify-content: center;
       }
     }
   </style>
@@ -1337,36 +1135,46 @@
 <body>
 
   <!-- ========================================================================
-       NAVBAR SUPERIOR INSTITUCIONAL
+       MASTHEAD INSTITUCIONAL
+       ======================================================================== -->
+  <div class="masthead-strip">
+    <div class="container masthead-inner">
+      <span>Pontifícia Universidade Católica do Rio de Janeiro</span>
+      <span>Departamento de Economia · Edifício Cardeal Leme</span>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       BARRA DE NAVEGAÇÃO PRINCIPAL
        ======================================================================== -->
   <header class="navbar" id="navbar">
-    <div class="container nav-inner">
-      <a href="#hero" class="brand-link" aria-label="GAMA PUC-Rio Página Inicial">
-        <img src="logo grande.png" alt="Logotipo GAMA" class="brand-logo-img" onerror="this.style.display='none'">
-        <div class="brand-text">
-          <span class="brand-name">GAMA</span>
-          <span class="brand-dept">Economia · PUC-Rio</span>
+    <div class="container nav-container">
+      <a href="#hero" class="brand-mark" aria-label="GAMA PUC-Rio Início">
+        <img src="logo grande.png" alt="Logotipo GAMA" onerror="this.style.display='none'">
+        <div class="brand-typography">
+          <span class="brand-title">GAMA</span>
+          <span class="brand-sub">Macroeconomia Aplicada · PUC-Rio</span>
         </div>
       </a>
 
-      <!-- Navegação Principal Desktop -->
-      <nav aria-label="Navegação Principal">
-        <ul class="nav-menu" id="navMenu">
-          <li><a href="#sobre" class="nav-link">Sobre</a></li>
-          <li><a href="#cartas" class="nav-link">Cartas de Conjuntura</a></li>
-          <li><a href="#relatorios" class="nav-link">Relatórios</a></li>
-          <li><a href="#ps" class="nav-link">Processo Seletivo</a></li>
-          <li><a href="#equipe" class="nav-link">Equipe</a></li>
-          <li><a href="#contato" class="nav-link">Contato</a></li>
+      <!-- Menu Principal -->
+      <nav aria-label="Navegação do Portal">
+        <ul class="nav-list" id="navList">
+          <li class="nav-item"><a href="#sobre">Sobre o Núcleo</a></li>
+          <li class="nav-item"><a href="#cartas">Cartas de Conjuntura</a></li>
+          <li class="nav-item"><a href="#relatorios">Relatórios</a></li>
+          <li class="nav-item"><a href="#ps">Processo Seletivo</a></li>
+          <li class="nav-item"><a href="#equipe">Equipe</a></li>
+          <li class="nav-item"><a href="#contato">Contato</a></li>
         </ul>
       </nav>
 
-      <!-- Ações Rápidas -->
-      <div class="nav-actions">
-        <a href="#cartas" class="btn btn-gold" style="padding: 0.55rem 1.15rem; font-size: 0.8rem;">
-          Última Edição
+      <!-- Ação Direta -->
+      <div class="nav-end-action">
+        <a href="cartas/Carta de Conjuntura - Maio 26.pdf" target="_blank" class="btn btn-primary">
+          Edição Atual (PDF)
         </a>
-        <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir Menu de Navegação" aria-expanded="false">
+        <button class="mobile-nav-btn" id="mobileNavBtn" aria-label="Abrir Menu de Navegação">
           <span></span>
           <span></span>
           <span></span>
@@ -1377,143 +1185,136 @@
 
   <main>
     <!-- ======================================================================
-         HERO SECTION - IMPACTO & AUTORIDADE EDITORIAL
+         HERO SECTION: CAPA EDITORIAL DE CONJUNTURA
          ====================================================================== -->
-    <section class="hero-section" id="hero">
-      <div class="container hero-grid">
-        <div class="hero-content">
-          <div class="badge-pill dark">
-            <span class="dot"></span>
-            Núcleo de Macroeconomia · PUC-Rio
+    <section class="hero-editorial" id="hero">
+      <div class="container hero-layout">
+        <div>
+          <div class="hero-kicker">
+            <span class="mono-tag accent">
+              Núcleo Acadêmico · Departamento de Economia
+            </span>
           </div>
-          
-          <h1 class="hero-title">
-            Análise macroeconômica aplicada <em>além da sala de aula.</em>
+
+          <h1 class="hero-main-title">
+            Análise macroeconômica aplicada desenvolvida na <em>PUC-Rio.</em>
           </h1>
-          
-          <p class="hero-lead">
-            O GAMA conecta o rigor teórico do Departamento de Economia da PUC-Rio à análise prática de cenários nacionais e globais. Produzimos Cartas de Conjuntura mensais, estudos temáticos e desenvolvemos as lideranças que moldarão o mercado financeiro e a formulação de políticas públicas.
+
+          <p class="hero-narrative">
+            O GAMA conecta a sólida formação analítica do Departamento de Economia da PUC-Rio à dinâmica prática dos mercados e da formulação de políticas econômicas. Produzimos publicações mensais, estudos especiais e capacitamos estudantes para os maiores desafios da macroeconomia contemporânea.
           </p>
 
-          <div class="hero-ctas">
-            <a href="#cartas" class="btn btn-gold">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-              Ler Carta Mais Recente
+          <div class="hero-buttons">
+            <a href="#cartas" class="btn btn-primary">
+              Acessar Cartas de Conjuntura
             </a>
-            <a href="#sobre" class="btn btn-outline-light">
-              Conheça o Núcleo
+            <a href="#sobre" class="btn btn-outline">
+              Conhecer a Estrutura do Núcleo
             </a>
           </div>
 
-          <!-- Métricas Institucionais -->
-          <div class="hero-metrics">
-            <div class="metric-item">
-              <span class="metric-value">2024</span>
-              <span class="metric-label">Ano de Fundação</span>
+          <!-- Métricas Institucionais Tabulares -->
+          <div class="hero-data-strip">
+            <div class="data-unit">
+              <span class="data-value">2024</span>
+              <span class="data-descriptor">Fundação</span>
             </div>
-            <div class="metric-item">
-              <span class="metric-value">50+</span>
-              <span class="metric-label">Membros & Trainees</span>
+            <div class="data-unit">
+              <span class="data-value">50+</span>
+              <span class="data-descriptor">Membros e Trainees</span>
             </div>
-            <div class="metric-item">
-              <span class="metric-value">30+</span>
-              <span class="metric-label">Aulas de Capacitação</span>
+            <div class="data-unit">
+              <span class="data-value">30+</span>
+              <span class="data-descriptor">Aulas de Capacitação</span>
             </div>
-            <div class="metric-item">
-              <span class="metric-value">15+</span>
-              <span class="metric-label">Visitas Institucionais</span>
+            <div class="data-unit">
+              <span class="data-value">15+</span>
+              <span class="data-descriptor">Visitas a Instituições</span>
             </div>
           </div>
         </div>
 
-        <!-- Hero Card Teaser Editorial -->
-        <div class="hero-card-container">
-          <div class="hero-preview-card">
-            <div class="card-top-tag">
-              <span class="live-badge">Edição Atual</span>
-              <span class="preview-doc-type">Publicação Mensal</span>
+        <!-- Card de Acesso Imediato à Publicação Mais Recente -->
+        <div>
+          <article class="hero-featured-dispatch">
+            <div class="dispatch-header">
+              <span class="mono-tag accent">Edição em Destaque</span>
+              <span class="mono-tag">Maio 2026</span>
             </div>
-            
-            <h2 class="preview-title">Carta de Conjuntura — Maio 2026</h2>
-            <p class="preview-excerpt">
-              Diagnóstico macroeconômico abrangente cobrindo dinâmica de política monetária (Copom e Fed), trajetória fiscal brasileira, atividade global e impactos no mercado de juros e câmbio.
+
+            <h2 class="dispatch-title">Carta de Conjuntura — Maio 2026</h2>
+            <p class="dispatch-summary">
+              Avaliação sistemática cobrindo trajetórias fiscais no Brasil, dinâmica de juros do Copom e do Federal Reserve, atividade global e precificação nos mercados cambial e de títulos soberanos.
             </p>
 
-            <div class="preview-topics">
-              <span class="topic-chip">Política Monetária</span>
-              <span class="topic-chip">Cenário Fiscal</span>
-              <span class="topic-chip">EUA & FED</span>
-              <span class="topic-chip">Mercados Emergentes</span>
+            <div class="dispatch-tags-cluster">
+              <span class="topic-tag">Política Monetária</span>
+              <span class="topic-tag">Trajetória Fiscal</span>
+              <span class="topic-tag">Fed & Economia dos EUA</span>
+              <span class="topic-tag">Mercado de Juros</span>
             </div>
 
-            <div class="preview-footer-action">
-              <div class="author-lockup">
-                <span class="author-team">Diretoria de Conjuntura</span>
-                <span class="author-date">Gestão GAMA PUC-Rio</span>
+            <div class="dispatch-cta-row">
+              <div class="dispatch-byline">
+                <strong>Diretoria de Conjuntura</strong>
+                Gestão GAMA PUC-Rio 26.1
               </div>
-              <a href="cartas/Carta de Conjuntura - Maio 26.pdf" target="_blank" class="btn btn-gold" style="padding: 0.6rem 1.15rem; font-size: 0.82rem;">
-                Acessar PDF →
+              <a href="cartas/Carta de Conjuntura - Maio 26.pdf" target="_blank" class="btn btn-primary">
+                Baixar PDF →
               </a>
             </div>
-          </div>
+          </article>
         </div>
       </div>
     </section>
 
     <!-- ======================================================================
-         SOBRE O GAMA / PILARES DE EXCELÊNCIA
+         SEÇÃO: SOBRE O GAMA & PILARES ACADÊMICOS
          ====================================================================== -->
-    <section class="section-about" id="sobre">
+    <section class="section-editorial" id="sobre">
       <div class="container">
-        <div class="section-head reveal-on-scroll">
-          <span class="badge-pill">Excelência & Propósito</span>
-          <h2 class="section-title">Um núcleo orientado ao debate macroeconômico rigoroso</h2>
-          <p class="section-subtitle">
-            Fundado por alunos da PUC-Rio para integrar a sólida formação teórica do curso à prática diária das mesas de operações, consultorias e gestoras de investimentos.
-          </p>
+        <div class="editorial-head">
+          <span class="mono-tag accent">Estrutura & Propósito</span>
+          <h2 class="editorial-title">
+            Um núcleo concebido para exercitar o pensamento macroeconômico fora da sala de aula
+          </h2>
         </div>
 
-        <div class="about-layout reveal-on-scroll">
-          <div class="about-prose">
+        <div class="about-columns">
+          <div class="prose-block">
             <p>
-              O <strong>GAMA (Grupo de Análise Macroeconômica Aplicada)</strong> nasceu com a missão de aproximar os graduandos do Departamento de Economia da PUC-Rio da dinâmica real da conjuntura econômica nacional e internacional.
+              O <strong>GAMA (Grupo de Análise Macroeconômica Aplicada)</strong> é o núcleo de macroeconomia da PUC-Rio. Nossa atuação concentra-se em acompanhar, diagnosticar e debater as principais variáveis que definem a conjuntura econômica brasileira e internacional.
             </p>
             <p>
-              Sob a coordenação da <strong>Diretoria de Conjuntura</strong>, estruturamos mensalmente a <em>Carta de Conjuntura</em>, combinando avaliações criteriosas de política fiscal e monetária, dinâmica inflacionária, setor externo e tendências nos mercados de capitais.
+              Mensalmente, sob a coordenação da <strong>Diretoria de Conjuntura</strong>, estruturamos a <em>Carta de Conjuntura</em>, integrando política fiscal, política monetária, balanço de pagamentos e dinâmica inflacionária.
             </p>
             <p>
-              Paralelamente, a <strong>Diretoria de Eventos</strong> é a ponte institucional com o mercado, viabilizando visitas técnicas a bancos de investimento, gestoras de fundos multimercado e bate-papos com renomados economistas. A <strong>Diretoria de Pessoas</strong> conduz o processo seletivo e o programa semestral intensivo de capacitação dos novos membros.
+              A <strong>Diretoria de Eventos</strong> atua como canal de diálogo externo, promovendo visitas institucionais a gestoras de recursos, bancos de investimento e economistas de referência. Já a <strong>Diretoria de Pessoas</strong> conduz o processo de seleção e o programa de treinamento semestral dos novos trainees.
             </p>
           </div>
 
-          <div class="about-pillars">
-            <div class="pillar-card">
-              <div class="pillar-icon-box">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
-              </div>
-              <div class="pillar-content">
-                <h3>Análise Macroeconômica Aplicada</h3>
-                <p>Monitoramento contínuo dos cenários econômicos doméstico e global através de dados de alta frequência e modelos econométricos.</p>
+          <div class="pillars-stack">
+            <div class="pillar-row">
+              <span class="pillar-index">01</span>
+              <div class="pillar-body">
+                <h3>Análise Macroeconômica Sistemática</h3>
+                <p>Acompanhamento analítico dos principais indicadores de atividade, inflação e mercado financeiro com rigor metodológico.</p>
               </div>
             </div>
 
-            <div class="pillar-card">
-              <div class="pillar-icon-box">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-              </div>
-              <div class="pillar-content">
-                <h3>Capacitação Técnica & Liderança</h3>
-                <p>Ciclo semestral estruturado de aulas, nivelamento conceitual e gestão de projetos com autonomia para os estudantes.</p>
+            <div class="pillar-row">
+              <span class="pillar-index">02</span>
+              <div class="pillar-body">
+                <h3>Capacitação Técnica e Trainees</h3>
+                <p>Ciclo semestral de aulas de nivelamento e desenvolvimento de competências analíticas para graduandos em Economia.</p>
               </div>
             </div>
 
-            <div class="pillar-card">
-              <div class="pillar-icon-box">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
-              </div>
-              <div class="pillar-content">
-                <h3>Ponte Universidade & Mercado</h3>
-                <p>Intercâmbio direto com gestoras renomadas (fundos macro/ações), consultorias e formulação de políticas econômicas.</p>
+            <div class="pillar-row">
+              <span class="pillar-index">03</span>
+              <div class="pillar-body">
+                <h3>Intercâmbio com o Mercado</h3>
+                <p>Visitas técnicas, mesas-redondas e aproximação direta com gestoras de fundos, consultorias e entidades governamentais.</p>
               </div>
             </div>
           </div>
@@ -1522,564 +1323,492 @@
     </section>
 
     <!-- ======================================================================
-         PUBLICAÇÕES: CARTAS DE CONJUNTURA
+         SEÇÃO: CARTAS DE CONJUNTURA (PUBLICAÇÕES MENSAIS)
          ====================================================================== -->
     <section class="section-cartas" id="cartas">
       <div class="container">
-        <div class="section-head reveal-on-scroll">
-          <span class="badge-pill">Publicações Regulares</span>
-          <h2 class="section-title">Cartas de Conjuntura</h2>
-          <p class="section-subtitle">
-            Relatórios analíticos mensais elaborados pelos membros do GAMA com avaliações de cenários e projeções macroeconômicas.
+        <div class="editorial-head">
+          <span class="mono-tag accent">Publicações Regulares</span>
+          <h2 class="editorial-title">Cartas de Conjuntura</h2>
+          <p style="margin-top: 0.5rem; color: var(--ink-muted);">
+            Diagnósticos e cenários macroeconômicos elaborados pela equipe de pesquisa do GAMA.
           </p>
         </div>
 
-        <!-- Carta Principal em Grande Destaque -->
-        <div class="featured-carta reveal-on-scroll">
+        <!-- Destaque Master: Maio 2026 -->
+        <article class="carta-featured-spread">
           <div>
-            <div class="badge-pill dark" style="margin-bottom: 0.75rem;">
-              <span class="dot"></span> Destaque Mais Recente
-            </div>
-            <span style="font-size: 0.85rem; color: var(--gold-light); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600;">
-              Maio 2026 · Diretoria de Conjuntura 26.1
-            </span>
-            <h3>Carta de Conjuntura — Edição Maio 2026</h3>
+            <span class="mono-tag dark">Edição Mais Recente · Maio 2026</span>
+            <h3>Carta de Conjuntura — Maio 2026</h3>
             <p>
-              Avaliação aprofundada da trajetória fiscal e expectativas de inflação no Brasil, os desdobramentos da política de juros nos Estados Unidos pelo Federal Reserve e as repercussões geopolíticas nos fluxos de capitais globais.
+              Análise dos dilemas da condução da política monetária pelo Banco Central do Brasil, a resiliência do mercado de trabalho norte-americano e seus efeitos sobre a curva de juros global e a estabilidade cambial dos mercados emergentes.
             </p>
-            <div class="featured-actions">
-              <a href="cartas/Carta de Conjuntura - Maio 26.pdf" target="_blank" class="btn btn-gold">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                Baixar Relatório Completo (PDF)
-              </a>
-              <a href="#relatorios" class="btn btn-outline-light">
-                Ver Relatórios Especiais
-              </a>
-            </div>
+            <a href="cartas/Carta de Conjuntura - Maio 26.pdf" target="_blank" class="btn btn-light">
+              Ler Edição de Maio 2026 (PDF)
+            </a>
           </div>
 
-          <div class="featured-insights">
-            <div class="insights-title">Tópicos desta edição</div>
-            <ul class="insights-list">
-              <li>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span><strong>Brasil:</strong> Pressões fiscais, meta de primário e projeções para a Selic no Copom.</span>
-              </li>
-              <li>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span><strong>Internacional:</strong> Mercado de trabalho nos EUA e resiliência da economia americana.</span>
-              </li>
-              <li>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span><strong>Mercados:</strong> Curva de juros futuros DI, paridade cambial BRL/USD e commodities.</span>
-              </li>
+          <div class="editorial-bullet-box">
+            <div class="bullet-box-title">Destaques da Análise</div>
+            <ul class="bullet-entries">
+              <li><strong>Brasil:</strong> Pressões fiscais de curto prazo, meta de superávit primário e projeções de inflação.</li>
+              <li><strong>Estados Unidos:</strong> Decisões de taxas de juros do FOMC e dados de emprego nos EUA.</li>
+              <li><strong>Mercados:</strong> Curvas de juros DI, paridade cambial BRL/USD e preços internacionais de commodities.</li>
             </ul>
           </div>
-        </div>
+        </article>
 
-        <!-- Acervo de Cartas Anteriores -->
-        <div class="cartas-grid reveal-on-scroll">
-          
-          <!-- Abril 2026 -->
-          <article class="carta-item-card">
-            <div>
-              <div class="carta-meta-head">
-                <span class="carta-edition-tag">Edição Abril 2026</span>
-                <span style="font-size: 0.75rem; color: var(--text-subtle);">26.1</span>
-              </div>
+        <!-- Arquivo de Edições Anteriores -->
+        <div class="archive-listing">
+          <!-- Edição Abril 2026 -->
+          <div class="archive-row">
+            <div class="archive-period">
+              <span>Abril 2026</span>
+              <div style="font-size: 0.68rem; color: var(--ink-muted);">Diretoria 26.1</div>
+            </div>
+            <div class="archive-content">
               <h4>Carta de Conjuntura — Abril 2026</h4>
-              <p>
-                Análise da comunicação das autoridades monetárias, surpresas no IPCA de curto prazo e evolução do comércio exterior diante das incertezas regionais.
-              </p>
+              <p>Comunicação das autoridades monetárias, surpresas no IPCA de curto prazo e impactos sobre a atividade doméstica.</p>
             </div>
-            <a href="cartas/Carta de Conjuntura - Abril 2026.pdf" target="_blank" class="carta-link-btn">
-              Acessar Edição de Abril →
-            </a>
-          </article>
+            <div class="archive-action">
+              <a href="cartas/Carta de Conjuntura - Abril 2026.pdf" target="_blank" class="btn btn-outline" style="padding: 0.55rem 1rem; font-size: 0.8rem;">
+                Acessar PDF
+              </a>
+            </div>
+          </div>
 
-          <!-- Março 2026 -->
-          <article class="carta-item-card">
-            <div>
-              <div class="carta-meta-head">
-                <span class="carta-edition-tag">Edição Março 2026</span>
-                <span style="font-size: 0.75rem; color: var(--text-subtle);">26.1</span>
-              </div>
+          <!-- Edição Março 2026 -->
+          <div class="archive-row">
+            <div class="archive-period">
+              <span>Março 2026</span>
+              <div style="font-size: 0.68rem; color: var(--ink-muted);">Diretoria 26.1</div>
+            </div>
+            <div class="archive-content">
               <h4>Carta de Conjuntura — Março 2026</h4>
-              <p>
-                Primeiro diagnóstico do ano: balanço do primeiro trimestre, revisões de PIB e dinâmica das contas públicas e arrecadação federal.
-              </p>
+              <p>Diagnóstico macroeconômico do primeiro trimestre: revisões de PIB, arrecadação federal e contas públicas.</p>
             </div>
-            <a href="cartas/Carta_de_Conjuntura_Marco_2026.pdf" target="_blank" class="carta-link-btn">
-              Acessar Edição de Março →
-            </a>
-          </article>
-
+            <div class="archive-action">
+              <a href="cartas/Carta_de_Conjuntura_Marco_2026.pdf" target="_blank" class="btn btn-outline" style="padding: 0.55rem 1rem; font-size: 0.8rem;">
+                Acessar PDF
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- ======================================================================
-         RELATÓRIOS ESPECIAIS & TEMÁTICOS
+         SEÇÃO: RELATÓRIOS ESPECIAIS & TEMÁTICOS
          ====================================================================== -->
     <section class="section-reports" id="relatorios">
       <div class="container">
-        <div class="section-head reveal-on-scroll">
-          <span class="badge-pill">Publicações Especiais</span>
-          <h2 class="section-title">Relatórios Temáticos</h2>
-          <p class="section-subtitle">
-            Estudos aprofundados sobre eventos macroeconômicos extraordinários, geopolítica e dinâmicas setoriais globais.
+        <div class="editorial-head">
+          <span class="mono-tag accent">Estudos Temáticos</span>
+          <h2 class="editorial-title">Relatórios Especiais</h2>
+          <p style="margin-top: 0.5rem; color: var(--ink-muted);">
+            Pesquisas com foco em choques externos, geopolítica e dinâmicas setoriais.
           </p>
         </div>
 
-        <div class="reports-grid reveal-on-scroll">
-          <div class="report-card-horizontal">
-            <div class="report-number">01</div>
-            <div class="report-info">
-              <span class="badge-pill" style="margin-bottom: 0.5rem; font-size: 0.7rem; padding: 0.2rem 0.6rem;">Geopolítica & Petróleo</span>
-              <h3>Conflito no Oriente Médio: Impactos Macroeconômicos sobre a Economia Global</h3>
-              <p>
-                Avaliação detalhada dos canais de transmissão do conflito regional: choque no preço do barril de petróleo (Brent), encarecimento do frete marítimo global e riscos inflacionários para economias emergentes.
-              </p>
-              <div class="report-meta-tags">
-                <span class="meta-tag">Data: Abril 2026</span>
-                <span class="meta-tag">Autoria: Ananda Botelho</span>
-                <span class="meta-tag">Formato: Relatório PDF (Analítico)</span>
-              </div>
-            </div>
-            <div>
-              <a href="relatorios/Conflito_no_Oriente_Medio_Abril_2026.pdf" target="_blank" class="btn btn-navy">
-                Ler Relatório →
-              </a>
+        <article class="report-dignified-card">
+          <div class="report-number-flag">01</div>
+          <div class="report-body">
+            <span class="mono-tag accent" style="margin-bottom: 0.4rem;">Geopolítica & Commodities</span>
+            <h3>Conflito no Oriente Médio: Impactos Macroeconômicos sobre a Economia Global</h3>
+            <p>
+              Estudo abrangente sobre os canais de transmissão do conflito regional: choques nos contratos futuros de petróleo Brent, gargalos nas rotas marítimas internacionais e repercussões sobre expectativas inflacionárias.
+            </p>
+            <div class="report-metadata-strip">
+              <span>Publicação: Abril 2026</span>
+              <span>Elaboração: Ananda Botelho</span>
+              <span>GAMA · PUC-Rio</span>
             </div>
           </div>
-        </div>
+          <div>
+            <a href="relatorios/Conflito_no_Oriente_Medio_Abril_2026.pdf" target="_blank" class="btn btn-primary">
+              Ler Relatório Completo
+            </a>
+          </div>
+        </article>
       </div>
     </section>
 
     <!-- ======================================================================
-         PROCESSO SELETIVO (TRAINEES)
+         SEÇÃO: PROCESSO SELETIVO (EDITAL E FORMAÇÃO DE TRAINEES)
          ====================================================================== -->
     <section class="section-ps" id="ps">
       <div class="container">
-        
-        <!-- Banner de Inscrição / Informações -->
-        <div class="ps-banner reveal-on-scroll">
+        <div class="ps-notice-box">
           <div>
-            <span class="badge-pill dark" style="margin-bottom: 1rem;">
-              <span class="dot"></span> Inscrições Abertas
-            </span>
-            <h3>Faça parte do GAMA PUC-Rio</h3>
+            <span class="mono-tag accent">Processo Seletivo 2026.2</span>
+            <h3>Admissão de Novos Membros Trainees</h3>
             <p>
-              O Processo Seletivo do GAMA é a porta de entrada para vivenciar a macroeconomia na prática. Buscamos estudantes de Economia da PUC-Rio proativos, curiosos e comprometidos com a excelência técnica e o trabalho em equipe.
+              O Processo Seletivo do GAMA busca graduandos de Economia da PUC-Rio com elevado rigor analítico, dedicação e interesse genuíno pela macroeconomia aplicada.
             </p>
-            <p style="font-size: 0.95rem; color: rgba(255, 255, 255, 0.7);">
-              Os aprovados ingressam no <strong>Curso de Capacitação de Trainees</strong> durante um semestre letivo, com aulas de nivelamento e desenvolvimento de competências para integração às diretorias.
+            <p style="font-size: 0.9rem; color: var(--ink-muted);">
+              Os candidatos aprovados participam do <strong>Curso de Capacitação de Trainees</strong> ao longo de um semestre letivo, desenvolvendo fundamentos técnicos para integrar uma das diretorias operacionais.
             </p>
-            <a href="https://forms.gle/mD45B6L6guPYX6BY6" target="_blank" class="btn btn-gold" style="margin-top: 0.5rem;">
-              Inscreva-se no Processo Seletivo
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            <a href="https://forms.gle/mD45B6L6guPYX6BY6" target="_blank" class="btn btn-primary">
+              Preencher Formulário de Inscrição
             </a>
           </div>
 
-          <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.14); border-radius: var(--radius-md); padding: 2rem;">
-            <h4 style="color: var(--gold-light); font-size: 1.15rem; margin-bottom: 0.85rem;">Nota da Diretoria de Pessoas</h4>
-            <p style="font-size: 0.9rem; color: rgba(255, 255, 255, 0.8); line-height: 1.6; margin-bottom: 1rem;">
-              Encorajamos fortemente candidatos que não foram aprovados em processos anteriores a se inscreverem novamente. A alta demanda é o principal fator limitante, mantendo turmas de até 30 trainees para assegurar a máxima qualidade de mentoria.
+          <aside class="ps-criteria-aside">
+            <h4>Critérios & Vagas</h4>
+            <p>
+              A seleção ocorre semestralmente com turmas restritas a <strong>30 trainees</strong>, garantindo mentoria personalizada. Encorajamos candidatos que não ingressaram em seleções anteriores a se inscreverem novamente.
             </p>
-            <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; color: var(--gold-light); font-weight: 600;">
-              <span>Turmas de até 30 trainees por semestre</span>
-            </div>
-          </div>
+          </aside>
         </div>
 
-        <!-- Etapas do Processo Seletivo -->
-        <div class="section-head reveal-on-scroll" style="margin-bottom: 2rem;">
-          <h3 style="font-size: 1.85rem;">Etapas da Seleção</h3>
-          <p class="section-subtitle">
-            Entenda como funciona o nosso fluxo seletivo estruturado:
-          </p>
+        <!-- Etapas Oficiais -->
+        <div class="editorial-head" style="margin-bottom: 2rem;">
+          <h3 style="font-size: 1.65rem;">Etapas do Processo de Seleção</h3>
         </div>
 
-        <div class="ps-phases-grid reveal-on-scroll">
-          <div class="phase-card">
-            <span class="phase-step-num">ETAPA 01</span>
+        <div class="ps-steps-grid">
+          <div class="step-card">
+            <span class="step-id">ETAPA 01</span>
             <h4>Vídeo de Apresentação</h4>
-            <p>Envio de um vídeo curto onde você se apresenta, compartilha sua trajetória e conta suas motivações para ingressar no GAMA.</p>
+            <p>Apresentação pessoal sintética sobre motivações, histórico acadêmico e interesses em macroeconomia.</p>
           </div>
 
-          <div class="phase-card">
-            <span class="phase-step-num">ETAPA 02</span>
+          <div class="step-card">
+            <span class="step-id">ETAPA 02</span>
             <h4>Prova Escrita</h4>
-            <p>Avaliação de raciocínio lógico, noções gerais de atualidades e interpretação de conceitos econômicos fundamentais.</p>
+            <p>Avaliação de raciocínio lógico, atualidades econômicas e interpretação de dados.</p>
           </div>
 
-          <div class="phase-card">
-            <span class="phase-step-num">ETAPA 03</span>
+          <div class="step-card">
+            <span class="step-id">ETAPA 03</span>
             <h4>Relatório Analítico</h4>
-            <p>Elaboração de um estudo sintético demonstrando capacidade de síntese, clareza expositiva, rigor estético e comunicação escrita.</p>
+            <p>Elaboração de texto avaliando capacidade de síntese, redação formal e análise crítica de conjuntura.</p>
           </div>
 
-          <div class="phase-card">
-            <span class="phase-step-num">ETAPA 04</span>
+          <div class="step-card">
+            <span class="step-id">ETAPA 04</span>
             <h4>Dinâmica em Grupo</h4>
-            <p>Atividade prática final focada em trabalho colaborativo, argumentação fundamentada, postura profissional e proatividade.</p>
+            <p>Exercício prático final avaliando argumentação técnica, proatividade e cooperação em equipe.</p>
           </div>
         </div>
-
       </div>
     </section>
 
     <!-- ======================================================================
-         SEÇÃO: NOSSA EQUIPE (GESTÃO 2026) COM FILTRO DINÂMICO
+         SEÇÃO: DIRETORIA & CORPO DE MEMBROS (GESTÃO 2026)
          ====================================================================== -->
     <section class="section-team" id="equipe">
       <div class="container">
-        <div class="section-head text-center reveal-on-scroll">
-          <span class="badge-pill">Gestão 2026.2</span>
-          <h2 class="section-title">Corpo de Membros e Lideranças</h2>
-          <p class="section-subtitle">
-            Estudantes dedicados do Departamento de Economia da PUC-Rio que coordenam as publicações, operações e eventos do núcleo.
+        <div class="editorial-head">
+          <span class="mono-tag accent">Governança Institucional</span>
+          <h2 class="editorial-title">Corpo de Membros e Lideranças</h2>
+          <p style="margin-top: 0.5rem; color: var(--ink-muted);">
+            Estudantes do Departamento de Economia da PUC-Rio responsáveis pelas atividades do núcleo na Gestão 2026.2.
           </p>
         </div>
 
-        <!-- Filtros Interativos por Diretoria -->
-        <div class="team-filter-bar reveal-on-scroll">
-          <button class="filter-btn active" data-filter="all">Todos os Membros</button>
-          <button class="filter-btn" data-filter="presidencia">Presidência</button>
-          <button class="filter-btn" data-filter="conjuntura">Conjuntura</button>
-          <button class="filter-btn" data-filter="pessoas">Pessoas & Trainees</button>
-          <button class="filter-btn" data-filter="eventos">Eventos & Relações</button>
+        <!-- Filtros por Diretoria -->
+        <div class="team-filter-controls">
+          <button class="team-tab-btn active" data-filter="all">Todos os Membros (35)</button>
+          <button class="team-tab-btn" data-filter="presidencia">Presidência</button>
+          <button class="team-tab-btn" data-filter="conjuntura">Conjuntura</button>
+          <button class="team-tab-btn" data-filter="pessoas">Pessoas & Trainees</button>
+          <button class="team-tab-btn" data-filter="eventos">Eventos & Relações</button>
         </div>
 
-        <!-- Grid Unificado de Membros -->
-        <div class="team-grid reveal-on-scroll" id="teamGrid">
+        <!-- Roster Grid -->
+        <div class="roster-grid" id="rosterGrid">
           
           <!-- Presidência -->
-          <div class="member-card" data-dept="presidencia">
-            <div class="member-avatar">G</div>
-            <div class="member-details">
-              <span class="member-name">Guilherme Pinheiro</span>
-              <span class="member-role">Presidente</span>
-              <span class="member-dept">Presidência · 26.2</span>
+          <div class="roster-card" data-dept="presidencia">
+            <div>
+              <div class="roster-name">Guilherme Pinheiro</div>
+              <div class="roster-role-tag">Presidente</div>
             </div>
+            <div class="roster-dept-tag">Presidência · 26.2</div>
           </div>
 
-          <div class="member-card" data-dept="presidencia">
-            <div class="member-avatar">R</div>
-            <div class="member-details">
-              <span class="member-name">Raphaela Garambone</span>
-              <span class="member-role">Vice-Presidente</span>
-              <span class="member-dept">Presidência · 26.2</span>
+          <div class="roster-card" data-dept="presidencia">
+            <div>
+              <div class="roster-name">Raphaela Garambone</div>
+              <div class="roster-role-tag">Vice-Presidente</div>
             </div>
+            <div class="roster-dept-tag">Presidência · 26.2</div>
           </div>
 
           <!-- Diretoria de Conjuntura -->
-          <div class="member-card" data-dept="conjuntura">
-            <div class="member-avatar">F</div>
-            <div class="member-details">
-              <span class="member-name">Felipe Becker</span>
-              <span class="member-role">Diretor</span>
-              <span class="member-dept">Conjuntura · 26.2</span>
+          <div class="roster-card" data-dept="conjuntura">
+            <div>
+              <div class="roster-name">Felipe Becker</div>
+              <div class="roster-role-tag">Diretor</div>
             </div>
+            <div class="roster-dept-tag">Conjuntura · 26.2</div>
           </div>
 
-          <div class="member-card" data-dept="conjuntura">
-            <div class="member-avatar">D</div>
-            <div class="member-details">
-              <span class="member-name">Daniel Adler</span>
-              <span class="member-role">Diretor</span>
-              <span class="member-dept">Conjuntura · 26.2</span>
+          <div class="roster-card" data-dept="conjuntura">
+            <div>
+              <div class="roster-name">Daniel Adler</div>
+              <div class="roster-role-tag">Diretor</div>
             </div>
+            <div class="roster-dept-tag">Conjuntura · 26.2</div>
           </div>
 
-          <div class="member-card" data-dept="conjuntura">
-            <div class="member-avatar">B</div>
-            <div class="member-details">
-              <span class="member-name">Bernardo Fuks</span>
-              <span class="member-role">Membro</span>
-              <span class="member-dept">Conjuntura · 26.2</span>
+          <div class="roster-card" data-dept="conjuntura">
+            <div>
+              <div class="roster-name">Bernardo Fuks</div>
+              <div class="roster-role-tag">Membro</div>
             </div>
+            <div class="roster-dept-tag">Conjuntura · 26.2</div>
           </div>
 
-          <div class="member-card" data-dept="conjuntura">
-            <div class="member-avatar">C</div>
-            <div class="member-details">
-              <span class="member-name">Carlos Eduardo Maiolino</span>
-              <span class="member-role">Membro</span>
-              <span class="member-dept">Conjuntura · 26.2</span>
+          <div class="roster-card" data-dept="conjuntura">
+            <div>
+              <div class="roster-name">Carlos Eduardo Maiolino</div>
+              <div class="roster-role-tag">Membro</div>
             </div>
+            <div class="roster-dept-tag">Conjuntura · 26.2</div>
           </div>
 
-          <div class="member-card" data-dept="conjuntura">
-            <div class="member-avatar">D</div>
-            <div class="member-details">
-              <span class="member-name">Daniel Barret</span>
-              <span class="member-role">Membro</span>
-              <span class="member-dept">Conjuntura · 26.2</span>
+          <div class="roster-card" data-dept="conjuntura">
+            <div>
+              <div class="roster-name">Daniel Barret</div>
+              <div class="roster-role-tag">Membro</div>
             </div>
+            <div class="roster-dept-tag">Conjuntura · 26.2</div>
           </div>
 
-          <div class="member-card" data-dept="conjuntura">
-            <div class="member-avatar">D</div>
-            <div class="member-details">
-              <span class="member-name">Daniel Holck</span>
-              <span class="member-role">Membro</span>
-              <span class="member-dept">Conjuntura · 26.2</span>
+          <div class="roster-card" data-dept="conjuntura">
+            <div>
+              <div class="roster-name">Daniel Holck</div>
+              <div class="roster-role-tag">Membro</div>
             </div>
+            <div class="roster-dept-tag">Conjuntura · 26.2</div>
           </div>
 
-          <div class="member-card" data-dept="conjuntura">
-            <div class="member-avatar">E</div>
-            <div class="member-details">
-              <span class="member-name">Eduardo Costa</span>
-              <span class="member-role">Membro</span>
-              <span class="member-dept">Conjuntura · 26.2</span>
+          <div class="roster-card" data-dept="conjuntura">
+            <div>
+              <div class="roster-name">Eduardo Costa</div>
+              <div class="roster-role-tag">Membro</div>
             </div>
+            <div class="roster-dept-tag">Conjuntura · 26.2</div>
           </div>
 
-          <div class="member-card" data-dept="conjuntura">
-            <div class="member-avatar">F</div>
-            <div class="member-details">
-              <span class="member-name">Felipe de Souza</span>
-              <span class="member-role">Membro</span>
-              <span class="member-dept">Conjuntura · 26.2</span>
+          <div class="roster-card" data-dept="conjuntura">
+            <div>
+              <div class="roster-name">Felipe de Souza</div>
+              <div class="roster-role-tag">Membro</div>
             </div>
+            <div class="roster-dept-tag">Conjuntura · 26.2</div>
           </div>
 
-          <div class="member-card" data-dept="conjuntura">
-            <div class="member-avatar">G</div>
-            <div class="member-details">
-              <span class="member-name">Gabriel Meirelles</span>
-              <span class="member-role">Membro</span>
-              <span class="member-dept">Conjuntura · 26.2</span>
+          <div class="roster-card" data-dept="conjuntura">
+            <div>
+              <div class="roster-name">Gabriel Meirelles</div>
+              <div class="roster-role-tag">Membro</div>
             </div>
+            <div class="roster-dept-tag">Conjuntura · 26.2</div>
           </div>
 
-          <div class="member-card" data-dept="conjuntura">
-            <div class="member-avatar">G</div>
-            <div class="member-details">
-              <span class="member-name">Gabriela Schaimberg</span>
-              <span class="member-role">Membro</span>
-              <span class="member-dept">Conjuntura · 26.2</span>
+          <div class="roster-card" data-dept="conjuntura">
+            <div>
+              <div class="roster-name">Gabriela Schaimberg</div>
+              <div class="roster-role-tag">Membro</div>
             </div>
+            <div class="roster-dept-tag">Conjuntura · 26.2</div>
           </div>
 
-          <div class="member-card" data-dept="conjuntura">
-            <div class="member-avatar">J</div>
-            <div class="member-details">
-              <span class="member-name">João Pedro Lucas</span>
-              <span class="member-role">Membro</span>
-              <span class="member-dept">Conjuntura · 26.2</span>
+          <div class="roster-card" data-dept="conjuntura">
+            <div>
+              <div class="roster-name">João Pedro Lucas</div>
+              <div class="roster-role-tag">Membro</div>
             </div>
+            <div class="roster-dept-tag">Conjuntura · 26.2</div>
           </div>
 
-          <div class="member-card" data-dept="conjuntura">
-            <div class="member-avatar">J</div>
-            <div class="member-details">
-              <span class="member-name">João Pedro Sertã</span>
-              <span class="member-role">Membro</span>
-              <span class="member-dept">Conjuntura · 26.2</span>
+          <div class="roster-card" data-dept="conjuntura">
+            <div>
+              <div class="roster-name">João Pedro Sertã</div>
+              <div class="roster-role-tag">Membro</div>
             </div>
+            <div class="roster-dept-tag">Conjuntura · 26.2</div>
           </div>
 
-          <div class="member-card" data-dept="conjuntura">
-            <div class="member-avatar">M</div>
-            <div class="member-details">
-              <span class="member-name">Maria Elisa Souza</span>
-              <span class="member-role">Membro</span>
-              <span class="member-dept">Conjuntura · 26.2</span>
+          <div class="roster-card" data-dept="conjuntura">
+            <div>
+              <div class="roster-name">Maria Elisa Souza</div>
+              <div class="roster-role-tag">Membro</div>
             </div>
+            <div class="roster-dept-tag">Conjuntura · 26.2</div>
           </div>
 
-          <div class="member-card" data-dept="conjuntura">
-            <div class="member-avatar">M</div>
-            <div class="member-details">
-              <span class="member-name">Miguel Dias</span>
-              <span class="member-role">Membro</span>
-              <span class="member-dept">Conjuntura · 26.2</span>
+          <div class="roster-card" data-dept="conjuntura">
+            <div>
+              <div class="roster-name">Miguel Dias</div>
+              <div class="roster-role-tag">Membro</div>
             </div>
+            <div class="roster-dept-tag">Conjuntura · 26.2</div>
           </div>
 
-          <div class="member-card" data-dept="conjuntura">
-            <div class="member-avatar">P</div>
-            <div class="member-details">
-              <span class="member-name">Pedro de Freitas</span>
-              <span class="member-role">Membro</span>
-              <span class="member-dept">Conjuntura · 26.2</span>
+          <div class="roster-card" data-dept="conjuntura">
+            <div>
+              <div class="roster-name">Pedro de Freitas</div>
+              <div class="roster-role-tag">Membro</div>
             </div>
+            <div class="roster-dept-tag">Conjuntura · 26.2</div>
           </div>
 
-          <div class="member-card" data-dept="conjuntura">
-            <div class="member-avatar">S</div>
-            <div class="member-details">
-              <span class="member-name">Samy Balassiano</span>
-              <span class="member-role">Membro</span>
-              <span class="member-dept">Conjuntura · 26.2</span>
+          <div class="roster-card" data-dept="conjuntura">
+            <div>
+              <div class="roster-name">Samy Balassiano</div>
+              <div class="roster-role-tag">Membro</div>
             </div>
+            <div class="roster-dept-tag">Conjuntura · 26.2</div>
           </div>
 
           <!-- Diretoria de Pessoas -->
-          <div class="member-card" data-dept="pessoas">
-            <div class="member-avatar">B</div>
-            <div class="member-details">
-              <span class="member-name">Beatriz Menezes</span>
-              <span class="member-role">Diretora</span>
-              <span class="member-dept">Pessoas · 26.2</span>
+          <div class="roster-card" data-dept="pessoas">
+            <div>
+              <div class="roster-name">Beatriz Menezes</div>
+              <div class="roster-role-tag">Diretora</div>
             </div>
+            <div class="roster-dept-tag">Pessoas · 26.2</div>
           </div>
 
-          <div class="member-card" data-dept="pessoas">
-            <div class="member-avatar">M</div>
-            <div class="member-details">
-              <span class="member-name">Mariana Pontes</span>
-              <span class="member-role">Diretora</span>
-              <span class="member-dept">Pessoas · 26.2</span>
+          <div class="roster-card" data-dept="pessoas">
+            <div>
+              <div class="roster-name">Mariana Pontes</div>
+              <div class="roster-role-tag">Diretora</div>
             </div>
+            <div class="roster-dept-tag">Pessoas · 26.2</div>
           </div>
 
-          <div class="member-card" data-dept="pessoas">
-            <div class="member-avatar">C</div>
-            <div class="member-details">
-              <span class="member-name">Caio Kautlau</span>
-              <span class="member-role">Membro</span>
-              <span class="member-dept">Pessoas · 26.2</span>
+          <div class="roster-card" data-dept="pessoas">
+            <div>
+              <div class="roster-name">Caio Kautlau</div>
+              <div class="roster-role-tag">Membro</div>
             </div>
+            <div class="roster-dept-tag">Pessoas · 26.2</div>
           </div>
 
-          <div class="member-card" data-dept="pessoas">
-            <div class="member-avatar">D</div>
-            <div class="member-details">
-              <span class="member-name">Diego Leal</span>
-              <span class="member-role">Membro</span>
-              <span class="member-dept">Pessoas · 26.2</span>
+          <div class="roster-card" data-dept="pessoas">
+            <div>
+              <div class="roster-name">Diego Leal</div>
+              <div class="roster-role-tag">Membro</div>
             </div>
+            <div class="roster-dept-tag">Pessoas · 26.2</div>
           </div>
 
-          <div class="member-card" data-dept="pessoas">
-            <div class="member-avatar">J</div>
-            <div class="member-details">
-              <span class="member-name">João Pedro Aurélio</span>
-              <span class="member-role">Membro</span>
-              <span class="member-dept">Pessoas · 26.2</span>
+          <div class="roster-card" data-dept="pessoas">
+            <div>
+              <div class="roster-name">João Pedro Aurélio</div>
+              <div class="roster-role-tag">Membro</div>
             </div>
+            <div class="roster-dept-tag">Pessoas · 26.2</div>
           </div>
 
-          <div class="member-card" data-dept="pessoas">
-            <div class="member-avatar">L</div>
-            <div class="member-details">
-              <span class="member-name">Lucas Ganem</span>
-              <span class="member-role">Membro</span>
-              <span class="member-dept">Pessoas · 26.2</span>
+          <div class="roster-card" data-dept="pessoas">
+            <div>
+              <div class="roster-name">Lucas Ganem</div>
+              <div class="roster-role-tag">Membro</div>
             </div>
+            <div class="roster-dept-tag">Pessoas · 26.2</div>
           </div>
 
-          <div class="member-card" data-dept="pessoas">
-            <div class="member-avatar">S</div>
-            <div class="member-details">
-              <span class="member-name">Samuel Cavalcante</span>
-              <span class="member-role">Membro</span>
-              <span class="member-dept">Pessoas · 26.2</span>
+          <div class="roster-card" data-dept="pessoas">
+            <div>
+              <div class="roster-name">Samuel Cavalcante</div>
+              <div class="roster-role-tag">Membro</div>
             </div>
+            <div class="roster-dept-tag">Pessoas · 26.2</div>
           </div>
 
           <!-- Diretoria de Eventos -->
-          <div class="member-card" data-dept="eventos">
-            <div class="member-avatar">A</div>
-            <div class="member-details">
-              <span class="member-name">Alice Rezende</span>
-              <span class="member-role">Diretora</span>
-              <span class="member-dept">Eventos · 26.2</span>
+          <div class="roster-card" data-dept="eventos">
+            <div>
+              <div class="roster-name">Alice Rezende</div>
+              <div class="roster-role-tag">Diretora</div>
             </div>
+            <div class="roster-dept-tag">Eventos · 26.2</div>
           </div>
 
-          <div class="member-card" data-dept="eventos">
-            <div class="member-avatar">V</div>
-            <div class="member-details">
-              <span class="member-name">Vinicius Paiva</span>
-              <span class="member-role">Diretor</span>
-              <span class="member-dept">Eventos · 26.2</span>
+          <div class="roster-card" data-dept="eventos">
+            <div>
+              <div class="roster-name">Vinicius Paiva</div>
+              <div class="roster-role-tag">Diretor</div>
             </div>
+            <div class="roster-dept-tag">Eventos · 26.2</div>
           </div>
 
-          <div class="member-card" data-dept="eventos">
-            <div class="member-avatar">A</div>
-            <div class="member-details">
-              <span class="member-name">Arthur Ituassu</span>
-              <span class="member-role">Membro</span>
-              <span class="member-dept">Eventos · 26.2</span>
+          <div class="roster-card" data-dept="eventos">
+            <div>
+              <div class="roster-name">Arthur Ituassu</div>
+              <div class="roster-role-tag">Membro</div>
             </div>
+            <div class="roster-dept-tag">Eventos · 26.2</div>
           </div>
 
-          <div class="member-card" data-dept="eventos">
-            <div class="member-avatar">C</div>
-            <div class="member-details">
-              <span class="member-name">Célio José Maidantchik</span>
-              <span class="member-role">Membro</span>
-              <span class="member-dept">Eventos · 26.2</span>
+          <div class="roster-card" data-dept="eventos">
+            <div>
+              <div class="roster-name">Célio José Maidantchik</div>
+              <div class="roster-role-tag">Membro</div>
             </div>
+            <div class="roster-dept-tag">Eventos · 26.2</div>
           </div>
 
-          <div class="member-card" data-dept="eventos">
-            <div class="member-avatar">D</div>
-            <div class="member-details">
-              <span class="member-name">Daniel Conde</span>
-              <span class="member-role">Membro</span>
-              <span class="member-dept">Eventos · 26.2</span>
+          <div class="roster-card" data-dept="eventos">
+            <div>
+              <div class="roster-name">Daniel Conde</div>
+              <div class="roster-role-tag">Membro</div>
             </div>
+            <div class="roster-dept-tag">Eventos · 26.2</div>
           </div>
 
-          <div class="member-card" data-dept="eventos">
-            <div class="member-avatar">E</div>
-            <div class="member-details">
-              <span class="member-name">Eduarda Rezende</span>
-              <span class="member-role">Membro</span>
-              <span class="member-dept">Eventos · 26.2</span>
+          <div class="roster-card" data-dept="eventos">
+            <div>
+              <div class="roster-name">Eduarda Rezende</div>
+              <div class="roster-role-tag">Membro</div>
             </div>
+            <div class="roster-dept-tag">Eventos · 26.2</div>
           </div>
 
-          <div class="member-card" data-dept="eventos">
-            <div class="member-avatar">F</div>
-            <div class="member-details">
-              <span class="member-name">Filippo Pastura</span>
-              <span class="member-role">Membro</span>
-              <span class="member-dept">Eventos · 26.2</span>
+          <div class="roster-card" data-dept="eventos">
+            <div>
+              <div class="roster-name">Filippo Pastura</div>
+              <div class="roster-role-tag">Membro</div>
             </div>
+            <div class="roster-dept-tag">Eventos · 26.2</div>
           </div>
 
-          <div class="member-card" data-dept="eventos">
-            <div class="member-avatar">G</div>
-            <div class="member-details">
-              <span class="member-name">Guilherme Lauria</span>
-              <span class="member-role">Membro</span>
-              <span class="member-dept">Eventos · 26.2</span>
+          <div class="roster-card" data-dept="eventos">
+            <div>
+              <div class="roster-name">Guilherme Lauria</div>
+              <div class="roster-role-tag">Membro</div>
             </div>
+            <div class="roster-dept-tag">Eventos · 26.2</div>
           </div>
 
-          <div class="member-card" data-dept="eventos">
-            <div class="member-avatar">H</div>
-            <div class="member-details">
-              <span class="member-name">Helena Baptista</span>
-              <span class="member-role">Membro</span>
-              <span class="member-dept">Eventos · 26.2</span>
+          <div class="roster-card" data-dept="eventos">
+            <div>
+              <div class="roster-name">Helena Baptista</div>
+              <div class="roster-role-tag">Membro</div>
             </div>
+            <div class="roster-dept-tag">Eventos · 26.2</div>
           </div>
 
-          <div class="member-card" data-dept="eventos">
-            <div class="member-avatar">J</div>
-            <div class="member-details">
-              <span class="member-name">Julia Feijó</span>
-              <span class="member-role">Membro</span>
-              <span class="member-dept">Eventos · 26.2</span>
+          <div class="roster-card" data-dept="eventos">
+            <div>
+              <div class="roster-name">Julia Feijó</div>
+              <div class="roster-role-tag">Membro</div>
             </div>
+            <div class="roster-dept-tag">Eventos · 26.2</div>
           </div>
 
-          <div class="member-card" data-dept="eventos">
-            <div class="member-avatar">M</div>
-            <div class="member-details">
-              <span class="member-name">Maria Beatriz Alves</span>
-              <span class="member-role">Membro</span>
-              <span class="member-dept">Eventos · 26.2</span>
+          <div class="roster-card" data-dept="eventos">
+            <div>
+              <div class="roster-name">Maria Beatriz Alves</div>
+              <div class="roster-role-tag">Membro</div>
             </div>
+            <div class="roster-dept-tag">Eventos · 26.2</div>
           </div>
 
         </div>
@@ -2087,73 +1816,65 @@
     </section>
 
     <!-- ======================================================================
-         CONTATO & CANAIS INSTITUCIONAIS
+         SEÇÃO: CONTATO & LOCALIZAÇÃO INSTITUCIONAL
          ====================================================================== -->
     <section class="section-contact" id="contato">
-      <div class="container contact-grid">
-        <div class="contact-info reveal-on-scroll">
-          <span class="badge-pill dark" style="margin-bottom: 1rem;">
-            <span class="dot"></span> Conecte-se Conosco
-          </span>
-          <h2>Diálogo aberto com a comunidade e o mercado</h2>
+      <div class="container contact-layout">
+        <div class="contact-prose">
+          <span class="mono-tag accent">Canais Oficiais</span>
+          <h2>Comunicação Institucional</h2>
           <p>
-            Deseja propor parcerias, convidar nossos pesquisadores para palestras ou tirar dúvidas institucionais sobre o GAMA? Entre em contato pelos canais oficiais:
+            O GAMA mantém diálogo constante com a academia, centros de pesquisa e instituições de mercado. Entre em contato para palestras, propostas de intercâmbio técnico ou informações sobre publicações.
           </p>
 
-          <div class="contact-links-list">
-            <a href="mailto:gama.diretoriadepessoas@gmail.com" class="contact-pill-link">
-              <div class="contact-icon-wrapper">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-              </div>
+          <div class="contact-channels">
+            <a href="mailto:gama.diretoriadepessoas@gmail.com" class="channel-item">
               <div>
-                <div style="font-size: 0.76rem; color: var(--gold-light); text-transform: uppercase; font-weight: 600;">E-mail Oficial</div>
-                <div style="font-size: 0.95rem; font-weight: 500;">gama.diretoriadepessoas@gmail.com</div>
+                <span class="channel-label">E-mail Institucional</span>
+                <div class="channel-value">gama.diretoriadepessoas@gmail.com</div>
               </div>
+              <span style="color: var(--navy-puc); font-weight: 600;">→</span>
             </a>
 
-            <a href="https://www.linkedin.com/company/gama-puc-rio/" target="_blank" class="contact-pill-link">
-              <div class="contact-icon-wrapper">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-              </div>
+            <a href="https://www.linkedin.com/company/gama-puc-rio/" target="_blank" class="channel-item">
               <div>
-                <div style="font-size: 0.76rem; color: var(--gold-light); text-transform: uppercase; font-weight: 600;">LinkedIn</div>
-                <div style="font-size: 0.95rem; font-weight: 500;">GAMA - PUC-Rio</div>
+                <span class="channel-label">LinkedIn Oficial</span>
+                <div class="channel-value">GAMA - PUC-Rio</div>
               </div>
+              <span style="color: var(--navy-puc); font-weight: 600;">↗</span>
             </a>
 
-            <a href="https://www.instagram.com/gama_pucrio/" target="_blank" class="contact-pill-link">
-              <div class="contact-icon-wrapper">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-              </div>
+            <a href="https://www.instagram.com/gama_pucrio/" target="_blank" class="channel-item">
               <div>
-                <div style="font-size: 0.76rem; color: var(--gold-light); text-transform: uppercase; font-weight: 600;">Instagram</div>
-                <div style="font-size: 0.95rem; font-weight: 500;">@gama_pucrio</div>
+                <span class="channel-label">Instagram</span>
+                <div class="channel-value">@gama_pucrio</div>
               </div>
+              <span style="color: var(--navy-puc); font-weight: 600;">↗</span>
             </a>
           </div>
         </div>
 
-        <!-- Formulário Institucional Rápido -->
-        <div class="contact-form-card reveal-on-scroll">
-          <h3>Envie uma Mensagem</h3>
+        <!-- Formulário de Contato Direto -->
+        <div class="form-panel">
+          <h3>Encaminhar Mensagem</h3>
           <form action="mailto:gama.diretoriadepessoas@gmail.com" method="POST" enctype="text/plain">
-            <div class="form-field">
+            <div class="form-row">
               <label for="nome">Nome Completo</label>
-              <input type="text" id="nome" name="nome" placeholder="Ex: Ana Silva" required />
+              <input type="text" id="nome" name="nome" placeholder="Ex: Rodrigo Mendes" required />
             </div>
-            <div class="form-field">
-              <label for="email">E-mail Institucional ou Pessoal</label>
-              <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required />
+            <div class="form-row">
+              <label for="email">E-mail de Contato</label>
+              <input type="email" id="email" name="email" placeholder="nome@instituicao.com" required />
             </div>
-            <div class="form-field">
+            <div class="form-row">
               <label for="assunto">Assunto</label>
-              <input type="text" id="assunto" name="assunto" placeholder="Ex: Proposta de Palestra / Parceria" required />
+              <input type="text" id="assunto" name="assunto" placeholder="Ex: Proposta de Parceria / Evento" required />
             </div>
-            <div class="form-field">
+            <div class="form-row">
               <label for="mensagem">Mensagem</label>
-              <textarea id="mensagem" name="mensagem" rows="4" placeholder="Como podemos colaborar?" required></textarea>
+              <textarea id="mensagem" name="mensagem" rows="4" placeholder="Descreva brevemente a finalidade do contato." required></textarea>
             </div>
-            <button type="submit" class="btn btn-gold" style="width: 100%;">
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
               Enviar Mensagem
             </button>
           </form>
@@ -2163,120 +1884,104 @@
   </main>
 
   <!-- ========================================================================
-       RODAPÉ INSTITUCIONAL
+       RODAPÉ INSTITUCIONAL COM DADOS DE SEDE E DOMÍNIO
        ======================================================================== -->
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-left">
-        <div class="footer-credits">
-          <p style="color: rgba(255,255,255,0.85); font-weight: 600;">GAMA — Grupo de Análise Macroeconômica Aplicada</p>
-          <p style="font-size: 0.78rem; color: rgba(255,255,255,0.45);">Elaboração do site: Guilherme Pinheiro © 2026 GAMA · Todos os direitos reservados.</p>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-identity">
+          <h4>GAMA — Grupo de Análise Macroeconômica Aplicada</h4>
+          <p>
+            Núcleo de acompanhamento macroeconômico, pesquisa e formação do Departamento de Economia da PUC-Rio.
+          </p>
+        </div>
+
+        <div class="footer-location">
+          <strong>Sede Acadêmica:</strong><br />
+          Departamento de Economia · PUC-Rio<br />
+          Edifício Cardeal Leme, Rua Marquês de São Vicente, 225<br />
+          Gávea — Rio de Janeiro, RJ · CEP 22451-900
         </div>
       </div>
 
-      <div class="footer-right">
-        <div class="puc-badge">
-          <img src="logo_puc.png" alt="PUC-Rio" onerror="this.style.display='none'">
-          <span style="font-size: 0.78rem; color: rgba(255, 255, 255, 0.65);">Departamento de Economia · PUC-Rio</span>
+      <div class="footer-bottom">
+        <div>
+          Elaboração do site: Guilherme Pinheiro © 2026 GAMA · Todos os direitos reservados.
+        </div>
+        <div class="footer-puc-lockup">
+          <img src="logo_puc.png" alt="Logotipo PUC-Rio" onerror="this.style.display='none'">
+          <span>Pontifícia Universidade Católica do Rio de Janeiro</span>
         </div>
       </div>
     </div>
   </footer>
 
   <!-- ========================================================================
-       SCRIPTS: NAVEGAÇÃO, FILTRO INTERATIVO & ANIMAÇÕES
+       SCRIPTS: NAVEGAÇÃO E FILTROS SEM CONSOLE.LOGS OU DEPENDÊNCIAS
        ======================================================================== -->
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // 1. Menu Mobile Toggle
-      const mobileToggle = document.getElementById('mobileToggle');
-      const navMenu = document.getElementById('navMenu');
-      
-      if (mobileToggle && navMenu) {
-        mobileToggle.addEventListener('click', () => {
-          const isOpen = navMenu.classList.toggle('is-open');
-          mobileToggle.setAttribute('aria-expanded', isOpen);
+    document.addEventListener('DOMContentLoaded', function() {
+      // 1. Menu Mobile
+      var mobileBtn = document.getElementById('mobileNavBtn');
+      var navList = document.getElementById('navList');
+
+      if (mobileBtn && navList) {
+        mobileBtn.addEventListener('click', function() {
+          navList.classList.toggle('is-open');
         });
 
-        navMenu.querySelectorAll('a').forEach(link => {
-          link.addEventListener('click', () => {
-            navMenu.classList.remove('is-open');
-            mobileToggle.setAttribute('aria-expanded', 'false');
+        var links = navList.querySelectorAll('a');
+        for (var i = 0; i < links.length; i++) {
+          links[i].addEventListener('click', function() {
+            navList.classList.remove('is-open');
           });
-        });
+        }
       }
 
-      // 2. Navbar encolhe suavemente ao rolar
-      const navbar = document.getElementById('navbar');
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 40) {
-          navbar.classList.add('scrolled');
-        } else {
-          navbar.classList.remove('scrolled');
-        }
-      });
+      // 2. Filtro do Corpo de Membros
+      var filterButtons = document.querySelectorAll('.team-tab-btn');
+      var memberCards = document.querySelectorAll('#rosterGrid .roster-card');
 
-      // 3. Highlight do Link Ativo na Navegação
-      const sections = document.querySelectorAll('section[id]');
-      const navLinks = document.querySelectorAll('.nav-menu a');
-      
-      window.addEventListener('scroll', () => {
-        let currentSectionId = '';
-        sections.forEach(section => {
-          const sectionTop = section.offsetTop - 140;
-          if (window.scrollY >= sectionTop) {
-            currentSectionId = section.getAttribute('id');
-          }
-        });
-
-        navLinks.forEach(link => {
-          link.classList.remove('active');
-          if (link.getAttribute('href') === `#${currentSectionId}`) {
-            link.classList.add('active');
-          }
-        });
-      });
-
-      // 4. Filtro Dinâmico da Equipe por Diretoria
-      const filterButtons = document.querySelectorAll('.filter-btn');
-      const memberCards = document.querySelectorAll('#teamGrid .member-card');
-
-      filterButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-          filterButtons.forEach(b => b.classList.remove('active'));
+      filterButtons.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          filterButtons.forEach(function(b) { b.classList.remove('active'); });
           btn.classList.add('active');
 
-          const filter = btn.getAttribute('data-filter');
+          var selectedDept = btn.getAttribute('data-filter');
 
-          memberCards.forEach(card => {
-            const dept = card.getAttribute('data-dept');
-            if (filter === 'all' || dept === filter) {
+          memberCards.forEach(function(card) {
+            var cardDept = card.getAttribute('data-dept');
+            if (selectedDept === 'all' || cardDept === selectedDept) {
               card.style.display = 'flex';
-              setTimeout(() => { card.style.opacity = '1'; card.style.transform = 'translateY(0)'; }, 20);
             } else {
-              card.style.opacity = '0';
-              card.style.transform = 'translateY(10px)';
-              setTimeout(() => { card.style.display = 'none'; }, 200);
+              card.style.display = 'none';
             }
           });
         });
       });
 
-      // 5. Intersection Observer para Animação Editorial "Reveal on Scroll"
-      const revealElements = document.querySelectorAll('.reveal-on-scroll');
-      const revealObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
+      // 3. Highlight de Seção Ativa na Rolagem
+      var sections = document.querySelectorAll('section[id]');
+      var navLinks = document.querySelectorAll('.nav-list a');
+
+      window.addEventListener('scroll', function() {
+        var scrollPosition = window.scrollY + 120;
+
+        sections.forEach(function(section) {
+          var top = section.offsetTop;
+          var height = section.offsetHeight;
+          var id = section.getAttribute('id');
+
+          if (scrollPosition >= top && scrollPosition < top + height) {
+            navLinks.forEach(function(link) {
+              link.classList.remove('active');
+              if (link.getAttribute('href') === '#' + id) {
+                link.classList.add('active');
+              }
+            });
           }
         });
-      }, {
-        threshold: 0.08,
-        rootMargin: '0px 0px -40px 0px'
       });
-
-      revealElements.forEach(el => revealObserver.observe(el));
     });
   </script>
 </body>
